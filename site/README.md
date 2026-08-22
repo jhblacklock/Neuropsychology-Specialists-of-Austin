@@ -62,6 +62,13 @@ Four, one per category, each 637–678 words against the standard's 600–1,200:
 | Getting back to school after a concussion | Brain Injury | Paulos |
 | What working memory training is for | Research Notes | Bunner |
 
+The practice no longer offers Cogmed, so it is gone from Intervention Services
+(four programs now, not five), from the rate table, and from both affected meta
+descriptions. The Research Notes post survives the change — it answers a
+question parents ask rather than describing a service, and it now says so
+explicitly. Cogmed is still named in it as the best-known program of its kind,
+which is accurate and carries no claim that this practice delivers it.
+
 **None of them can publish yet.** Every source is named in full but no URL is
 asserted — this machine has no outbound network access (the egress proxy
 answers `403` to `CONNECT` for cdc.gov, nih.gov, ed.gov, abpp.org and
@@ -74,12 +81,10 @@ lives. Two need more than a link:
 - *How to read the scores* cites research on base rates of low scores in
   healthy samples without naming a specific paper. Attach one or cut the
   sentence.
-- *What working memory training is for* takes a deliberately skeptical line on
-  Cogmed, which the practice sells for $1,500. It says near transfer is well
-  established and far transfer to academic outcomes is contested, because that
-  is what the literature says. Both clinicians should read it before it goes
-  live; if the practice disagrees with the framing, that is a content decision,
-  not a copy edit.
+- *What working memory training is for* names Cogmed as the best-known program
+  of its kind. The practice no longer offers it, and the post says so, but
+  whichever clinician reviews it should confirm the framing reads the way they
+  want.
 
 Every post is bylined to a named clinician and needs that clinician's review
 before publishing, per the editorial standard. The byline's "Full biography"
@@ -203,6 +208,15 @@ These extend the brand document rather than contradict it.
 - **Nav collapses to a drawer below 1024px, not below 768px.** Eight top-level
   items do not fit on one row at tablet width. The grid still goes 12-column at
   768 as specified.
+- **Tables stack below 1024px, and this is the default for every table.** Each
+  row becomes a block: first cell as the row's name, every other cell carrying
+  its column header as a label. The breakpoint is 1024 rather than 768 because
+  the constraint is the column the table sits in, not the viewport — an
+  article's measure is 720px at any screen size, so a three-column comparison
+  table is as cramped on a tablet as on a phone. The generator derives the
+  labels from each table's own `thead`, so any table added later inherits the
+  behaviour without being asked for it. All six tables currently on the site
+  are covered.
 - **"Few board-certified neuropsychologists in Austin" is not published.** The
   brief states it, but it is an unverifiable comparative claim. The home page
   says instead that board certification is not required to practice in Texas

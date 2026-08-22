@@ -994,12 +994,21 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 
 .td-fee { white-space: nowrap; }
 
-/* Below 768 a wide table stops being a table. Three columns in 327px means a
-   horizontal scrollbar and rows tall enough to leave half a screen of nothing
-   between them, so each row becomes a block: the first cell is the row's name,
-   the rest carry their column header as a label. */
+/* Below 1024 a wide table stops being a table. Each row becomes a block: the
+   first cell is the row's name, the rest carry their column header as a label.
 
-@media (max-width: 767px) {
+   The breakpoint is 1024, not 768, because the constraint is the column the
+   table sits in rather than the viewport. An article's measure is 720px at any
+   screen size, so a three-column comparison table is just as cramped on a
+   tablet as on a phone — it was scrolling sideways and clipping its third
+   column at 768. 1024 is also where the nav stops collapsing, so the site has
+   one tablet boundary rather than two.
+
+   This is the default for every table on the site: the generator labels each
+   body cell from its own thead and marks the table stackable, so any table
+   added later inherits it without being asked. */
+
+@media (max-width: 1023px) {
   .table--stack,
   .table--stack tbody,
   .table--stack tr,
