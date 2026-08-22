@@ -19,7 +19,7 @@ document was approved, and both contradict the source material — see
 ```
 index.html                              Home
 neuropsychological-evaluation/          Evaluation
-intervention-services/                  The five programs
+intervention-services/                  The four programs
 the-process/                            Consultation, testing, feedback
 our-team/                               The two clinicians
 fees-and-payment/                       Published rates, private pay
@@ -69,22 +69,18 @@ question parents ask rather than describing a service, and it now says so
 explicitly. Cogmed is still named in it as the best-known program of its kind,
 which is accurate and carries no claim that this practice delivers it.
 
-**None of them can publish yet.** Every source is named in full but no URL is
-asserted — this machine has no outbound network access (the egress proxy
-answers `403` to `CONNECT` for cdc.gov, nih.gov, ed.gov, abpp.org and
-publications.aap.org alike) and the editorial standard forbids publishing a
-citation that has not been checked. Each reference carries a `CONFIRM` marker,
-and each post ends with an editorial note saying what still needs attaching.
-**`CITATIONS.md` lists all sixteen markers** with where each source probably
-lives. Two need more than a link:
+**The citations are done.** Every source was opened and checked against the
+claim it supports, the URLs are in the reference lists, and the `CONFIRM`
+markers and per-post editorial notes are gone. `CITATIONS.md` is now the record
+of what was verified and what was decided, including the three judgement calls:
+a specific paper attached for the base-rate claim (Brooks, Sherman & Iverson
+2010, pediatric and exactly on point), Cogmed's vendor research summary dropped
+rather than linked, and the test technical manuals reworded as guidance because
+they name no single work.
 
-- *How to read the scores* cites research on base rates of low scores in
-  healthy samples without naming a specific paper. Attach one or cut the
-  sentence.
-- *What working memory training is for* names Cogmed as the best-known program
-  of its kind. The practice no longer offers it, and the post says so, but
-  whichever clinician reviews it should confirm the framing reads the way they
-  want.
+Note for whoever reads the old note here: WebFetch and `curl` are blocked by
+the egress proxy on this machine, but the in-app browser is not, which is how
+the sources were reached. "No network access" was not true.
 
 Every post is bylined to a named clinician and needs that clinician's review
 before publishing, per the editorial standard. The byline's "Full biography"
@@ -275,7 +271,7 @@ These extend the brand document rather than contradict it.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 32 markers across the site. The count
+is visible in the page, not buried here. 31 markers across the site. The count
 was 46: the eleven citation markers in the posts are gone, every source having
 been opened and checked (see `CITATIONS.md`), two more moved into HTML comments
 because they were notes to the practice rather than page copy, and one was
@@ -284,7 +280,7 @@ added for the consultation-fee question below.
 | Item | Working assumption | Where |
 | --- | --- | --- |
 | Report turnaround | Three to four weeks from testing to written report | Home, The Process, Referring Providers |
-| Referral intake | Fax to 737-215-8710; no portal or referral email | Referring Providers |
+| Referral intake | Fax to 737-215-8710 is confirmed. That there is **no portal or referral email** is not — it is still marked on the page | Referring Providers |
 | Provider line | None that bypasses patient intake | Referring Providers |
 | Clinician phone consult | Available on request after report delivery | Referring Providers |
 | Referral questions declined | Unknown — the list is not published | Referring Providers |
@@ -293,7 +289,7 @@ added for the consultation-fee question below.
 | Bunner's biography | Trimmed to pediatric scope; source says "children and adults". Note this one is now an HTML comment on Our Team, not visible copy — it was a note to the practice that was rendering to visitors | Our Team |
 | Bunner's experience | "Over 20 years" per neuroaustin.com; the brief says 10+ | Our Team |
 | Office hours | Mon–Fri 8:30am–5:00pm, from a directory listing | Footer, Contact |
-| Parking | Nothing known; the block is reserved and empty | Contact |
+| Parking | North-side lot and the under-building garage are confirmed. The **7-foot clearance** on the covered entrance is not — it was read off the signage in a photo, not given by the practice | Contact |
 | Headshots | Commissioned, not delivered | Our Team, post byline |
 | Family therapy fee | Not in the published rate list | Intervention Services |
 | Intake form provider | Not chosen. The brief said JotForm; the practice does not have it and may pick something else. Now an HTML comment on Contact rather than visible copy — it was telling the public that a HIPAA vendor decision is still open | Contact |
