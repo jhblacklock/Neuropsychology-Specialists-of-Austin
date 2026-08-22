@@ -29,7 +29,8 @@ insights/                               Blog index, filterable by category
 insights/school-evaluation-and-neuropsychological-evaluation/   Sample post
 insights/post-template/                 Copy-me template (noindex, not in sitemap)
 404.html                                Lists every page
-about-us/                               Meta-refresh stubs for old URLs
+about-us/ for-patients/ wpi-checkout/   Meta-refresh stubs for the old URLs
+2018/ 2021/ category/ author/ …         (32 of them — see REDIRECTS.md)
 assets/css/site.css                     The whole design system
 assets/logo/*.svg                       The three supplied marks, unmodified
 .htaccess  _redirects  vercel.json      301s — see REDIRECTS.md
@@ -116,10 +117,12 @@ These extend the brand document rather than contradict it.
 ## SEO
 
 - **Redirects are the whole ballgame** on a rebuild that changes every URL.
-  `REDIRECTS.md` has the procedure, the three confirmed old URLs, the guessed
-  ones, and which config file your host reads. The full map could not be built
-  here — this machine had no outbound network access, so neuroaustin.com could
-  not be crawled. Do step 1 of that document before launch.
+  The map is complete against the live Yoast sitemaps — all 33 old URLs, each
+  with a rule in `.htaccess`, `_redirects`, and `vercel.json`, plus an HTML
+  fallback stub. All three configs and the stubs are generated from one source
+  list so they cannot drift. `REDIRECTS.md` has the full table, the reasoning
+  per destination, and the cutover checklist. **Two entries there need your
+  decision before launch.**
 - **Clean URLs**, canonical on every page, `https` and non-`www` enforced in
   `.htaccess`.
 - **Titles and descriptions** are written for the pediatric queries the brief
@@ -162,8 +165,18 @@ is visible in the page, not buried here. 35 markers across the site.
 
 Also outstanding, and not marked in the page because they are technical:
 
-- **The redirect map.** See above and `REDIRECTS.md`. This is the one that
-  costs money if it is skipped.
+- **A page with no equivalent.** The old site's
+  `/for-patients/patients-medical-records-and-patients-rights/` is live and
+  maintained, and nothing on the new site corresponds to it. It currently
+  redirects to `/contact/` as a placeholder. Write the page, or confirm that
+  destination. Details in `REDIRECTS.md`.
+- **Three retired clinicians in the redirect map**, including the one the brand
+  document says must never appear. They are paths in config files, not rendered
+  copy, and a 301 retires the URL — but it is your call. `REDIRECTS.md`
+  explains how to drop them.
+- **The old site took card payments online** through WP Invoicing and Stripe.
+  The new site does not. Not in the brief, so not built, but worth a decision
+  for a private-pay practice.
 - **`og:image`.** No OpenGraph image exists yet — the commissioned photography
   has not been delivered and there is no brand OG card. Each page carries a
   commented placeholder in `<head>`.

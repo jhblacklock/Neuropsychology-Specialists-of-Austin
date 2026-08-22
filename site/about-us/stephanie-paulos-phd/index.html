@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- MOVED-STUB -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -9,13 +10,14 @@
 <meta http-equiv="refresh" content="0; url=/our-team/">
 <script>window.location.replace("/our-team/");</script>
 <style>
-body{{margin:0;background:#FDFCFA;color:#383A44;font:400 17px/1.65 system-ui,-apple-system,'Segoe UI',sans-serif;padding:64px 24px}}
-a{{color:#383A44;border-bottom:1px solid #B8842F;text-decoration:none}}
+body{margin:0;background:#FDFCFA;color:#383A44;font:400 17px/1.65 system-ui,-apple-system,'Segoe UI',sans-serif;padding:64px 24px}
+a{color:#383A44;border-bottom:1px solid #B8842F;text-decoration:none}
 </style>
 </head>
 <body>
-<!-- Client-side fallback only. A server-side 301 is what preserves ranking:
-     see site/_redirects, site/vercel.json, or site/.htaccess. -->
+<!-- Client-side fallback only, for a host that cannot issue a 301. The
+     server-side rules in .htaccess / _redirects / vercel.json take precedence
+     and mean this file is never served. See REDIRECTS.md. -->
 <p>This page has moved to <a href="/our-team/">/our-team/</a>.</p>
 </body>
 </html>

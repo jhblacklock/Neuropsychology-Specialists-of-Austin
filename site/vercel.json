@@ -3,24 +3,230 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    { "source": "/about-us/melissa-bunner-phd", "destination": "/our-team/", "permanent": true },
-    { "source": "/about-us/stephanie-paulos-phd", "destination": "/our-team/", "permanent": true },
-    { "source": "/about-us", "destination": "/our-team/", "permanent": true },
-
-    { "source": "/contact-us", "destination": "/contact/", "permanent": true },
-    { "source": "/services", "destination": "/neuropsychological-evaluation/", "permanent": true },
-    { "source": "/neuropsychological-evaluation-2", "destination": "/neuropsychological-evaluation/", "permanent": true },
-    { "source": "/intervention", "destination": "/intervention-services/", "permanent": true },
-    { "source": "/fees", "destination": "/fees-and-payment/", "permanent": true },
-    { "source": "/fees-and-insurance", "destination": "/fees-and-payment/", "permanent": true },
-    { "source": "/insurance", "destination": "/fees-and-payment/", "permanent": true },
-    { "source": "/links", "destination": "/", "permanent": true },
-
-    { "source": "/blog", "destination": "/insights/", "permanent": true },
-    { "source": "/blog/:path*", "destination": "/insights/", "permanent": true },
-    { "source": "/:year(20\\d{2})/:month(\\d{2})/:path*", "destination": "/insights/", "permanent": true },
-
-    { "source": "/fees-and-insurance.html", "destination": "/fees-and-payment/", "permanent": true },
-    { "source": "/insights/normal-memory-change-and-what-is-not.html", "destination": "/insights/", "permanent": true }
+    {
+      "source": "/2018/04/02/what-is-neuropsychology",
+      "destination": "/neuropsychological-evaluation/",
+      "permanent": true
+    },
+    {
+      "source": "/2018/04/02/detecting-autism-in-the-very-young",
+      "destination": "/neuropsychological-evaluation/",
+      "permanent": true
+    },
+    {
+      "source": "/2018/04/02/head-injuries-may-lead-to-early-alzheimers",
+      "destination": "/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/2021/01/21/every-child-has-a-gift-it-just-has-to-be-discovered",
+      "destination": "/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/category/articles",
+      "destination": "/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/author/stephaniep",
+      "destination": "/our-team/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/melissa-bunner-phd",
+      "destination": "/our-team/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/stephanie-paulos-phd",
+      "destination": "/our-team/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/david-tucker-phd",
+      "destination": "/our-team/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/greg-allen-phd",
+      "destination": "/our-team/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/connie-walker",
+      "destination": "/our-team/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/our-team/",
+      "permanent": true
+    },
+    {
+      "source": "/general-procedures",
+      "destination": "/the-process/",
+      "permanent": true
+    },
+    {
+      "source": "/for-patients/what-is-neuropsychology",
+      "destination": "/neuropsychological-evaluation/",
+      "permanent": true
+    },
+    {
+      "source": "/for-patients/intervention-services",
+      "destination": "/intervention-services/",
+      "permanent": true
+    },
+    {
+      "source": "/for-patients/billing-and-fees",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/for-patients/forms",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/for-patients/patients-medical-records-and-patients-rights",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/for-patients/links",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/for-patients",
+      "destination": "/neuropsychological-evaluation/",
+      "permanent": true
+    },
+    {
+      "source": "/directions",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/wpi-checkout/wpinv-transaction-failed",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/wpi-checkout/wpinv-subscriptions",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/wpi-checkout/wpinv-receipt",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/wpi-checkout/wpi-history",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/wpi-checkout",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/stripe-checkout-result",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/payment-confirmation",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/payment-failed",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/asp-products/payment",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/products",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/fees-and-insurance.html",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/normal-memory-change-and-what-is-not.html",
+      "destination": "/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/comments/feed",
+      "destination": "/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/post-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/page-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/category-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/author-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/asp-products-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/wpi-checkout/:path*",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/asp-products/:path*",
+      "destination": "/fees-and-payment/",
+      "permanent": true
+    },
+    {
+      "source": "/:year(20\\d{2})/:month(\\d{2})/:path*",
+      "destination": "/insights/",
+      "permanent": true
+    }
   ]
 }

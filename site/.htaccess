@@ -1,9 +1,80 @@
 # Neuropsychology Specialists of Austin
 # Apache / cPanel. If the site is served by Netlify or Vercel instead, this
 # file is ignored — use _redirects or vercel.json.
+#
+# Generated from the live Yoast sitemaps. Every rule below corresponds to a
+# URL that actually exists on the old site.
 
 Options -MultiViews
 RewriteEngine On
+
+# ---------------------------------------------------------------------------
+# Old site -> new site. This block runs FIRST so that an old URL reaches its
+# destination in one hop. A 301 that lands on another 301 leaks signal.
+# ---------------------------------------------------------------------------
+
+# topic match
+RewriteRule ^2018/04/02/what-is-neuropsychology/?$ /neuropsychological-evaluation/ [R=301,L]
+# autism is on the conditions list
+RewriteRule ^2018/04/02/detecting-autism-in-the-very-young/?$ /neuropsychological-evaluation/ [R=301,L]
+# adult topic, no pediatric equivalent
+RewriteRule ^2018/04/02/head-injuries-may-lead-to-early-alzheimers/?$ /insights/ [R=301,L]
+# no specific equivalent
+RewriteRule ^2021/01/21/every-child-has-a-gift-it-just-has-to-be-discovered/?$ /insights/ [R=301,L]
+RewriteRule ^category/articles/?$ /insights/ [R=301,L]
+RewriteRule ^author/stephaniep/?$ /our-team/ [R=301,L]
+RewriteRule ^about-us/melissa-bunner-phd/?$ /our-team/ [R=301,L]
+RewriteRule ^about-us/stephanie-paulos-phd/?$ /our-team/ [R=301,L]
+# removed from all materials
+RewriteRule ^about-us/david-tucker-phd/?$ /our-team/ [R=301,L]
+# not in the new team
+RewriteRule ^about-us/greg-allen-phd/?$ /our-team/ [R=301,L]
+# not in the new team
+RewriteRule ^about-us/connie-walker/?$ /our-team/ [R=301,L]
+RewriteRule ^about-us/?$ /our-team/ [R=301,L]
+RewriteRule ^general-procedures/?$ /the-process/ [R=301,L]
+RewriteRule ^for-patients/what-is-neuropsychology/?$ /neuropsychological-evaluation/ [R=301,L]
+RewriteRule ^for-patients/intervention-services/?$ /intervention-services/ [R=301,L]
+RewriteRule ^for-patients/billing-and-fees/?$ /fees-and-payment/ [R=301,L]
+# intake forms live on Contact
+RewriteRule ^for-patients/forms/?$ /contact/ [R=301,L]
+# NO EQUIVALENT PAGE — see REDIRECTS.md
+RewriteRule ^for-patients/patients-medical-records-and-patients-rights/?$ /contact/ [R=301,L]
+# Links page retired per the brief
+RewriteRule ^for-patients/links/?$ / [R=301,L]
+# section hub, judgment call
+RewriteRule ^for-patients/?$ /neuropsychological-evaluation/ [R=301,L]
+RewriteRule ^directions/?$ /contact/ [R=301,L]
+RewriteRule ^contact-us/?$ /contact/ [R=301,L]
+RewriteRule ^wpi-checkout/wpinv-transaction-failed/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^wpi-checkout/wpinv-subscriptions/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^wpi-checkout/wpinv-receipt/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^wpi-checkout/wpi-history/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^wpi-checkout/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^stripe-checkout-result/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^payment-confirmation/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^payment-failed/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^asp-products/payment/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^products/?$ /fees-and-payment/ [R=301,L]
+RewriteRule ^fees-and-insurance\.html$ /fees-and-payment/ [R=301,L]
+RewriteRule ^insights/normal-memory-change-and-what-is-not\.html$ /insights/ [R=301,L]
+
+# Feeds and the old Yoast sitemaps
+RewriteRule ^feed/?$ /rss.xml [R=301,L]
+RewriteRule ^comments/feed/?$ /rss.xml [R=301,L]
+RewriteRule ^sitemap_index\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^post-sitemap\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^page-sitemap\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^category-sitemap\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^author-sitemap\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^asp-products-sitemap\.xml$ /sitemap.xml [R=301,L]
+
+# Anything else still under the retired plugin trees
+RewriteRule ^wpi-checkout/.+$ /fees-and-payment/ [R=301,L]
+RewriteRule ^asp-products/.+$ /fees-and-payment/ [R=301,L]
+
+# Any other dated permalink from the old blog
+RewriteRule ^20[0-9]{2}/[0-9]{2}/.+$ /insights/ [R=301,L]
 
 # ---------------------------------------------------------------------------
 # Canonical host and scheme. One address per page, or the ranking splits.
@@ -16,15 +87,16 @@ RewriteCond %{HTTP_HOST} ^www\.neuroaustin\.com$ [NC]
 RewriteRule ^(.*)$ https://neuroaustin.com/$1 [R=301,L]
 
 # ---------------------------------------------------------------------------
-# Clean URLs. /our-team/ is the canonical form; /our-team and /our-team.html
-# both 301 to it.
+# Clean URLs. /our-team/ is the canonical form.
 # ---------------------------------------------------------------------------
 
 # Strip a trailing index.html
 RewriteCond %{THE_REQUEST} \s/(.*/)?index\.html[\s?] [NC]
 RewriteRule ^(.*/)?index\.html$ /%1 [R=301,L]
 
-# Strip a .html extension that a visitor typed
+# Strip a .html extension a visitor typed. 404.html is exempt — it has no
+# directory form.
+RewriteCond %{REQUEST_URI} !^/404\.html$
 RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]
 RewriteRule ^([^.]+)\.html$ /$1/ [R=301,L]
 
@@ -32,41 +104,6 @@ RewriteRule ^([^.]+)\.html$ /$1/ [R=301,L]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_URI} !/$
 RewriteRule ^(.*)$ /$1/ [R=301,L]
-
-# ---------------------------------------------------------------------------
-# Old site -> new site.
-#
-# CONFIRMED old URLs only. The rest of the map has to be built from the live
-# site's sitemap or from Search Console before launch — see REDIRECTS.md.
-# A rule for a path that never existed is harmless; a missing rule is a lost
-# ranking, so err toward adding them.
-# ---------------------------------------------------------------------------
-
-RewriteRule ^about-us/melissa-bunner-phd/?$ /our-team/ [R=301,L]
-RewriteRule ^about-us/stephanie-paulos-phd/?$ /our-team/ [R=301,L]
-RewriteRule ^about-us/?$ /our-team/ [R=301,L]
-
-# LIKELY old WordPress paths. Verify each against the live site before launch
-# and delete any that never existed.
-RewriteRule ^contact-us/?$ /contact/ [R=301,L]
-RewriteRule ^services/?$ /neuropsychological-evaluation/ [R=301,L]
-RewriteRule ^neuropsychological-evaluation-2/?$ /neuropsychological-evaluation/ [R=301,L]
-RewriteRule ^intervention/?$ /intervention-services/ [R=301,L]
-RewriteRule ^fees/?$ /fees-and-payment/ [R=301,L]
-RewriteRule ^fees-and-insurance/?$ /fees-and-payment/ [R=301,L]
-RewriteRule ^insurance/?$ /fees-and-payment/ [R=301,L]
-RewriteRule ^links/?$ / [R=301,L]
-
-# The three 2018-2021 posts are retired. Their nearest equivalent is the blog
-# index, not the home page — a mass redirect to the home page reads as a soft
-# 404. Covers dated permalinks and /blog/ prefixes.
-RewriteRule ^blog/?$ /insights/ [R=301,L]
-RewriteRule ^blog/.+$ /insights/ [R=301,L]
-RewriteRule ^20[0-9]{2}/[0-9]{2}/.+$ /insights/ [R=301,L]
-
-# This build's own pre-launch preview paths.
-RewriteRule ^fees-and-insurance\.html$ /fees-and-payment/ [R=301,L]
-RewriteRule ^insights/normal-memory-change-and-what-is-not\.html$ /insights/ [R=301,L]
 
 # ---------------------------------------------------------------------------
 # 404

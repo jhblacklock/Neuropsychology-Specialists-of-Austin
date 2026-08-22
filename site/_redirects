@@ -1,26 +1,52 @@
-# Netlify redirects. Ignored by Apache and Vercel — see .htaccess / vercel.json.
-# First match wins, so the confirmed rules sit above the guessed ones.
+# Netlify redirects. Ignored by Apache and Vercel — see .htaccess /
+# vercel.json. Generated from the live Yoast sitemaps; first match wins.
 
-# Confirmed old URLs
-/about-us/melissa-bunner-phd    /our-team/    301
-/about-us/stephanie-paulos-phd  /our-team/    301
-/about-us                       /our-team/    301
+/2018/04/02/what-is-neuropsychology                               /neuropsychological-evaluation/  301  # topic match
+/2018/04/02/detecting-autism-in-the-very-young                    /neuropsychological-evaluation/  301  # autism is on the conditions list
+/2018/04/02/head-injuries-may-lead-to-early-alzheimers            /insights/                       301  # adult topic, no pediatric equivalent
+/2021/01/21/every-child-has-a-gift-it-just-has-to-be-discovered   /insights/                       301  # no specific equivalent
+/category/articles                                                /insights/                       301
+/author/stephaniep                                                /our-team/                       301
+/about-us/melissa-bunner-phd                                      /our-team/                       301
+/about-us/stephanie-paulos-phd                                    /our-team/                       301
+/about-us/david-tucker-phd                                        /our-team/                       301  # removed from all materials
+/about-us/greg-allen-phd                                          /our-team/                       301  # not in the new team
+/about-us/connie-walker                                           /our-team/                       301  # not in the new team
+/about-us                                                         /our-team/                       301
+/general-procedures                                               /the-process/                    301
+/for-patients/what-is-neuropsychology                             /neuropsychological-evaluation/  301
+/for-patients/intervention-services                               /intervention-services/          301
+/for-patients/billing-and-fees                                    /fees-and-payment/               301
+/for-patients/forms                                               /contact/                        301  # intake forms live on Contact
+/for-patients/patients-medical-records-and-patients-rights        /contact/                        301  # NO EQUIVALENT PAGE — see REDIRECTS.md
+/for-patients/links                                               /                                301  # Links page retired per the brief
+/for-patients                                                     /neuropsychological-evaluation/  301  # section hub, judgment call
+/directions                                                       /contact/                        301
+/contact-us                                                       /contact/                        301
+/wpi-checkout/wpinv-transaction-failed                            /fees-and-payment/               301
+/wpi-checkout/wpinv-subscriptions                                 /fees-and-payment/               301
+/wpi-checkout/wpinv-receipt                                       /fees-and-payment/               301
+/wpi-checkout/wpi-history                                         /fees-and-payment/               301
+/wpi-checkout                                                     /fees-and-payment/               301
+/stripe-checkout-result                                           /fees-and-payment/               301
+/payment-confirmation                                             /fees-and-payment/               301
+/payment-failed                                                   /fees-and-payment/               301
+/asp-products/payment                                             /fees-and-payment/               301
+/products                                                         /fees-and-payment/               301
+/fees-and-insurance.html                                          /fees-and-payment/               301
+/insights/normal-memory-change-and-what-is-not.html               /insights/                       301
 
-# Likely old WordPress paths — verify against the live site before launch
-/contact-us                     /contact/     301
-/services                       /neuropsychological-evaluation/  301
-/neuropsychological-evaluation-2  /neuropsychological-evaluation/  301
-/intervention                   /intervention-services/  301
-/fees                           /fees-and-payment/  301
-/fees-and-insurance             /fees-and-payment/  301
-/insurance                      /fees-and-payment/  301
-/links                          /             301
+# Feeds and the old Yoast sitemaps
+/feed                                                             /rss.xml                         301
+/comments/feed                                                    /rss.xml                         301
+/sitemap_index.xml                                                /sitemap.xml                     301
+/post-sitemap.xml                                                 /sitemap.xml                     301
+/page-sitemap.xml                                                 /sitemap.xml                     301
+/category-sitemap.xml                                             /sitemap.xml                     301
+/author-sitemap.xml                                               /sitemap.xml                     301
+/asp-products-sitemap.xml                                         /sitemap.xml                     301
 
-# Retired posts land on the blog index, not the home page
-/blog                           /insights/    301
-/blog/*                         /insights/    301
-/:year/:month/*                 /insights/    301
-
-# This build's own pre-launch preview paths
-/fees-and-insurance.html        /fees-and-payment/  301
-/insights/normal-memory-change-and-what-is-not.html  /insights/  301
+# Anything else under the retired plugin trees or the old blog
+/wpi-checkout/*                                                   /fees-and-payment/               301
+/asp-products/*                                                   /fees-and-payment/               301
+/:year/:month/*                                                   /insights/                       301
