@@ -176,21 +176,21 @@ address {
 
 .section--shell { background: var(--shell); }
 
-/* The closing call to action. An inset charcoal panel rather than a full-bleed
-   band: full-bleed put it directly against the charcoal footer, and the two
-   read as one slab. Paper either side separates them, and the panel keeps the
-   weight the page's one action deserves. */
+/* The closing call to action. An inset panel on paper inside a gold hairline,
+   rather than a charcoal band: full-bleed charcoal sat directly against the
+   charcoal footer and the two read as one slab. The gold outline is the
+   heaviest use of the accent on the site, which suits the one place every page
+   is asking the reader to do something — and the charcoal button inside it is
+   then the darkest thing in view. */
 
 .cta {
-  background: var(--charcoal);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--charcoal);
+  border: 1px solid var(--gold);
   padding: var(--s5) var(--s3);
 }
 
 @media (min-width: 768px) { .cta { padding: var(--s6); } }
-
-.cta a { border-bottom-color: var(--gold-lift); }
-.cta a:hover { border-bottom-color: var(--paper); }
 
 .section--rule { border-top: 1px solid var(--haze); }
 
@@ -299,7 +299,6 @@ address {
   vertical-align: 2px;
 }
 
-.cta .confirm { color: #FFFFFF; }
 
 /* --------------------------------------------------------------------------
    Buttons — 06 Spacing, tap targets. Never a gold button.

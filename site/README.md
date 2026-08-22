@@ -51,6 +51,36 @@ Each page carries the header, nav, and footer inline. There is no build step to
 stamp them, so a change to the chrome is a find-and-replace across the eleven
 pages.
 
+## The posts
+
+Four, one per category, each 637–678 words against the standard's 600–1,200:
+
+| Post | Category | Author |
+| --- | --- | --- |
+| How to read the scores in your child's report | Evaluation & Testing | Paulos |
+| A school evaluation and a neuropsychological evaluation are not the same thing | Children & School | Bunner |
+| Getting back to school after a concussion | Brain Injury | Paulos |
+| What working memory training is for | Research Notes | Bunner |
+
+**None of them can publish yet.** Every source is named in full but no URL is
+asserted — this machine has no outbound network access, and the editorial
+standard forbids publishing a citation that has not been checked. Each
+reference carries a `CONFIRM` marker, and each post ends with an editorial note
+saying what still needs attaching. Two need more than a link:
+
+- *How to read the scores* cites research on base rates of low scores in
+  healthy samples without naming a specific paper. Attach one or cut the
+  sentence.
+- *What working memory training is for* takes a deliberately skeptical line on
+  Cogmed, which the practice sells for $1,500. It says near transfer is well
+  established and far transfer to academic outcomes is contested, because that
+  is what the literature says. Both clinicians should read it before it goes
+  live; if the practice disagrees with the framing, that is a content decision,
+  not a copy edit.
+
+Every post is bylined to a named clinician and needs that clinician's review
+before publishing, per the editorial standard.
+
 ## Adding a post
 
 1. Copy `insights/post-template/`, rename the folder to the post slug, replace
@@ -188,7 +218,8 @@ These extend the brand document rather than contradict it.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 35 markers across the site.
+is visible in the page, not buried here. 46 markers across the site — the
+eleven new ones are unverified citations in the posts.
 
 | Item | Working assumption | Where |
 | --- | --- | --- |
