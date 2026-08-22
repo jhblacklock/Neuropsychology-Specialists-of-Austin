@@ -32,6 +32,8 @@ insights/post-template/                 Copy-me template (noindex, not in sitema
 about-us/ for-patients/ wpi-checkout/   Meta-refresh stubs for the old URLs
 2018/ 2021/ category/ author/ …         (32 of them — see REDIRECTS.md)
 assets/css/site.css                     The whole design system
+assets/css/fonts.css                    @font-face rules for the self-hosted faces
+assets/fonts/*.woff2                    Playfair, Montserrat, Libre Franklin
 assets/logo/*.svg                       The three supplied marks, unmodified
 .htaccess  _redirects  vercel.json      301s — see REDIRECTS.md
 rss.xml  sitemap.xml  robots.txt
@@ -39,7 +41,8 @@ rss.xml  sitemap.xml  robots.txt
 
 Every page is a folder with an `index.html`, so URLs are clean —
 `/our-team/`, not `/our-team.html` — on any host, with no server configuration
-required. Internal links are document-relative, so the site also works from a
+required. No link anywhere points at a `.html` file; the home link is `./`,
+`../`, or `../../` by depth. A check enforces that. Internal links are document-relative, so the site also works from a
 subdirectory or off the filesystem. The exception is `404.html`, whose links
 are root-relative because it is served from arbitrary paths; that page assumes
 deployment at a domain root.
@@ -106,6 +109,16 @@ These extend the brand document rather than contradict it.
   headshots on Our Team and post bylines, building exterior on Contact. Every
   layout still reads as finished if the slots are deleted rather than filled.
   Search the CSS for `.placeholder` to find them all.
+- **Fonts are self-hosted, preloaded, and `font-display: optional`.** Loading
+  them from Google meant the page painted in a fallback and then swapped to
+  Playfair mid-read. The six faces the site actually uses are now served from
+  `assets/fonts/`, preloaded in the head, and set to `optional` rather than
+  `swap`. That combination means the page paints once: either the real face is
+  ready in time, or the fallback is used for that page view and never replaced
+  underneath the reader. It also removes the third-party request, which is
+  worth something on a healthcare site. Regenerate with `scratchpad/fonts.py`
+  if a weight is added. The `.htaccess` caches woff2 for a year as immutable,
+  so the filenames must change if a font ever does.
 - **Nav collapses to a drawer below 1024px, not below 768px.** Eight top-level
   items do not fit on one row at tablet width. The grid still goes 12-column at
   768 as specified.
@@ -205,8 +218,10 @@ Also outstanding, and not marked in the page because they are technical:
 - Retired facts absent: "Austin Neuropsychology", 711 W 38th, the temp domain,
   David Tucker, "75+ years".
 - Adult-scope terms absent site-wide, now that the scope is pediatric.
-- Home page transfer set is 45KB before gzip: 17KB HTML, 24KB CSS, 3.5KB SVG.
-  Budget is 500KB.
+- No link points at a `.html` file. Every preloaded font resolves.
+- Home page first load is 200KB before gzip: 17KB HTML, 30KB CSS, 3.5KB SVG,
+  and 149KB of webfonts across six faces. Budget is 500KB. Repeat visits are
+  17KB — the fonts are cached for a year.
 - Contrast: charcoal on paper 10.6:1, slate on paper 5.1:1, slate on shell
   4.8:1, mist on charcoal 5.7:1, gold-lift on charcoal 4.4:1. Gold text appears
   only at 24px and up on paper (3.2:1, AA large).
