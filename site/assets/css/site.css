@@ -879,22 +879,38 @@ address {
 
 .list-plain li { margin: 0; }
 
+/* Column lists. A rule per item looked continuous only when the last row
+   happened to be full: seven items in three columns left one rule hanging
+   under a lone item and two gaps where rules should have been. The gold dash
+   is the same marker .list-rule uses, it survives any item count, and it does
+   not pretend to be a table. */
+
 .list-cols {
   list-style: none;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--s2) var(--s4);
+  gap: var(--s2) var(--s5);
 }
 
 .list-cols li {
   margin: 0;
-  padding: var(--s2) 0;
-  border-top: 1px solid var(--haze);
+  padding-left: var(--s4);
+  position: relative;
+}
+
+.list-cols li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 16px;
+  height: 1px;
+  background: var(--gold);
 }
 
 @media (min-width: 768px) {
-  .list-cols { grid-template-columns: repeat(2, 1fr); }
+  .list-cols { gap: var(--s3) var(--s6); grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1024px) {
