@@ -262,9 +262,11 @@ These extend the brand document rather than contradict it.
   a `CONFIRM` marker, so the field waits. The "no referral needed" answer used
   to be left out of the FAQ schema for the same reason; the practice has since
   confirmed it, so it is now in both the visible copy and the schema.
-- **`geo` was derived, not supplied.** `30.30816, -97.74876` comes from
-  geocoding the published street address. Sanity-check it against the practice's
-  Google Business Profile at cutover; that profile, not this markup, is what
+- **`geo` is `30.308164, -97.748826`**, taken from the practice's own Apple
+  Maps place record (`place-id=I723B2B7DEFF340B2`), which is also what the
+  "Open in Apple Maps" link on Contact now points at. It replaced a geocode of
+  the street address that was about six metres off. Still worth checking the
+  Google Business Profile at cutover — that profile, not this markup, is what
   actually drives the knowledge panel.
 - **404 lists every page** rather than bouncing to the home page.
 - `sitemap.xml`, `robots.txt`, and `rss.xml` all use the clean URLs. The post
