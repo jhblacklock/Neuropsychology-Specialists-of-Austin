@@ -1,0 +1,12 @@
+# Camera originals. Kept on disk so the web-sized versions in
+# site/assets/images/ can be regenerated, but never committed — they are
+# 10–13MB each and git keeps every version forever.
+#
+# To regenerate a web version (macOS, no dependencies):
+#   sips -Z 1200 -s format jpeg -s formatOptions 60 \
+#     project/photos-source/NAME.png --out site/assets/images/NAME.jpg
+project/photos-source/
+
+# macOS junk. Would otherwise be deployed to the host with everything else
+# under site/.
+.DS_Store

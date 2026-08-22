@@ -35,6 +35,7 @@ assets/css/site.css                     The whole design system
 assets/css/fonts.css                    @font-face rules for the self-hosted faces
 assets/fonts/*.woff2                    Playfair, Montserrat, Libre Franklin
 assets/logo/*.svg                       The three supplied marks, unmodified
+assets/images/*.jpg                     Web-sized photographs — see "Photographs"
 .htaccess  _redirects  vercel.json      301s — see REDIRECTS.md
 rss.xml  sitemap.xml  robots.txt
 ```
@@ -87,6 +88,34 @@ before publishing, per the editorial standard. The byline's "Full biography"
 link goes to that clinician's anchor on the team page — `#melissa-bunner` or
 `#stephanie-paulos` — not to the top of it. A check fails the build if a
 fragment link points at an id that does not exist.
+
+## Photographs
+
+Two are delivered, both exteriors, both on Contact: the north parking lot with
+the clearance canopy, and the building from the side. Everything else is still
+a labelled placeholder.
+
+**Originals never go in `site/`.** Everything under `site/` is uploaded to the
+host verbatim, and the camera files are 10–13MB each. They live in
+`project/photos-source/`, which is gitignored, and only the web-sized JPEG is
+committed. To regenerate one, on macOS with no dependencies:
+
+```
+sips -Z 1200 -s format jpeg -s formatOptions 60 \
+  project/photos-source/NAME.png --out site/assets/images/NAME.jpg
+```
+
+1200px wide is deliberate: these render at roughly half the 1160px container,
+so 1200 covers a 2× display with nothing spare. At quality 60 the pair is 400KB
+against 23MB of source. Every `<img>` carries `width`, `height`, `loading` and
+`alt` — the dimensions matter, because without them the figure has no height
+until the image arrives and everything below it jumps.
+
+**`og:image` is a stand-in.** All fifteen pages point at the building exterior,
+because it is the only photograph there is. It is better than the bare link
+card they had before, but a post about concussion sharing a picture of an
+office block is not the end state — swap them per page as the commissioned
+interiors land. The same file is the `image` on the practice schema node.
 
 ## The post layout
 
@@ -271,7 +300,7 @@ These extend the brand document rather than contradict it.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 32 markers across the site. The count
+is visible in the page, not buried here. 30 markers across the site. The count
 was 46: the eleven citation markers in the posts are gone, every source having
 been opened and checked (see `CITATIONS.md`), two more moved into HTML comments
 because they were notes to the practice rather than page copy, and one was
@@ -289,8 +318,8 @@ added for the consultation-fee question below.
 | Bunner's biography | Trimmed to pediatric scope; source says "children and adults". Note this one is now an HTML comment on Our Team, not visible copy — it was a note to the practice that was rendering to visitors | Our Team |
 | Bunner's experience | "Over 20 years" per neuroaustin.com; the brief says 10+ | Our Team |
 | Office hours | Mon–Fri 8:30am–5:00pm, from a directory listing | Footer, Contact |
-| Parking | North-side lot and the under-building garage are confirmed. The **7-foot clearance** on the covered entrance is not — it was read off the signage in a photo, not given by the practice | Contact |
 | Headshots | Commissioned, not delivered | Our Team, post byline |
+| Photo licensing | The two building photographs were supplied by the practice. Confirm they were shot by or for the practice and are not screen captures from Google Maps or Street View, which may not be republished | Contact, og:image sitewide |
 | Family therapy fee | Not in the published rate list | Intervention Services |
 | Intake form provider | Not chosen. The brief said JotForm; the practice does not have it and may pick something else. Now an HTML comment on Contact rather than visible copy — it was telling the public that a HIPAA vendor decision is still open | Contact |
 
