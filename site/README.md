@@ -103,11 +103,11 @@ two slots on Contact stay where they are:
 
 | Slot | The shot |
 | --- | --- |
-| Parking | The north lot, with the clearance canopy and the ramp down to the garage both in frame. This one earns its place — it is the shot that answers "where do I actually pull in", and it is also what makes the 7-foot clearance verifiable rather than a claim. Drop that `CONFIRM` when it lands. |
+| Parking | The north lot, with the clearance canopy and the ramp down to the garage both in frame. The shot that answers "where do I actually pull in". |
 | The building | 1500 W 38th from the street, entrance visible. |
 
-The three interior slots on The Process — consultation, testing, feedback — are
-a separate shoot and still open.
+The four slots on The Process — the waiting room, then consultation, testing
+and feedback — are a separate shoot and still open.
 
 When real files do arrive, two rules learned the hard way:
 
@@ -294,11 +294,13 @@ These extend the brand document rather than contradict it.
   rich result any more. The FAQ block stays because answer engines still read
   it. For the same reason there is no point chasing a medical rich result —
   Google's gallery has none.
-- **`openingHours` is deliberately absent** from the schema. The hours came
-  from a third-party directory, not the practice. Structured data cannot carry
-  a `CONFIRM` marker, so the field waits. The "no referral needed" answer used
-  to be left out of the FAQ schema for the same reason; the practice has since
-  confirmed it, so it is now in both the visible copy and the schema.
+- **`openingHours` is now in the schema.** It was held out while the hours came
+  from a third-party directory rather than the practice — structured data
+  cannot carry a `CONFIRM` marker, so the field waited. The practice has
+  confirmed Monday to Friday, 8:30am to 5:00pm, so it is now an
+  `openingHoursSpecification` on the practice node and the directory caveat is
+  gone from Contact. The "no referral needed" FAQ answer was held out and
+  released the same way.
 - **`geo` is `30.308164, -97.748826`**, taken from the practice's own Apple
   Maps place record (`place-id=I723B2B7DEFF340B2`), which is also what the
   "Open in Apple Maps" link on Contact now points at. It replaced a geocode of
@@ -312,7 +314,7 @@ These extend the brand document rather than contradict it.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 33 markers across the site. The count
+is visible in the page, not buried here. 16 markers across the site. The count
 was 46: the eleven citation markers in the posts are gone, every source having
 been opened and checked (see `CITATIONS.md`), two more moved into HTML comments
 because they were notes to the practice rather than page copy, and one was
@@ -329,7 +331,6 @@ added for the consultation-fee question below.
 | Consultation fee | The evaluation fee is stated to *cover* the consultation, but five calls-to-action say the office will tell you "what the consultation costs", which implies a separate charge. Both cannot be the headline. Ask whether the consultation is billed on its own when a family stops after it | Fees & Payment |
 | Bunner's biography | Trimmed to pediatric scope; source says "children and adults". Note this one is now an HTML comment on Our Team, not visible copy — it was a note to the practice that was rendering to visitors | Our Team |
 | Bunner's experience | "Over 20 years" per neuroaustin.com; the brief says 10+ | Our Team |
-| Office hours | Mon–Fri 8:30am–5:00pm, from a directory listing | Footer, Contact |
 | Headshots | Commissioned, not delivered | Our Team, post byline |
 | Family therapy fee | Not in the published rate list | Intervention Services |
 | Intake form provider | Not chosen. The brief said JotForm; the practice does not have it and may pick something else. Now an HTML comment on Contact rather than visible copy — it was telling the public that a HIPAA vendor decision is still open | Contact |
