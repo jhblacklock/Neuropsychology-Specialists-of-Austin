@@ -65,9 +65,11 @@ because they were judgment calls.
   stops being readable below that. The compact header form drops that line
   rather than shrinking it, which is the rule the document states for small
   sizes. The full lockup with "of Austin" appears in the footer.
-- **No striped image placeholders anywhere.** Section 07 asks that every layout
-  read as finished without photography and names a typographic fallback for
-  each slot. The team page and post bylines use the Shell-field fallback.
+- **Photo slots are greeked.** Section 07's striped field with a monospace note
+  naming the shot marks each frame: testing room on the home page, clinician
+  headshots on Our Team and post bylines, building exterior on Contact. Every
+  layout still reads as finished if the slots are deleted rather than filled.
+  Search the CSS for `.placeholder` to find them all.
 - **Nav collapses to a drawer below 1024px, not below 768px.** Eight top-level
   items do not fit on one row at tablet width. The grid still goes 12-column at
   768 as specified.
@@ -83,7 +85,7 @@ because they were judgment calls.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 28 markers across the site.
+is visible in the page, not buried here. 30 markers across the site.
 
 | Item | Working assumption | Where |
 | --- | --- | --- |

@@ -899,8 +899,47 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   }
 }
 
-/* Photography has been commissioned but not delivered. Section 07 names the
-   fallback: name and credentials over a Shell field, no silhouette icon. */
+/* --------------------------------------------------------------------------
+   Greeked image slots — 07 Photography
+
+   Photography has been commissioned and not delivered. These mark where each
+   frame goes and name the shot, using the striped field from section 07 of the
+   brand document. Every one of them comes out when the files land.
+   -------------------------------------------------------------------------- */
+
+.placeholder {
+  aspect-ratio: 4 / 3;
+  background: repeating-linear-gradient(135deg,
+    var(--shell) 0 8px,
+    var(--haze) 8px 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s2);
+}
+
+.placeholder--square { aspect-ratio: 1 / 1; }
+
+.placeholder--wide { aspect-ratio: 16 / 9; }
+
+.placeholder__label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--slate);
+  text-align: center;
+}
+
+.figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+/* Where a photograph has not been commissioned for the slot at all, section 07
+   names the fallback instead: name and credentials over a Shell field, no
+   silhouette icon. */
 
 .portrait-fallback {
   background: var(--shell);
