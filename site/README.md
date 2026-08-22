@@ -271,7 +271,7 @@ These extend the brand document rather than contradict it.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 31 markers across the site. The count
+is visible in the page, not buried here. 32 markers across the site. The count
 was 46: the eleven citation markers in the posts are gone, every source having
 been opened and checked (see `CITATIONS.md`), two more moved into HTML comments
 because they were notes to the practice rather than page copy, and one was
