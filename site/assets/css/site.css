@@ -453,6 +453,14 @@ address {
   color: var(--gold);
 }
 
+@media (max-width: 767px) {
+  .logo { gap: var(--s2); }
+  .logo__name { font-size: 15px; line-height: 1.14; max-width: 10em; }
+  .logo__austin { gap: var(--s1); font-size: 14px; }
+  .logo__austin em { font-size: 14px; }
+  .logo__austin span { width: auto; flex: 1 1 auto; }
+}
+
 @media (min-width: 768px) {
   .logo__mark { width: 48px; }
   .logo__name { font-size: 21px; }
@@ -521,22 +529,52 @@ address {
   .header__cta { display: inline-flex; }
 }
 
+/* A plain hamburger. 44px square so it clears the tap target on its own,
+   with 1px bars — the same hairline the rest of the system separates with. */
+
 .nav-toggle {
   display: inline-flex;
   align-items: center;
-  gap: var(--s1);
-  min-height: 44px;
-  padding: 10px var(--s2);
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   background: transparent;
   border: 1px solid var(--mist);
   color: var(--charcoal);
-  font: 600 11px/1 var(--caps);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
   cursor: pointer;
+  flex: none;
 }
 
 .nav-toggle:hover { border-color: var(--charcoal); }
+
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+}
+
+.nav-toggle__bars {
+  position: relative;
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle__bars::before { top: -6px; }
+.nav-toggle__bars::after { top: 6px; }
+
+/* Open: the outer bar goes, the other two cross. */
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::before { top: 0; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::after { top: 0; transform: rotate(-45deg); }
 
 @media (min-width: 1024px) { .nav-toggle { display: none; } }
 

@@ -119,6 +119,12 @@ These extend the brand document rather than contradict it.
   worth something on a healthcare site. Regenerate with `scratchpad/fonts.py`
   if a weight is added. The `.htaccess` caches woff2 for a year as immutable,
   so the filenames must change if a font ever does.
+- **Mobile header: hamburger, and the wordmark wraps.** Below 768px the
+  wordmark breaks over two lines with the hairlines filling out to each end,
+  and the menu control is a 44px square hamburger rather than the word MENU in
+  tracked caps — that button was wide enough to push the header past the edge
+  of a 375px screen. Logo and control now come to 266px inside the 327px
+  available.
 - **Nav collapses to a drawer below 1024px, not below 768px.** Eight top-level
   items do not fit on one row at tablet width. The grid still goes 12-column at
   768 as specified.
