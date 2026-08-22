@@ -81,6 +81,20 @@ saying what still needs attaching. Two need more than a link:
 Every post is bylined to a named clinician and needs that clinician's review
 before publishing, per the editorial standard.
 
+## The post layout
+
+Articles run as a centred column, not the left-aligned one the rest of the site
+uses. On a 1440px screen a 680px measure pinned to the left of a 1160px
+container leaves the eye travelling back across half a metre of empty paper
+between paragraphs; centring it fixes that. Eyebrow, headline, standfirst,
+body, and byline all sit on the same column.
+
+The column is 720px rather than the site's usual 680px cap, set by character
+count instead of by pixels: the brand document makes 65–75 characters the hard
+rule on posts, and 680px of Libre Franklin at 19px measures 64. 720px measures
+67. Tables are the one thing allowed out of the column — they take the extra
+96px back before scrolling inside themselves.
+
 ## Adding a post
 
 1. Copy `insights/post-template/`, rename the folder to the post slug, replace

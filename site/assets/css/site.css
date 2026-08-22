@@ -41,6 +41,10 @@
   /* Measure — 06 Spacing */
   --content: 1160px;
   --measure: 680px;
+  /* The article column is set by character count, not by the 680px cap: the
+     brand document makes 65–75 characters the hard rule on posts, and 680px
+     of Libre Franklin at 19px measures 64. 720px measures 68. */
+  --measure-article: 720px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1125,13 +1129,46 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   align-items: center;
 }
 
-/* Post body. Measure is a hard 65–75 characters here. 05 Type scale. */
+/* Post body. Measure is a hard 65–75 characters here. 05 Type scale.
+
+   Articles run as a centred column rather than a left-aligned one: on a
+   1440px screen a 680px measure pinned to the left of a 1160px container
+   leaves the reader's eye travelling back across half a metre of empty paper
+   between paragraphs. Everything in the article — eyebrow, headline,
+   standfirst, body, byline — sits on the same centred column. */
 
 .prose {
-  max-width: var(--measure);
+  max-width: var(--measure-article);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: var(--s3);
+}
+
+.page-head--article .page-head__inner {
+  max-width: var(--measure-article);
+  margin-inline: auto;
+}
+
+/* Section padding plus page-head padding put a quarter of a screen of nothing
+   between the standfirst and the first paragraph. An article's head and body
+   are one continuous thing; close it up. */
+.page-head--article { padding-bottom: var(--s5); }
+.page-head--article + .section { padding-top: var(--s5); }
+
+.measure--center { margin-inline: auto; }
+
+/* The one thing allowed to break the column: a wide table gets the full
+   content width back before it starts scrolling inside itself. */
+.prose .table-wrap {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .prose .table-wrap {
+    width: calc(100% + var(--s7));
+    margin-inline: calc(var(--s7) / -2);
+  }
 }
 
 .prose > h2 { padding-top: var(--s4); }
@@ -1160,6 +1197,8 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   line-height: 1.5;
   color: var(--slate);
 }
+
+.measure--center.measure { max-width: var(--measure-article); }
 
 .byline {
   display: grid;
