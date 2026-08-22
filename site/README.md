@@ -205,7 +205,7 @@ is visible in the page, not buried here. 35 markers across the site.
 | Parking | Nothing known; the block is reserved and empty | Contact |
 | Headshots | Commissioned, not delivered | Our Team, post byline |
 | Family therapy fee | Not in the published rate list | Intervention Services |
-| JotForm link | The live intake form URL is not in the handoff | Contact |
+| Intake form provider | Not chosen. The brief said JotForm; the practice does not have it and may pick something else | Contact |
 
 Also outstanding, and not marked in the page because they are technical:
 
@@ -229,10 +229,17 @@ Also outstanding, and not marked in the page because they are technical:
   forbids publishing a citation that has not been checked.
 - **Fonts load from Google Fonts.** Self-host them if you would rather not have
   a third-party request on a healthcare site.
-- **The Contact page embeds Google Maps** in a lazy-loaded iframe, as the brief
-  asks. It is a third-party embed; if that matters for your cookie posture,
-  replace it with the static address block and the "Open in Google Maps" link
-  that already sit beside it.
+- **The map embed.** The Contact page uses Google's keyless
+  `output=embed` iframe: free, no API key, no billing account — but it is an
+  undocumented URL rather than a supported product, so it carries no guarantee
+  it keeps working. Google's supported equivalent is the Maps Embed API, which
+  is free for basic embeds but requires a key and a Cloud project with billing
+  enabled. The genuinely free-and-private option is OpenStreetMap's iframe,
+  which needs no key and sets no cookies — but it takes a bounding box and a
+  marker latitude/longitude rather than an address string, and those
+  coordinates could not be looked up from this machine. Get them from the pin
+  in Google Maps and the swap is a one-line change. Both map-app links on the
+  page work by address and need no coordinates.
 - **GitHub Pages preview caveat.** Pages cannot issue 301s, and it serves this
   site from a subdirectory, so the redirect configs are inert there and
   `404.html`'s root-relative links will not resolve. Both are correct for
