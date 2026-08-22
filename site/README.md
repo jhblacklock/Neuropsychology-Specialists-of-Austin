@@ -259,8 +259,9 @@ These extend the brand document rather than contradict it.
   Google's gallery has none.
 - **`openingHours` is deliberately absent** from the schema. The hours came
   from a third-party directory, not the practice. Structured data cannot carry
-  a `CONFIRM` marker, so the field waits. The "no referral needed" answer is
-  left out of the FAQ schema for the same reason.
+  a `CONFIRM` marker, so the field waits. The "no referral needed" answer used
+  to be left out of the FAQ schema for the same reason; the practice has since
+  confirmed it, so it is now in both the visible copy and the schema.
 - **`geo` was derived, not supplied.** `30.30816, -97.74876` comes from
   geocoding the published street address. Sanity-check it against the practice's
   Google Business Profile at cutover; that profile, not this markup, is what
@@ -272,7 +273,7 @@ These extend the brand document rather than contradict it.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 33 markers across the site. The count
+is visible in the page, not buried here. 32 markers across the site. The count
 was 46: the eleven citation markers in the posts are gone, every source having
 been opened and checked (see `CITATIONS.md`), two more moved into HTML comments
 because they were notes to the practice rather than page copy, and one was
@@ -281,7 +282,6 @@ added for the consultation-fee question below.
 | Item | Working assumption | Where |
 | --- | --- | --- |
 | Report turnaround | Three to four weeks from testing to written report | Home, The Process, Referring Providers |
-| No referral needed | Follows from private pay, but not confirmed by the practice | Fees & Payment |
 | Referral intake | Fax to 737-215-8710; no portal or referral email | Referring Providers |
 | Provider line | None that bypasses patient intake | Referring Providers |
 | Clinician phone consult | Available on request after report delivery | Referring Providers |
