@@ -1,80 +1,87 @@
-# Citations still to verify
+# Citations — verified
 
-Every source in the four Insights posts is named but **not linked**. The
-machine this site is built on has no outbound network access — the egress proxy
-answers `403` to `CONNECT` for cdc.gov, nih.gov, ed.gov, abpp.org, aap.org and
-every other source below — and the practice's editorial standard forbids
-publishing a citation that has not been checked. So they are marked rather than
-guessed.
+Every source in the four Insights posts has now been opened and checked against
+the claim it supports, and the URL is in the reference list. The red `CONFIRM`
+markers and the four editorial notes at the feet of the post bodies are gone.
 
-Each item below corresponds to a red `CONFIRM` marker in the page. Find the
-source, paste the URL in, delete the marker. When the last one in a post is
-gone, delete that post's editorial note at the foot of the body too.
+Verified 22 August 2026.
 
-**Do not remove a marker without opening the link.** That is the one failure
-mode this whole scheme exists to prevent.
+**The one thing still marked:** the office-hours line in the site footer
+(`Monday to Friday, 8:30am to 5:00pm`) still carries a `CONFIRM` marker. It is
+not a citation — it is a fact about the practice, and only the practice can
+confirm it. It appears on every page of the site, not just these four posts, so
+it is tracked separately from this file.
 
 
 ## Getting back to school after a concussion
 
-`insights/getting-back-to-school-after-a-concussion/`
-
-- **[link]** Centers for Disease Control and Prevention. HEADS UP — guidance on returning to school after a concussion.
-- **[link]** American Academy of Pediatrics. Clinical report on returning to learning following a concussion.
-- **[inline claim]** Monday to Friday8:30am to 5:00pm Confirm
+- CDC. *HEADS UP* — Returning to School After a Concussion.
+  <https://www.cdc.gov/heads-up/guidelines/returning-to-school.html>
+  Current revision reviewed 6 August 2025. Confirms the staged return, the
+  named case manager, reduced (not deferred) work, extra time, rest breaks,
+  and symptoms worsening across the school day.
+- Halstead et al.; AAP Councils on Sports Medicine and Fitness and on School
+  Health. Returning to Learning Following a Concussion. *Pediatrics*
+  2013;132(5):948–957.
+  <https://publications.aap.org/pediatrics/article/132/5/948/31692/Returning-to-Learning-Following-a-Concussion>
+  **Not superseded** — the article page carries the notice "This Clinical
+  Report was reaffirmed April 2023." Free access.
 
 ## How to read the scores in your child's report
 
-`insights/how-to-read-the-scores-in-your-childs-report/`
-
-- **[link]** American Educational Research Association, American Psychological Association, and National Council on Measurement in Education. Standards for Educational and Psychological Testing. The reference work governing how these scales are built and reported.
-- **[citation]** Research on base rates of low scores in healthy samples — the literature establishing how commonly children with no impairment produce one or more low scores across a battery.
-- **[link]** The technical manual for each test used in your child's evaluation, which reports its own normative sample and score distributions.
-- **[inline claim]** Monday to Friday8:30am to 5:00pm Confirm
+- AERA / APA / NCME. *Standards for Educational and Psychological Testing.*
+  <https://www.apa.org/science/programs/testing/standards>
+  2014 edition is current and open access; a Joint Committee was named in
+  June 2024 to revise it, so re-check this before the next print run.
+- Brooks, Sherman & Iverson. Healthy children get low scores too: prevalence of
+  low scores on the NEPSY-II. *Archives of Clinical Neuropsychology*
+  2010;25(3):182–190. <https://pubmed.ncbi.nlm.nih.gov/20179013/>
+  Chosen for the base-rate claim: pediatric, 1,200 healthy children aged 3–16,
+  and its finding is exactly the post's sentence — "having some low scores is
+  common in healthy children."
+- The technical manual for each test. Deliberately **not** linked: it names no
+  single work, so there is nothing to verify. Reworded as guidance to the
+  reader rather than a citation.
 
 ## A school evaluation and a neuropsychological evaluation are not the same thing
 
-`insights/school-evaluation-and-neuropsychological-evaluation/`
-
-- **[link]** U.S. Department of Education. Individuals with Disabilities Education Act (IDEA), Part B — evaluations and eligibility.
-- **[link]** U.S. Department of Education, Office for Civil Rights. Section 504 and the education of children with disabilities.
-- **[link]** Texas Education Agency. Special education evaluation and the ARD process.
-- **[inline claim]** There is also a specific right in federal law for a parent who disagrees with the school's evaluation to request an independent educational evaluation. The conditions attached to that right are worth reading before you rely on it.
-- **[inline claim]** Monday to Friday8:30am to 5:00pm Confirm
+- IDEA Part B, Subpart D — evaluations and eligibility determinations.
+  <https://sites.ed.gov/idea/regs/b/d>
+- Section 504 of the Rehabilitation Act of 1973.
+  <https://www.ed.gov/laws-and-policy/individuals-disabilities/section-504>
+  Page last reviewed 5 May 2026. Note: the older OCR page *Protecting Students
+  With Disabilities* now 404s on both www.ed.gov and www2.ed.gov, so the ref
+  was retitled to match the page that is actually live.
+- Texas Education Agency (SPEDTex). *Parent's Guide to the ARD Process.*
+  <https://www.spedtex.org/resources/parents-guide-ard-process>
+  SPEDTex is TEA's parent support project — the page footer carries the TEA
+  copyright and Austin address. Guide dated 2025, posted May 2026.
+- Independent educational evaluation, inline in the body: 34 CFR §300.502.
+  <https://sites.ed.gov/idea/regs/b/e/300.502>
+  The regulation itself, not a summary. The sentence was expanded to name two
+  of the conditions it refers to, since the regulation states them plainly.
 
 ## What working memory training is for
 
-`insights/what-working-memory-training-is-for/`
-
-- **[citation]** Melby-Lervåg, M., and Hulme, C. Meta-analytic reviews of working memory training and its transfer effects.
-- **[citation]** Simons, D. J., et al. Do "Brain-Training" Programs Work? Psychological Science in the Public Interest.
-- **[link]** Cogmed's own published research summary, which should be read alongside the independent reviews rather than instead of them.
-- **[inline claim]** Monday to Friday8:30am to 5:00pm Confirm
-
-## Where each one probably lives
-
-- **Standards for Educational and Psychological Testing** — the joint AERA /
-  APA / NCME volume. There is a landing page on apa.org; cite the current
-  edition.
-- **Base rates of low scores in healthy samples** — this one needs a specific
-  paper, not a topic. The work by Brooks, Iverson and colleagues on
-  multivariate base rates in normative samples is the usual starting point.
-  Search that in PubMed and pick the paper the clinicians are happy to stand
-  behind. If none fits, cut the sentence — the paragraph survives without it.
-- **IDEA Part B, evaluations and eligibility** — sites.ed.gov/idea. Deep-link
-  to the evaluation section rather than the site root.
-- **Section 504** — the Office for Civil Rights pages on ed.gov.
-- **Texas ARD process** — tea.texas.gov, special education section.
-- **Independent educational evaluation** — the IEE right sits in the IDEA
-  regulations at 34 CFR 300.502. Cite the regulation, not a summary.
-- **CDC HEADS UP, return to school** — cdc.gov/heads-up. Check you are citing
-  the current revision; these pages have moved before.
-- **AAP return to learning clinical report** — publications.aap.org. The
-  original is Halstead et al.; check whether it has been superseded.
-- **Melby-Lervåg & Hulme** — the working memory training meta-analyses.
-  Needs year, journal, and volume attached.
-- **Simons et al., "Do Brain-Training Programs Work?"** — Psychological Science
-  in the Public Interest, 2016. Needs the volume and DOI.
-- **Cogmed research summary** — from Pearson. Cite it as the vendor's own
-  summary, alongside the independent reviews rather than instead of them.
-
+- Melby-Lervåg & Hulme. Is working memory training effective? A meta-analytic
+  review. *Developmental Psychology* 2013;49(2):270–291.
+  <https://pubmed.ncbi.nlm.nih.gov/22612437/>
+- Melby-Lervåg, Redick & Hulme. Working memory training does not improve
+  performance on measures of intelligence or other measures of "far transfer".
+  *Perspectives on Psychological Science* 2016;11(4):512–534.
+  <https://pubmed.ncbi.nlm.nih.gov/27474138/>
+  Added as a second entry: the post says "meta-analyses" and "repeatedly", and
+  one paper does not carry that.
+- Simons et al. Do "Brain-Training" Programs Work? *Psychological Science in
+  the Public Interest* 2016;17(3):103–186.
+  <https://pubmed.ncbi.nlm.nih.gov/27697851/>
+  The body called this a "consensus review". It is not — it is a comprehensive
+  review that adjudicates *between* two opposing consensus letters. Changed to
+  "comprehensive review".
+- Cogmed's own research summary — **dropped**. The practice no longer offers
+  working memory training, the post's argument rests entirely on the two
+  independent meta-analyses, and a vendor's marketing summary in the reference
+  list of a practice that does not sell the product reads as an endorsement.
+  The body already tells parents what to ask whoever is selling it. (Cogmed
+  itself is still sold by Pearson; this is an editorial choice, not a dead
+  link.)
