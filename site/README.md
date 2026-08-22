@@ -115,9 +115,20 @@ These extend the brand document rather than contradict it.
     which is why it is off the 8px scale.
 
   The caps line is dropped rather than shrunk, per the document's rule for
-  small sizes. The full lockup with the caps line appears in the footer, where
-  the mark is white on charcoal — the gold mark does not carry to a dark
-  ground.
+  small sizes.
+- **The footer carries the full lockup**, on its own band across the top: mark,
+  stacked wordmark, "of Austin" between hairlines, and the
+  `BOARD CERTIFIED ASSESSMENT` line — the only place on the site with room for
+  it, since the document floors the full lockup at 88px of mark. Mark is 136px
+  at desktop and 104px at mobile, scaled to the proportions of the delivered
+  artwork rather than the 3:1 the brand document's own web artboards use; at
+  39px the name and the caps line come out the same width. The mark is white
+  here: gold does not carry to a charcoal ground. The hairlines stay gold
+  because "of Austin" is then the only other gold in the lockup.
+- **`CONFIRM` markers are red on purpose.** White on `#B3261E`, a colour that
+  appears nowhere else on the site. They are working assumptions, not copy, and
+  every one has to be gone before launch — they should be impossible to mistake
+  for design.
 - **Photo slots are greeked.** Section 07's striped field with a monospace note
   naming the shot marks each frame: testing room on the home page, clinician
   headshots on Our Team and post bylines, building exterior on Contact. Every

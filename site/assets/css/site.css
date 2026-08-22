@@ -271,22 +271,27 @@ address {
 }
 
 /* Working-assumption marker. Carried through from section 11 of the brand
-   document — every one of these has to be confirmed or cut before launch. */
+   document — every one of these has to be confirmed or cut before launch.
+
+   Deliberately off-palette. Red appears nowhere else on this site, which is
+   the point: nobody should be able to mistake one of these for copy, and every
+   one has to be gone before launch. White on #B3261E is 6.5:1. */
 
 .confirm {
   display: inline-block;
   font: 600 11px/1 var(--caps);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--slate);
-  border: 1px solid var(--gold);
-  padding: 4px 7px;
+  color: #FFFFFF;
+  background: #B3261E;
+  border: 1px solid #B3261E;
+  padding: 5px 8px;
   margin-left: var(--s1);
   white-space: nowrap;
   vertical-align: 2px;
 }
 
-.section--ink .confirm { color: var(--mist); }
+.section--ink .confirm { color: #FFFFFF; }
 
 /* --------------------------------------------------------------------------
    Buttons — 06 Spacing, tap targets. Never a gold button.
@@ -351,24 +356,36 @@ address {
    size. That centres them on the x-height of the "o" in "of". Keep it.
    -------------------------------------------------------------------------- */
 
+/* The full lockup: mark, stacked wordmark, "of Austin" between hairlines, then
+   the Montserrat caps line. It only appears in the footer, because the
+   document floors the full lockup at 88px of mark — under that the caps line
+   stops being readable, which is why the header carries the compact form
+   instead. Mark 88px at mobile, 104px from 768 up.
+
+   Unlike the header, the hairlines here stay gold: the mark on charcoal is
+   white, so "of Austin" is the only gold in the lockup and the rules can join
+   it without the accent tripling up. */
+
 .lockup {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--s2);
+  gap: 18px;
   text-align: center;
   border: 0;
 }
 
-.lockup--start {
-  align-items: flex-start;
-  text-align: left;
-}
-
-.lockup__mark { width: 88px; }
+.lockup__mark { width: 104px; }
 
 .lockup__name {
   font: 700 28px/1.12 var(--serif);
+}
+
+.lockup__eyebrow {
+  font: 600 11px/1.2 var(--caps);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--slate);
 }
 
 .lockup__austin {
@@ -398,13 +415,22 @@ address {
 .lockup--dark .lockup__austin em { color: var(--gold-lift); }
 .lockup--dark .lockup__eyebrow { color: var(--mist); }
 
+/* The lockup's own hairlines are gold and fixed-width, as drawn. The header's
+   rail behaviour does not reach in here. */
+.lockup__austin span {
+  background: var(--gold);
+  width: 40px;
+  flex: none;
+}
+
 @media (min-width: 768px) {
-  .lockup__mark { width: 112px; }
-  .lockup__name { font-size: 34px; }
+  .lockup { gap: var(--s3); }
+  .lockup__mark { width: 136px; }
+  .lockup__name { font-size: 39px; }
   .lockup__austin { font-size: 26px; }
   .lockup__austin em { font-size: 26px; }
-  .lockup__austin span:first-child,
-  .lockup__austin span:last-child { width: 64px; }
+  .lockup__austin span { width: 56px; }
+  .lockup__eyebrow { font-size: 12px; }
 }
 
 /* Header logo: mark plus wordmark, no eyebrow line. The full lockup needs
@@ -1198,7 +1224,13 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   color: var(--mist);
 }
 
-.footer__lockup .lockup__mark { width: 56px; }
+.footer__crest {
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--s6);
+  margin-bottom: var(--s6);
+  border-bottom: 1px solid var(--slate);
+}
 
 /* --------------------------------------------------------------------------
    Print
