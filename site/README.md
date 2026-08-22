@@ -35,7 +35,6 @@ assets/css/site.css                     The whole design system
 assets/css/fonts.css                    @font-face rules for the self-hosted faces
 assets/fonts/*.woff2                    Playfair, Montserrat, Libre Franklin
 assets/logo/*.svg                       The three supplied marks, unmodified
-assets/images/*.jpg                     Web-sized photographs — see "Photographs"
 .htaccess  _redirects  vercel.json      301s — see REDIRECTS.md
 rss.xml  sitemap.xml  robots.txt
 ```
@@ -91,31 +90,44 @@ fragment link points at an id that does not exist.
 
 ## Photographs
 
-Two are delivered, both exteriors, both on Contact: the north parking lot with
-the clearance canopy, and the building from the side. Everything else is still
-a labelled placeholder.
+None are delivered. Every slot is a labelled placeholder, and `og:image` is
+absent on all fifteen pages.
+
+**Do not use map captures.** Two building exteriors were briefly published here
+and then removed: they were views pulled from Apple Maps. Apple Maps and Google
+Street View imagery is licensed to its providers and cannot be republished on a
+commercial site, however good the framing is and however clearly it shows the
+building. This is a licensing question, not a quality one — the only fix is a
+photograph the practice owns. **Both are being reshot by the practice**, so the
+two slots on Contact stay where they are:
+
+| Slot | The shot |
+| --- | --- |
+| Parking | The north lot, with the clearance canopy and the ramp down to the garage both in frame. This one earns its place — it is the shot that answers "where do I actually pull in", and it is also what makes the 7-foot clearance verifiable rather than a claim. Drop that `CONFIRM` when it lands. |
+| The building | 1500 W 38th from the street, entrance visible. |
+
+The three interior slots on The Process — consultation, testing, feedback — are
+a separate shoot and still open.
+
+When real files do arrive, two rules learned the hard way:
 
 **Originals never go in `site/`.** Everything under `site/` is uploaded to the
-host verbatim, and the camera files are 10–13MB each. They live in
-`project/photos-source/`, which is gitignored, and only the web-sized JPEG is
-committed. To regenerate one, on macOS with no dependencies:
+host verbatim. The camera files in that first attempt were 10–13MB each, inside
+`site/`, against a stated 500KB budget for a whole page. Keep originals in
+`project/photos-source/` — gitignored, because git carries every version of a
+binary forever — and commit only the web-sized JPEG. On macOS, no dependencies:
 
 ```
 sips -Z 1200 -s format jpeg -s formatOptions 60 \
   project/photos-source/NAME.png --out site/assets/images/NAME.jpg
 ```
 
-1200px wide is deliberate: these render at roughly half the 1160px container,
-so 1200 covers a 2× display with nothing spare. At quality 60 the pair is 400KB
-against 23MB of source. Every `<img>` carries `width`, `height`, `loading` and
-`alt` — the dimensions matter, because without them the figure has no height
-until the image arrives and everything below it jumps.
+1200px is sized off the real render width of about 530px, so it covers a 2x
+display with nothing spare, and lands near 200KB a photograph.
 
-**`og:image` is a stand-in.** All fifteen pages point at the building exterior,
-because it is the only photograph there is. It is better than the bare link
-card they had before, but a post about concussion sharing a picture of an
-office block is not the end state — swap them per page as the commissioned
-interiors land. The same file is the `image` on the practice schema node.
+**Every `<img>` needs `width`, `height`, `loading` and `alt`.** The dimensions
+are not decoration: without them the figure has no height until the image
+arrives, and everything below it jumps as it loads.
 
 ## The post layout
 
@@ -300,7 +312,7 @@ These extend the brand document rather than contradict it.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 30 markers across the site. The count
+is visible in the page, not buried here. 33 markers across the site. The count
 was 46: the eleven citation markers in the posts are gone, every source having
 been opened and checked (see `CITATIONS.md`), two more moved into HTML comments
 because they were notes to the practice rather than page copy, and one was
@@ -319,7 +331,6 @@ added for the consultation-fee question below.
 | Bunner's experience | "Over 20 years" per neuroaustin.com; the brief says 10+ | Our Team |
 | Office hours | Mon–Fri 8:30am–5:00pm, from a directory listing | Footer, Contact |
 | Headshots | Commissioned, not delivered | Our Team, post byline |
-| Photo licensing | The two building photographs were supplied by the practice. Confirm they were shot by or for the practice and are not screen captures from Google Maps or Street View, which may not be republished | Contact, og:image sitewide |
 | Family therapy fee | Not in the published rate list | Intervention Services |
 | Intake form provider | Not chosen. The brief said JotForm; the practice does not have it and may pick something else. Now an HTML comment on Contact rather than visible copy — it was telling the public that a HIPAA vendor decision is still open | Contact |
 
