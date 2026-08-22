@@ -63,10 +63,13 @@ Four, one per category, each 637–678 words against the standard's 600–1,200:
 | What working memory training is for | Research Notes | Bunner |
 
 **None of them can publish yet.** Every source is named in full but no URL is
-asserted — this machine has no outbound network access, and the editorial
-standard forbids publishing a citation that has not been checked. Each
-reference carries a `CONFIRM` marker, and each post ends with an editorial note
-saying what still needs attaching. Two need more than a link:
+asserted — this machine has no outbound network access (the egress proxy
+answers `403` to `CONNECT` for cdc.gov, nih.gov, ed.gov, abpp.org and
+publications.aap.org alike) and the editorial standard forbids publishing a
+citation that has not been checked. Each reference carries a `CONFIRM` marker,
+and each post ends with an editorial note saying what still needs attaching.
+**`CITATIONS.md` lists all sixteen markers** with where each source probably
+lives. Two need more than a link:
 
 - *How to read the scores* cites research on base rates of low scores in
   healthy samples without naming a specific paper. Attach one or cut the

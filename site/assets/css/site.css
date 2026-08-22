@@ -994,6 +994,71 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 
 .td-fee { white-space: nowrap; }
 
+/* Below 768 a wide table stops being a table. Three columns in 327px means a
+   horizontal scrollbar and rows tall enough to leave half a screen of nothing
+   between them, so each row becomes a block: the first cell is the row's name,
+   the rest carry their column header as a label. */
+
+@media (max-width: 767px) {
+  .table--stack,
+  .table--stack tbody,
+  .table--stack tr,
+  .table--stack td {
+    display: block;
+    width: 100%;
+  }
+
+  .table--stack thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .table--stack tr {
+    border-top: 1px solid var(--mist);
+    padding: var(--s3) 0;
+  }
+
+  .table--stack tbody tr:first-child td { border-top: 0; }
+
+  .table--stack td {
+    border: 0;
+    padding: 0;
+  }
+
+  .table--stack td + td { padding-top: var(--s2); }
+
+  .table--stack td:first-child {
+    font-weight: 600;
+    font-size: 19px;
+  }
+
+  .table--stack td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font: 600 11px/1.2 var(--caps);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--slate);
+    padding-bottom: 4px;
+  }
+
+  /* A caption inside a block-level table shrink-wraps to nothing. */
+  .table--stack caption {
+    display: block;
+    width: 100%;
+  }
+
+  /* Fees are kept on one line in a real table column; stacked, that is what
+     was pushing the row off the side of the screen. */
+  .table--stack .td-fee { white-space: normal; }
+
+  /* Nothing to scroll once it is stacked. */
+  .table-wrap { overflow-x: visible; }
+}
+
 /* --------------------------------------------------------------------------
    Clinician bios — full width each, typographic fallback for headshots
    -------------------------------------------------------------------------- */
