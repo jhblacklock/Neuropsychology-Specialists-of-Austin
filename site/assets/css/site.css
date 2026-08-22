@@ -982,7 +982,12 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
    Clinician bios — full width each, typographic fallback for headshots
    -------------------------------------------------------------------------- */
 
+/* Each bio is an anchor target — post bylines link straight to the clinician
+   who wrote the post. The margin keeps the heading off the top of the window
+   when you arrive. */
+
 .bio {
+  scroll-margin-top: var(--s5);
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--s4);

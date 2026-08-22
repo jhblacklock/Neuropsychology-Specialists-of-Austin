@@ -79,7 +79,10 @@ saying what still needs attaching. Two need more than a link:
   not a copy edit.
 
 Every post is bylined to a named clinician and needs that clinician's review
-before publishing, per the editorial standard.
+before publishing, per the editorial standard. The byline's "Full biography"
+link goes to that clinician's anchor on the team page — `#melissa-bunner` or
+`#stephanie-paulos` — not to the top of it. A check fails the build if a
+fragment link points at an id that does not exist.
 
 ## The post layout
 
