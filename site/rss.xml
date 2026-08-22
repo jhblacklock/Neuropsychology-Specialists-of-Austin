@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Insights — Neuropsychology Specialists of Austin</title>
+    <link>https://neuroaustin.com/insights/index.html</link>
+    <atom:link href="https://neuroaustin.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Writing on neuropsychological evaluation and cognitive change from Neuropsychology Specialists of Austin. Every post is written and reviewed by a board-certified clinician.</description>
+    <language>en-us</language>
+    <copyright>Copyright 2026 Neuropsychology Specialists of Austin</copyright>
+    <lastBuildDate>Wed, 12 Aug 2026 09:00:00 -0500</lastBuildDate>
+
+    <item>
+      <title>What counts as normal memory change with age, and what does not</title>
+      <link>https://neuroaustin.com/insights/normal-memory-change-and-what-is-not.html</link>
+      <guid isPermaLink="true">https://neuroaustin.com/insights/normal-memory-change-and-what-is-not.html</guid>
+      <description>Forgetting a name and forgetting the conversation are different problems. Where the line sits, and when testing is the thing that settles it.</description>
+      <category>Adults &amp; Aging</category>
+      <author>Stephanie Paulos, PhD</author>
+      <pubDate>Wed, 12 Aug 2026 09:00:00 -0500</pubDate>
+    </item>
+
+  </channel>
+</rss>

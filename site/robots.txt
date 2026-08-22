@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /insights/post-template.html
+
+Sitemap: https://neuroaustin.com/sitemap.xml
