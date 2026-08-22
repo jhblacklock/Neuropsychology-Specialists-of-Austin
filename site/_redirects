@@ -1,0 +1,26 @@
+# Netlify redirects. Ignored by Apache and Vercel — see .htaccess / vercel.json.
+# First match wins, so the confirmed rules sit above the guessed ones.
+
+# Confirmed old URLs
+/about-us/melissa-bunner-phd    /our-team/    301
+/about-us/stephanie-paulos-phd  /our-team/    301
+/about-us                       /our-team/    301
+
+# Likely old WordPress paths — verify against the live site before launch
+/contact-us                     /contact/     301
+/services                       /neuropsychological-evaluation/  301
+/neuropsychological-evaluation-2  /neuropsychological-evaluation/  301
+/intervention                   /intervention-services/  301
+/fees                           /fees-and-payment/  301
+/fees-and-insurance             /fees-and-payment/  301
+/insurance                      /fees-and-payment/  301
+/links                          /             301
+
+# Retired posts land on the blog index, not the home page
+/blog                           /insights/    301
+/blog/*                         /insights/    301
+/:year/:month/*                 /insights/    301
+
+# This build's own pre-launch preview paths
+/fees-and-insurance.html        /fees-and-payment/  301
+/insights/normal-memory-change-and-what-is-not.html  /insights/  301

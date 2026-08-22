@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/about-us/melissa-bunner-phd", "destination": "/our-team/", "permanent": true },
+    { "source": "/about-us/stephanie-paulos-phd", "destination": "/our-team/", "permanent": true },
+    { "source": "/about-us", "destination": "/our-team/", "permanent": true },
+
+    { "source": "/contact-us", "destination": "/contact/", "permanent": true },
+    { "source": "/services", "destination": "/neuropsychological-evaluation/", "permanent": true },
+    { "source": "/neuropsychological-evaluation-2", "destination": "/neuropsychological-evaluation/", "permanent": true },
+    { "source": "/intervention", "destination": "/intervention-services/", "permanent": true },
+    { "source": "/fees", "destination": "/fees-and-payment/", "permanent": true },
+    { "source": "/fees-and-insurance", "destination": "/fees-and-payment/", "permanent": true },
+    { "source": "/insurance", "destination": "/fees-and-payment/", "permanent": true },
+    { "source": "/links", "destination": "/", "permanent": true },
+
+    { "source": "/blog", "destination": "/insights/", "permanent": true },
+    { "source": "/blog/:path*", "destination": "/insights/", "permanent": true },
+    { "source": "/:year(20\\d{2})/:month(\\d{2})/:path*", "destination": "/insights/", "permanent": true },
+
+    { "source": "/fees-and-insurance.html", "destination": "/fees-and-payment/", "permanent": true },
+    { "source": "/insights/normal-memory-change-and-what-is-not.html", "destination": "/insights/", "permanent": true }
+  ]
+}
