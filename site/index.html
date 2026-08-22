@@ -72,7 +72,7 @@
       <div class="hero__inner">
         <p class="eyebrow">Board Certified Pediatric Neuropsychology</p>
         <h1>Neuropsychological testing for children and adolescents in Austin.</h1>
-        <p class="lead">Two board-certified neuropsychologists. We measure attention, memory, language, and executive function, then tell you what the results mean for school and for home — in writing, and in a session where you can ask questions.</p>
+        <p class="lead">Neuropsychology Specialists of Austin is a two-clinician practice on West 38th Street, both clinicians board certified in clinical neuropsychology. We measure attention, memory, language, and executive function, then tell you what the results mean for school and for home — in writing, and in a session where you can ask questions.</p>
         <div class="btn-row">
           <a class="btn" href="tel:+15126375865">Call 512-637-5865 to book a consultation</a>
         </div>
@@ -110,7 +110,7 @@
           <div class="stack stack--16">
             <h3>Intervention</h3>
             <p>Four programs for children who already have a diagnosis: cognitive rehabilitation, school advocacy, cognitive and executive coaching, and family therapy and education.</p>
-            <p><a href="intervention-services/">The five programs</a></p>
+            <p><a href="intervention-services/">The four programs</a></p>
           </div>
         </div>
       </div>
@@ -187,7 +187,7 @@
       <div class="stack stack--16 measure">
         <span class="rule-gold"></span>
         <h2 id="conditions-heading">Conditions we address</h2>
-        <p>If the concern below is the reason you are here, an evaluation is likely to be useful. If you are not sure, say so on the phone and we will tell you.</p>
+        <p>If ADHD, a learning disability, a brain injury, or another of the conditions in this list is the reason you are here, an evaluation is likely to be useful. If you are not sure, say so on the phone and we will tell you.</p>
       </div>
 
       <ul class="list-cols list-cols--3">
@@ -345,12 +345,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": ["MedicalBusiness", "MedicalClinic"],
+  "@id": "https://neuroaustin.com/#practice",
   "name": "Neuropsychology Specialists of Austin",
   "url": "https://neuroaustin.com/",
   "telephone": "+1-512-637-5865",
   "faxNumber": "+1-737-215-8710",
-  "medicalSpecialty": "Psychiatric",
+  "priceRange": "$$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "1500 W 38th Street, Suite 23",
@@ -359,10 +360,34 @@
     "postalCode": "78731",
     "addressCountry": "US"
   },
-  "areaServed": "Austin, Texas",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 30.30816,
+    "longitude": -97.74876
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=1500+W+38th+Street+Suite+23+Austin+TX+78731",
+  "areaServed": {
+    "@type": "City",
+    "name": "Austin",
+    "containedInPlace": { "@type": "State", "name": "Texas" }
+  },
+  "knowsAbout": [
+    "ADHD",
+    "Learning disabilities",
+    "Dyslexia, dyscalculia, dysgraphia",
+    "Autism spectrum disorder",
+    "Traumatic brain injury and concussion",
+    "Epilepsy",
+    "Brain tumors, and the late effects of chemotherapy and radiation",
+    "Genetic and chromosomal disorders",
+    "Cerebral palsy and spina bifida",
+    "Effects of prematurity",
+    "Executive functioning difficulties",
+    "Other neurodevelopmental and neurocognitive disorders"
+  ],
   "employee": [
-    { "@type": "Person", "name": "Melissa Bunner, PhD", "jobTitle": "Clinical Neuropsychologist" },
-    { "@type": "Person", "name": "Stephanie Paulos, PhD", "jobTitle": "Clinical Neuropsychologist" }
+    { "@id": "https://neuroaustin.com/our-team/#melissa-bunner" },
+    { "@id": "https://neuroaustin.com/our-team/#stephanie-paulos" }
   ]
 }
 </script>

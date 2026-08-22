@@ -31,6 +31,27 @@ jobs:
       - name: Disable Jekyll processing
         run: touch site/.nojekyll
 
+      # Pre-cutover the site is served from a github.io sub-path, where
+      # robots.txt is never read — crawlers only fetch it from a domain root,
+      # and jhblacklock.github.io/robots.txt is not ours. So the staging build
+      # gets a noindex meta injected into every page instead.
+      #
+      # This disarms itself: site/CNAME only exists once the custom domain is
+      # configured, and from that build onward nothing is injected. Do not add
+      # site/CNAME until DNS actually points at Pages — see REDIRECTS.md.
+      - name: Keep the staging build out of search indexes
+        run: |
+          if [ -f site/CNAME ]; then
+            echo "site/CNAME present — production build, no noindex injected."
+            exit 0
+          fi
+          echo "No site/CNAME — staging build, injecting noindex."
+          find site -name '*.html' -print0 | xargs -0 perl -0pi -e '
+            s{\s*<meta name="robots"[^>]*>}{}g;
+            s{(<meta charset="utf-8">)}{$1\n<meta name="robots" content="noindex, nofollow">}i;
+          '
+          echo "Injected into $(grep -rl "noindex, nofollow" site --include='*.html' | wc -l) files."
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3

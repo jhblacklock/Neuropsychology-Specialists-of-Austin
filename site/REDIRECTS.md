@@ -107,15 +107,32 @@ A 301 that lands on another 301 leaks signal.
 ## The HTML stubs
 
 Thirty-two folders — `about-us/`, `for-patients/`, `wpi-checkout/`, the dated
-post paths and the rest — each hold an `index.html` carrying
-`noindex, follow`, a canonical pointing at the destination, a zero-second meta
-refresh, and a JS fallback. They exist so the old URLs still land somewhere on
-a host that cannot issue a 301.
+post paths and the rest — each hold an `index.html` carrying a canonical
+pointing at the destination, a zero-second meta refresh, and a JS fallback.
+They exist so the old URLs still land somewhere on a host that cannot issue a
+301.
 
 They are a fallback, not the plan. A meta refresh is slower than a 301 and
 passes signals less reliably. On Apache the config wins and the stubs are never
 served. They are deliberately **not** blocked in `robots.txt`: blocking them
 would stop a crawler ever seeing the redirect.
+
+**The stubs no longer carry `noindex, follow`.** They used to, alongside the
+canonical, and that pairing was working against itself. `noindex` is a
+directive Google must obey; `rel=canonical` is a signal it may ignore. Google's
+guidance is to pick one, because a `noindex` sitting next to a canonical can be
+carried over to the page you are consolidating *into* — here, the new page you
+are trying to rank. On Apache the stub is never served and the point is moot,
+but on a host where the stub is the only redirect mechanism, that combination
+is the difference between inheriting the old rankings and deleting them. The
+canonical stays; the `noindex` is gone.
+
+Pre-cutover this leaves the stubs indexable, which is only safe because the
+staging build injects a site-wide `noindex` — see the "Keep the staging build
+out of search indexes" step in `.github/workflows/pages.yml`. That step turns
+itself off as soon as `site/CNAME` exists, so **do not create `site/CNAME`
+until DNS actually points at Pages**, or the whole site will be indexable from
+the github.io sub-path with canonicals aimed at a domain serving other content.
 
 ## Before and after cutover
 

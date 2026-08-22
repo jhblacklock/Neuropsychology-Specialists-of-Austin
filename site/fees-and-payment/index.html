@@ -71,7 +71,7 @@
       <div class="page-head__inner">
         <p class="eyebrow">Fees &amp; Payment</p>
         <h1>What everything costs.</h1>
-        <p class="lead">Our rates are published and we do not bill insurance. You will know the full cost of an evaluation before you book one, and it will not move afterwards.</p>
+        <p class="lead">Neuropsychology Specialists of Austin publishes its rates and does not bill insurance. You will know the full cost of an evaluation before you book one, and it will not move afterwards.</p>
       </div>
     </div>
   </div>
@@ -102,6 +102,7 @@
         </table>
       </div>
       <p class="measure">The evaluation fee is one fee for the whole sequence, not a per-hour charge. A testing day that runs eight hours costs the same as one that runs four, within the same referral question.</p>
+      <p class="measure">The consultation is counted inside that fee. What the consultation costs on its own, if a family stops after it and does not go on to testing, is not published here. <span class="confirm">Confirm</span></p>
     </div>
   </section>
 
@@ -252,12 +253,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": ["MedicalBusiness", "MedicalClinic"],
+  "@id": "https://neuroaustin.com/#practice",
   "name": "Neuropsychology Specialists of Austin",
   "url": "https://neuroaustin.com/",
   "telephone": "+1-512-637-5865",
   "faxNumber": "+1-737-215-8710",
-  "medicalSpecialty": "Psychiatric",
+  "priceRange": "$$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "1500 W 38th Street, Suite 23",
@@ -266,7 +268,35 @@
     "postalCode": "78731",
     "addressCountry": "US"
   },
-  "areaServed": "Austin, Texas"
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 30.30816,
+    "longitude": -97.74876
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=1500+W+38th+Street+Suite+23+Austin+TX+78731",
+  "areaServed": {
+    "@type": "City",
+    "name": "Austin",
+    "containedInPlace": { "@type": "State", "name": "Texas" }
+  },
+  "knowsAbout": [
+    "ADHD",
+    "Learning disabilities",
+    "Dyslexia, dyscalculia, dysgraphia",
+    "Autism spectrum disorder",
+    "Traumatic brain injury and concussion",
+    "Epilepsy",
+    "Brain tumors, and the late effects of chemotherapy and radiation",
+    "Genetic and chromosomal disorders",
+    "Cerebral palsy and spina bifida",
+    "Effects of prematurity",
+    "Executive functioning difficulties",
+    "Other neurodevelopmental and neurocognitive disorders"
+  ],
+  "employee": [
+    { "@id": "https://neuroaustin.com/our-team/#melissa-bunner" },
+    { "@id": "https://neuroaustin.com/our-team/#stephanie-paulos" }
+  ]
 }
 </script>
 
@@ -280,7 +310,7 @@
       "name": "Do you take insurance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. This is a private-pay practice. We are not in network with any carrier, we do not submit claims, and we do not provide superbills or other claim documentation. Plan on the fee being an out-of-pocket cost."
+        "text": "No. We are not in network with any carrier. We do not submit claims, and we do not provide superbills or other claim documentation. Plan on the fee being an out-of-pocket cost."
       }
     },
     {
@@ -296,7 +326,7 @@
       "name": "How long does neuropsychological testing take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two to eight hours, in one day, with breaks whenever your child needs them. How long depends on the referral question, your child's age, and whether they have been tested before."
+        "text": "A testing day runs two to eight hours. The evaluation fee is one fee for the whole sequence, not a per-hour charge: a testing day that runs eight hours costs the same as one that runs four, within the same referral question."
       }
     }
   ]

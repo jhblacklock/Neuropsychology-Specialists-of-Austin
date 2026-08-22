@@ -71,7 +71,7 @@
       <div class="page-head__inner">
         <p class="eyebrow">Our Team</p>
         <h1>Two clinicians, both board certified.</h1>
-        <p class="lead">Board certification in clinical neuropsychology by the American Board of Professional Psychology. The practice has held ABPP membership in Clinical Neuropsychology since 2004.</p>
+        <p class="lead">Melissa Bunner, PhD and Stephanie Paulos, PhD are the two clinicians at Neuropsychology Specialists of Austin, both board certified in clinical neuropsychology by the American Board of Professional Psychology. The practice has held ABPP membership in Clinical Neuropsychology since 2004.</p>
       </div>
     </div>
   </div>
@@ -87,7 +87,7 @@
         <div class="stack stack--24">
           <p class="lead lead--ink measure">Board certification is not required to practice neuropsychology in Texas, and it is not a membership you buy.</p>
           <p class="measure">ABPP has been the board-certifying body in psychology since 1947 and is the umbrella for 13 specialty boards, one of which is neuropsychology. It is analogous to the medical specialty boards. Certification requires specialty training, a review of credentials, a written examination, evaluation of submitted work samples, and an oral examination.</p>
-          <p class="measure">What it amounts to is peer acknowledgment of competence to practice in the specialty — other neuropsychologists have read this clinician's actual reports and examined them on them.</p>
+          <p class="measure">What it amounts to is peer acknowledgment of competence to practice in the specialty — other neuropsychologists have read the candidate's actual reports and examined them on that work.</p>
         </div>
       </div>
     </div>
@@ -134,8 +134,12 @@
         </div>
       </div>
 
-      <p class="caption">Both biographies are drawn from the practice's published material and trimmed to the pediatric scope of this site. <span class="confirm">Confirm</span></p>
-      <p class="caption">Photography has been commissioned and not yet delivered. Headshots replace the panels above when they arrive. <span class="confirm">Confirm</span></p>
+      <!-- Notes for the practice, not for visitors. Both were rendering as page
+           copy; they are tracked in the outstanding table in README.md instead.
+           [CONFIRM] Both biographies are drawn from the practice's published
+           material and trimmed to the pediatric scope of this site.
+           [CONFIRM] Photography has been commissioned and not yet delivered.
+           Headshots replace the placeholder panels above when they arrive. -->
     </div>
   </section>
 
@@ -215,6 +219,97 @@
     </div>
   </div>
 </footer>
+
+<!-- The two @id values below match the anchors on the bios above
+     (#melissa-bunner, #stephanie-paulos) and are what the post authors and the
+     home page employee list point at. Nothing carrying a CONFIRM marker in the
+     visible copy is repeated here — Bunner's years of experience in particular
+     — for the same reason openingHours is absent from the practice schema. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://neuroaustin.com/our-team/#page",
+      "url": "https://neuroaustin.com/our-team/",
+      "name": "Our Team",
+      "isPartOf": { "@id": "https://neuroaustin.com/#practice" },
+      "about": [
+        { "@id": "https://neuroaustin.com/our-team/#melissa-bunner" },
+        { "@id": "https://neuroaustin.com/our-team/#stephanie-paulos" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://neuroaustin.com/our-team/#melissa-bunner",
+      "name": "Melissa Bunner",
+      "honorificSuffix": "PhD",
+      "jobTitle": "Clinical Neuropsychologist",
+      "url": "https://neuroaustin.com/our-team/#melissa-bunner",
+      "worksFor": { "@id": "https://neuroaustin.com/#practice" },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "The University of Texas at Austin"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Board certification",
+        "name": "Board Certified in Clinical Neuropsychology",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "American Board of Professional Psychology"
+        }
+      },
+      "knowsAbout": [
+        "ADHD",
+        "Dyslexia",
+        "Dyscalculia",
+        "Dysgraphia",
+        "Autism spectrum disorder",
+        "Traumatic brain injury",
+        "Genetic disorders"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://neuroaustin.com/our-team/#stephanie-paulos",
+      "name": "Stephanie Paulos",
+      "honorificSuffix": "PhD",
+      "jobTitle": "Clinical Neuropsychologist",
+      "url": "https://neuroaustin.com/our-team/#stephanie-paulos",
+      "worksFor": { "@id": "https://neuroaustin.com/#practice" },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "The University of Texas at Austin"
+      },
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "The University of Texas at Austin"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Board certification",
+        "name": "Board Certified in Clinical Neuropsychology",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "American Board of Professional Psychology"
+        }
+      },
+      "memberOf": [
+        { "@type": "Organization", "name": "Austin Neuropsychological Society" },
+        { "@type": "Organization", "name": "International Neuropsychological Society" },
+        { "@type": "Organization", "name": "American Academy of Clinical Neuropsychology" }
+      ],
+      "knowsAbout": [
+        "Neuropsychological assessment",
+        "Cognitive rehabilitation after neurological injury",
+        "Executive function intervention"
+      ]
+    }
+  ]
+}
+</script>
 
 <script>
 (function () {

@@ -71,7 +71,7 @@
       <div class="page-head__inner">
         <p class="eyebrow">Contact &amp; Directions</p>
         <h1>1500 W 38th Street, Suite 23.</h1>
-        <p class="lead">Central Austin, off West 38th Street. Call <a href="tel:+15126375865">512-637-5865</a> to book a consultation, or to ask whether an evaluation is the right thing for your child.</p>
+        <p class="lead">Neuropsychology Specialists of Austin is at 1500 W 38th Street, Suite 23, in central Austin. Call <a href="tel:+15126375865">512-637-5865</a> to book a consultation, or to ask whether an evaluation is the right thing for your child.</p>
       </div>
     </div>
   </div>
@@ -142,7 +142,13 @@
         <div class="stack stack--24">
           <p class="measure">Intake forms are completed through the practice's form provider, not on this website. The office sends you the link when your appointment is scheduled. <span class="confirm">Confirm</span></p>
           <p class="measure">Nothing on this site collects patient information. Do not send clinical details about your child, or anything else identifying, by email or through this website.</p>
-          <p class="caption">The form provider has not been chosen yet. Whatever it is, the requirement is the same: it has to be HIPAA-compliant and willing to sign a business associate agreement. The link drops into this block when it exists — no other page changes.</p>
+          <!-- Note for the practice, not for visitors. It was rendering as page
+               copy, and it told the public that a HIPAA vendor decision is still
+               open. Tracked in the outstanding table in README.md instead.
+               [CONFIRM] The form provider has not been chosen yet. Whatever it
+               is, the requirement is the same: HIPAA-compliant and willing to
+               sign a business associate agreement. The link drops into this
+               block when it exists — no other page changes. -->
         </div>
       </div>
     </div>
@@ -228,12 +234,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": ["MedicalBusiness", "MedicalClinic"],
+  "@id": "https://neuroaustin.com/#practice",
   "name": "Neuropsychology Specialists of Austin",
   "url": "https://neuroaustin.com/",
   "telephone": "+1-512-637-5865",
   "faxNumber": "+1-737-215-8710",
-  "medicalSpecialty": "Psychiatric",
+  "priceRange": "$$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "1500 W 38th Street, Suite 23",
@@ -242,7 +249,35 @@
     "postalCode": "78731",
     "addressCountry": "US"
   },
-  "areaServed": "Austin, Texas"
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 30.30816,
+    "longitude": -97.74876
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=1500+W+38th+Street+Suite+23+Austin+TX+78731",
+  "areaServed": {
+    "@type": "City",
+    "name": "Austin",
+    "containedInPlace": { "@type": "State", "name": "Texas" }
+  },
+  "knowsAbout": [
+    "ADHD",
+    "Learning disabilities",
+    "Dyslexia, dyscalculia, dysgraphia",
+    "Autism spectrum disorder",
+    "Traumatic brain injury and concussion",
+    "Epilepsy",
+    "Brain tumors, and the late effects of chemotherapy and radiation",
+    "Genetic and chromosomal disorders",
+    "Cerebral palsy and spina bifida",
+    "Effects of prematurity",
+    "Executive functioning difficulties",
+    "Other neurodevelopmental and neurocognitive disorders"
+  ],
+  "employee": [
+    { "@id": "https://neuroaustin.com/our-team/#melissa-bunner" },
+    { "@id": "https://neuroaustin.com/our-team/#stephanie-paulos" }
+  ]
 }
 </script>
 

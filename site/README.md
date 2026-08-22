@@ -237,14 +237,34 @@ These extend the brand document rather than contradict it.
   named — "neuropsychological evaluation Austin", "ADHD testing Austin" — plus
   the ones the fee transparency can actually win, like the cost of a pediatric
   evaluation in Austin.
-- **Structured data**: `MedicalBusiness` with the address on Home, Fees, and
-  Contact; `BlogPosting` on the post; `FAQPage` on Fees, covering insurance,
-  cost, and testing duration. Every schema answer is a verbatim claim from the
-  visible page.
+- **Structured data** is one connected graph, not a pile of separate blocks.
+  The practice is defined once as `@id: https://neuroaustin.com/#practice`
+  (`["MedicalBusiness", "MedicalClinic"]`, repeated verbatim on Home, Fees and
+  Contact). The two clinicians are defined once each on Our Team at
+  `#melissa-bunner` and `#stephanie-paulos`, the same anchors the bios and the
+  post bylines already use. `employee`, `worksFor`, `author` and `publisher`
+  all point at those `@id`s, so a crawler sees two people and one practice
+  rather than thirteen anonymous nodes. Author and publisher also carry
+  `name`/`url` inline, because Google does not reliably resolve an `@id`
+  across pages.
+- **`medicalSpecialty` was removed.** It said `"Psychiatric"`, which is a real
+  enum value and a false statement — psychiatry is a physician specialty and
+  this is two psychologists. The enum has no psychology member. The real
+  specificity now lives in `knowsAbout` and in the visible copy.
+- **`FAQPage` on Fees is kept but expect nothing from it.** Google deprecated
+  FAQ rich results in May 2026 and removed the documentation that June; `HowTo`
+  went the same way, so do not add one to The Process. Neither type earns a
+  rich result any more. The FAQ block stays because answer engines still read
+  it. For the same reason there is no point chasing a medical rich result —
+  Google's gallery has none.
 - **`openingHours` is deliberately absent** from the schema. The hours came
   from a third-party directory, not the practice. Structured data cannot carry
   a `CONFIRM` marker, so the field waits. The "no referral needed" answer is
   left out of the FAQ schema for the same reason.
+- **`geo` was derived, not supplied.** `30.30816, -97.74876` comes from
+  geocoding the published street address. Sanity-check it against the practice's
+  Google Business Profile at cutover; that profile, not this markup, is what
+  actually drives the knowledge panel.
 - **404 lists every page** rather than bouncing to the home page.
 - `sitemap.xml`, `robots.txt`, and `rss.xml` all use the clean URLs. The post
   template is excluded from both the sitemap and search indexes.
@@ -252,8 +272,11 @@ These extend the brand document rather than contradict it.
 ## Outstanding — must be resolved before launch
 
 Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 46 markers across the site — the
-eleven new ones are unverified citations in the posts.
+is visible in the page, not buried here. 33 markers across the site. The count
+was 46: the eleven citation markers in the posts are gone, every source having
+been opened and checked (see `CITATIONS.md`), two more moved into HTML comments
+because they were notes to the practice rather than page copy, and one was
+added for the consultation-fee question below.
 
 | Item | Working assumption | Where |
 | --- | --- | --- |
@@ -263,14 +286,15 @@ eleven new ones are unverified citations in the posts.
 | Provider line | None that bypasses patient intake | Referring Providers |
 | Clinician phone consult | Available on request after report delivery | Referring Providers |
 | Referral questions declined | Unknown — the list is not published | Referring Providers |
-| Age range | Children and adolescents; coaching extends to young adults | Evaluation |
-| Bunner's biography | Trimmed to pediatric scope; source says "children and adults" | Our Team |
+| Age range | Children and adolescents; coaching extends to young adults. **No numeric range is published, and "what age can my child be tested" is a high-volume query.** Ask the practice for a bound — "ages 4 to 18" or whatever is true | Evaluation |
+| Consultation fee | The evaluation fee is stated to *cover* the consultation, but five calls-to-action say the office will tell you "what the consultation costs", which implies a separate charge. Both cannot be the headline. Ask whether the consultation is billed on its own when a family stops after it | Fees & Payment |
+| Bunner's biography | Trimmed to pediatric scope; source says "children and adults". Note this one is now an HTML comment on Our Team, not visible copy — it was a note to the practice that was rendering to visitors | Our Team |
 | Bunner's experience | "Over 20 years" per neuroaustin.com; the brief says 10+ | Our Team |
 | Office hours | Mon–Fri 8:30am–5:00pm, from a directory listing | Footer, Contact |
 | Parking | Nothing known; the block is reserved and empty | Contact |
 | Headshots | Commissioned, not delivered | Our Team, post byline |
 | Family therapy fee | Not in the published rate list | Intervention Services |
-| Intake form provider | Not chosen. The brief said JotForm; the practice does not have it and may pick something else | Contact |
+| Intake form provider | Not chosen. The brief said JotForm; the practice does not have it and may pick something else. Now an HTML comment on Contact rather than visible copy — it was telling the public that a HIPAA vendor decision is still open | Contact |
 
 Also outstanding, and not marked in the page because they are technical:
 
