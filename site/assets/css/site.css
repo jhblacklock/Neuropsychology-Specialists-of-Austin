@@ -419,7 +419,23 @@ address {
   flex: none;
 }
 
-.logo__mark { width: 40px; }
+/* The gold mark. The brand document floors it at 48px — under that the
+   tapered stroke ends thin out — so it stays 48px at every breakpoint rather
+   than stepping down with the type. */
+
+.logo__mark {
+  width: 48px;
+  height: 40px;
+  flex: none;
+  align-self: center;
+  /* Box-centring leaves the mark reading high, because the name's half-leading
+     sits above the caps while "of Austin" has almost no descender below its
+     baseline — so the type's visible ink sits lower in the box than the box
+     centre does. Measured at 2.03px out at 375 and 2.55px at 1440; corrected
+     here and re-measured to under a third of a pixel. Optical, not spacing,
+     which is why it is not on the 8px scale. */
+  transform: translateY(2px);
+}
 
 .logo__text {
   display: flex;
@@ -428,45 +444,52 @@ address {
 }
 
 .logo__name {
-  font: 700 17px/1.15 var(--serif);
+  font: 700 21px/1.15 var(--serif);
   letter-spacing: -0.005em;
 }
+
+/* "of Austin" sits centred under the name with the rules running out to each
+   end, so the second line is exactly as wide as the first — the row stretches
+   and each rule takes the space left over. The rules are Mist rather than
+   gold: the mark and the italic are already carrying the accent, and a third
+   gold element in one lockup stops the accent being one.
+
+   The 0.157em offset stays, and the row sets its own font-size so that em
+   resolves against the italic. That centres the rules on the x-height of the
+   "o" in "of". */
 
 .logo__austin {
   display: flex;
   align-items: center;
-  gap: var(--s1);
-  font-size: 15px;
+  align-self: stretch;
+  gap: 12px;
+  font-size: 18px;
 }
 
 .logo__austin span {
   display: block;
-  width: 20px;
+  width: auto;
+  flex: 1 1 auto;
   height: 1px;
-  background: var(--gold);
+  background: var(--mist);
   position: relative;
   top: 0.157em;
 }
 
 .logo__austin em {
-  font: 600 italic 15px/1 var(--serif);
+  font: 600 italic 18px/1 var(--serif);
   color: var(--gold);
-}
-
-@media (max-width: 767px) {
-  .logo { gap: var(--s2); }
-  .logo__name { font-size: 15px; line-height: 1.14; max-width: 10em; }
-  .logo__austin { gap: var(--s1); font-size: 14px; }
-  .logo__austin em { font-size: 14px; }
-  .logo__austin span { width: auto; flex: 1 1 auto; }
+  flex: none;
 }
 
 @media (min-width: 768px) {
-  .logo__mark { width: 48px; }
-  .logo__name { font-size: 21px; }
-  .logo__austin { font-size: 18px; }
-  .logo__austin em { font-size: 18px; }
-  .logo__austin span { width: 28px; }
+  .logo__mark { transform: translateY(2.5px); }
+}
+
+@media (max-width: 767px) {
+  .logo__name { font-size: 15px; line-height: 1.14; max-width: 10em; }
+  .logo__austin { gap: var(--s1); font-size: 14px; }
+  .logo__austin em { font-size: 14px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -978,6 +1001,13 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 /* Where a photograph has not been commissioned for the slot at all, section 07
    names the fallback instead: name and credentials over a Shell field, no
    silhouette icon. */
+
+/* A headshot slot is a headshot slot at every width. Without a cap, the square
+   placeholder becomes as wide as the column when the layout stacks, which at
+   768px is a 720px-tall square standing over a three-paragraph bio. */
+
+.bio > .figure { max-width: 320px; }
+.byline > .figure { max-width: 200px; }
 
 .portrait-fallback {
   background: var(--shell);

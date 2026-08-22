@@ -99,11 +99,25 @@ These extend the brand document rather than contradict it.
   hairline for that reason.
 - **Footer meta uses Mist, not Ash.** Ash on charcoal is 4.2:1, under AA for
   body-size text. Mist is 5.7:1.
-- **The header logo is the mark plus the wordmark, without the caps line.** The
-  document floors the full lockup at 88px of mark because the eyebrow line
-  stops being readable below that. The compact header form drops that line
-  rather than shrinking it, which is the rule the document states for small
-  sizes. The full lockup with "of Austin" appears in the footer.
+- **The header lockup is option M from the lockup study.** The mark in gold at
+  48px, the name on one line, and "of Austin" centred beneath it with the
+  hairlines running out to each end so the second line is exactly as wide as
+  the first. Three things about it are deliberate:
+  - **48px at every breakpoint.** The brand document floors the gold mark at
+    48px because the tapered stroke ends thin out below that, so it does not
+    step down with the type on mobile.
+  - **The rails are Mist, not gold.** The mark and the italic already carry the
+    accent; a third gold element in one lockup stops the accent being one.
+  - **The mark is nudged down 2.5px (2px on mobile).** Box-centring left it
+    reading high, because the name's half-leading sits above the caps while "of
+    Austin" has almost no descender below its baseline. Measured in a browser
+    at 2.55px out, corrected, and re-measured to 0.05px. Optical, not spacing,
+    which is why it is off the 8px scale.
+
+  The caps line is dropped rather than shrunk, per the document's rule for
+  small sizes. The full lockup with the caps line appears in the footer, where
+  the mark is white on charcoal — the gold mark does not carry to a dark
+  ground.
 - **Photo slots are greeked.** Section 07's striped field with a monospace note
   naming the shot marks each frame: testing room on the home page, clinician
   headshots on Our Team and post bylines, building exterior on Contact. Every
