@@ -6,11 +6,9 @@ markers and the four editorial notes at the feet of the post bodies are gone.
 
 Verified 22 August 2026.
 
-**The one thing still marked:** the office-hours line in the site footer
-(`Monday to Friday, 8:30am to 5:00pm`) still carries a `CONFIRM` marker. It is
-not a citation — it is a fact about the practice, and only the practice can
-confirm it. It appears on every page of the site, not just these four posts, so
-it is tracked separately from this file.
+**Office hours** (`Monday to Friday, 8:30am to 5:00pm`) are confirmed by the
+practice and carry no `CONFIRM` marker anywhere. An earlier version of this
+file said the footer line was still marked; it was not, and is not.
 
 
 ## Getting back to school after a concussion
@@ -85,3 +83,42 @@ it is tracked separately from this file.
   The body already tells parents what to ask whoever is selling it. (Cogmed
   itself is still sold by Pearson; this is an editorial choice, not a dead
   link.)
+
+## Site pages (v2, November 2026)
+
+Citations added to the page copy where it makes a checkable claim. Each was
+opened, or its address confirmed from the publisher's own pages, on
+1 November 2026.
+
+- **Home, "What is a Neuropsychological Evaluation".** ABPP, *Clinical
+  Neuropsychology: FAQs*.
+  <https://abpp.org/application-information/learn-about-specialty-boards/clinical-neuropsychology/faqs/>
+  Opened. Supports the written and oral examinations and the peer review of
+  work: it describes four stages — credentials review, written examination,
+  practice sample (casebook), oral examination. The two-year residency is the
+  Houston Conference requirement the same page links to for candidates who
+  graduated after 2005.
+- **About, Credentials.** ABPP's Clinical Neuropsychology board page.
+  <https://abpp.org/application-information/learn-about-specialty-boards/clinical-neuropsychology/>
+  Taken from ABPP's own navigation on the FAQ page above.
+- **About, Credentials, "licensed psychologists".** Texas Behavioral Health
+  Executive Council. <https://bhec.texas.gov/>
+  The licensing body the client copy names. The license-verification page is
+  the better target; swap it in once it has been opened.
+- **About, Credentials, affiliations.** APA <https://www.apa.org> and NAN
+  <https://nanonline.org> (both client-supplied), AACN
+  <https://www.theaacn.org/> (linked from ABPP's FAQ page), INS
+  <https://the-ins.org/> (the society's own site). The Austin
+  Neuropsychological Society is not linked: no official site was found.
+- **Services, IEE.** 34 CFR §300.502, reused from the school-evaluation post
+  above. <https://sites.ed.gov/idea/regs/b/e/300.502>
+
+**Not cited, on purpose:** "The term neuropsychologist is not protected in the
+state of Texas." It is the client's sentence and it is accurate as far as can
+be told — BHEC licenses the title "psychologist", and no rule defines
+"neuropsychologist" — but no official page states the negative, and a citation
+that does not say what the sentence says is worse than none.
+
+**Client-supplied links** are recorded in the v2 pull request, with the ones
+that look moved and a suggested replacement for each. None was swapped.
+`node tools/check-site.mjs --external` requests every one.

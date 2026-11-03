@@ -4,23 +4,53 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/neuropsychological-evaluation",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/the-process",
+      "destination": "/services/#evaluation-process",
+      "permanent": true
+    },
+    {
+      "source": "/our-team",
+      "destination": "/about/#our-experts",
+      "permanent": true
+    },
+    {
+      "source": "/fees-and-payment",
+      "destination": "/faqs/#insurance",
+      "permanent": true
+    },
+    {
+      "source": "/intervention-services",
+      "destination": "/faqs/#intervention-services",
+      "permanent": true
+    },
+    {
+      "source": "/for-referring-providers",
+      "destination": "/contact/#referrals",
+      "permanent": true
+    },
+    {
       "source": "/2018/04/02/what-is-neuropsychology",
-      "destination": "/neuropsychological-evaluation/",
+      "destination": "/services/",
       "permanent": true
     },
     {
       "source": "/2018/04/02/detecting-autism-in-the-very-young",
-      "destination": "/neuropsychological-evaluation/",
+      "destination": "/services/#neuropsychological-evaluations",
       "permanent": true
     },
     {
       "source": "/2018/04/02/head-injuries-may-lead-to-early-alzheimers",
-      "destination": "/insights/",
+      "destination": "/services/#neuropsychological-evaluations",
       "permanent": true
     },
     {
       "source": "/2021/01/21/every-child-has-a-gift-it-just-has-to-be-discovered",
-      "destination": "/insights/",
+      "destination": "/services/#giftedness",
       "permanent": true
     },
     {
@@ -30,77 +60,77 @@
     },
     {
       "source": "/author/stephaniep",
-      "destination": "/our-team/",
+      "destination": "/about/#stephanie-paulos",
       "permanent": true
     },
     {
       "source": "/about-us/melissa-bunner-phd",
-      "destination": "/our-team/",
+      "destination": "/about/#melissa-bunner",
       "permanent": true
     },
     {
       "source": "/about-us/stephanie-paulos-phd",
-      "destination": "/our-team/",
+      "destination": "/about/#stephanie-paulos",
       "permanent": true
     },
     {
       "source": "/about-us/david-tucker-phd",
-      "destination": "/our-team/",
+      "destination": "/about/",
       "permanent": true
     },
     {
       "source": "/about-us/greg-allen-phd",
-      "destination": "/our-team/",
+      "destination": "/about/",
       "permanent": true
     },
     {
       "source": "/about-us/connie-walker",
-      "destination": "/our-team/",
+      "destination": "/about/",
       "permanent": true
     },
     {
       "source": "/about-us",
-      "destination": "/our-team/",
+      "destination": "/about/",
       "permanent": true
     },
     {
       "source": "/general-procedures",
-      "destination": "/the-process/",
+      "destination": "/services/#evaluation-process",
       "permanent": true
     },
     {
       "source": "/for-patients/what-is-neuropsychology",
-      "destination": "/neuropsychological-evaluation/",
+      "destination": "/services/",
       "permanent": true
     },
     {
       "source": "/for-patients/intervention-services",
-      "destination": "/intervention-services/",
+      "destination": "/faqs/#intervention-services",
       "permanent": true
     },
     {
       "source": "/for-patients/billing-and-fees",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/for-patients/forms",
-      "destination": "/contact/",
+      "destination": "/contact/#make-an-appointment",
       "permanent": true
     },
     {
       "source": "/for-patients/patients-medical-records-and-patients-rights",
-      "destination": "/contact/",
+      "destination": "/resources/#medical-records",
       "permanent": true
     },
     {
       "source": "/for-patients/links",
-      "destination": "/",
+      "destination": "/resources/",
       "permanent": true
     },
     {
       "source": "/for-patients",
-      "destination": "/neuropsychological-evaluation/",
+      "destination": "/services/",
       "permanent": true
     },
     {
@@ -115,57 +145,57 @@
     },
     {
       "source": "/wpi-checkout/wpinv-transaction-failed",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/wpi-checkout/wpinv-subscriptions",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/wpi-checkout/wpinv-receipt",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/wpi-checkout/wpi-history",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/wpi-checkout",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/stripe-checkout-result",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/payment-confirmation",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/payment-failed",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/asp-products/payment",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/products",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/fees-and-insurance.html",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
@@ -215,12 +245,12 @@
     },
     {
       "source": "/wpi-checkout/:path*",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {
       "source": "/asp-products/:path*",
-      "destination": "/fees-and-payment/",
+      "destination": "/faqs/#insurance",
       "permanent": true
     },
     {

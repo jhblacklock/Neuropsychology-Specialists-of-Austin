@@ -1,0 +1,90 @@
+{
+  "_note": "Single source for site/.htaccess, site/_redirects, site/vercel.json and the HTML stubs. Edit this file, then run: node tools/redirects/generate.mjs",
+  "groups": [
+    {
+      "name": "v1 pages (August 2026 build) merged into the six-page structure",
+      "rules": [
+        { "from": "/neuropsychological-evaluation/", "to": "/services/", "why": "became Services", "stub": true },
+        { "from": "/the-process/", "to": "/services/#evaluation-process", "why": "merged into Services", "stub": true },
+        { "from": "/our-team/", "to": "/about/#our-experts", "why": "merged into About", "stub": true },
+        { "from": "/fees-and-payment/", "to": "/faqs/#insurance", "why": "merged into the insurance FAQ", "stub": true },
+        { "from": "/intervention-services/", "to": "/faqs/#intervention-services", "why": "retired: the practice does not provide intervention", "stub": true },
+        { "from": "/for-referring-providers/", "to": "/contact/#referrals", "why": "referral details folded into Contact", "stub": true }
+      ]
+    },
+    {
+      "name": "Old WordPress posts, sent to the nearest topic",
+      "rules": [
+        { "from": "/2018/04/02/what-is-neuropsychology/", "to": "/services/", "why": "topic match", "stub": true },
+        { "from": "/2018/04/02/detecting-autism-in-the-very-young/", "to": "/services/#neuropsychological-evaluations", "why": "autism evaluation is a core service", "stub": true },
+        { "from": "/2018/04/02/head-injuries-may-lead-to-early-alzheimers/", "to": "/services/#neuropsychological-evaluations", "why": "adult brain injury is in scope again", "stub": true },
+        { "from": "/2021/01/21/every-child-has-a-gift-it-just-has-to-be-discovered/", "to": "/services/#giftedness", "why": "giftedness is now a service", "stub": true },
+        { "from": "/category/articles/", "to": "/insights/", "stub": true },
+        { "from": "/author/stephaniep/", "to": "/about/#stephanie-paulos", "stub": true }
+      ]
+    },
+    {
+      "name": "People",
+      "rules": [
+        { "from": "/about-us/melissa-bunner-phd/", "to": "/about/#melissa-bunner", "stub": true },
+        { "from": "/about-us/stephanie-paulos-phd/", "to": "/about/#stephanie-paulos", "stub": true },
+        { "from": "/about-us/david-tucker-phd/", "to": "/about/", "why": "removed from all materials, see REDIRECTS.md decision 2", "stub": true },
+        { "from": "/about-us/greg-allen-phd/", "to": "/about/", "why": "not on the team", "stub": true },
+        { "from": "/about-us/connie-walker/", "to": "/about/", "why": "not on the team", "stub": true },
+        { "from": "/about-us/", "to": "/about/", "stub": true }
+      ]
+    },
+    {
+      "name": "Patient pages",
+      "rules": [
+        { "from": "/general-procedures/", "to": "/services/#evaluation-process", "stub": true },
+        { "from": "/for-patients/what-is-neuropsychology/", "to": "/services/", "stub": true },
+        { "from": "/for-patients/intervention-services/", "to": "/faqs/#intervention-services", "stub": true },
+        { "from": "/for-patients/billing-and-fees/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/for-patients/forms/", "to": "/contact/#make-an-appointment", "why": "the office sends the paperwork", "stub": true },
+        { "from": "/for-patients/patients-medical-records-and-patients-rights/", "to": "/resources/#medical-records", "why": "settles REDIRECTS.md decision 1", "stub": true },
+        { "from": "/for-patients/links/", "to": "/resources/", "why": "Resources replaces the Links page", "stub": true },
+        { "from": "/for-patients/", "to": "/services/", "why": "section hub", "stub": true },
+        { "from": "/directions/", "to": "/contact/", "stub": true },
+        { "from": "/contact-us/", "to": "/contact/", "stub": true }
+      ]
+    },
+    {
+      "name": "The retired checkout plugin",
+      "rules": [
+        { "from": "/wpi-checkout/wpinv-transaction-failed/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/wpi-checkout/wpinv-subscriptions/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/wpi-checkout/wpinv-receipt/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/wpi-checkout/wpi-history/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/wpi-checkout/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/stripe-checkout-result/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/payment-confirmation/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/payment-failed/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/asp-products/payment/", "to": "/faqs/#insurance", "stub": true },
+        { "from": "/products/", "to": "/faqs/#insurance", "stub": true }
+      ]
+    },
+    {
+      "name": "Prototype .html URLs",
+      "rules": [
+        { "from": "/fees-and-insurance.html", "to": "/faqs/#insurance" },
+        { "from": "/insights/normal-memory-change-and-what-is-not.html", "to": "/insights/", "why": "no aging content on the new site" }
+      ]
+    }
+  ],
+  "feeds": [
+    { "from": "/feed/", "to": "/rss.xml" },
+    { "from": "/comments/feed/", "to": "/rss.xml" },
+    { "from": "/sitemap_index.xml", "to": "/sitemap.xml" },
+    { "from": "/post-sitemap.xml", "to": "/sitemap.xml" },
+    { "from": "/page-sitemap.xml", "to": "/sitemap.xml" },
+    { "from": "/category-sitemap.xml", "to": "/sitemap.xml" },
+    { "from": "/author-sitemap.xml", "to": "/sitemap.xml" },
+    { "from": "/asp-products-sitemap.xml", "to": "/sitemap.xml" }
+  ],
+  "wildcards": [
+    { "tree": "/wpi-checkout/", "to": "/faqs/#insurance" },
+    { "tree": "/asp-products/", "to": "/faqs/#insurance" },
+    { "dated": true, "to": "/insights/" }
+  ]
+}

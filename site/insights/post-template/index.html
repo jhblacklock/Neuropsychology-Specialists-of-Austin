@@ -10,7 +10,11 @@
 <meta property="og:title" content="Post template">
 <meta property="og:description" content="Template file for Insights posts. Not for publication, and excluded from the sitemap and search indexes.">
 <meta property="og:url" content="https://neuroaustin.com/insights/post-template/">
-<!-- og:image pending: the commissioned photography has not been delivered. [CONFIRM] -->
+<meta property="og:image" content="https://neuroaustin.com/assets/images/og-partners.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dr. Melissa Bunner and Dr. Stephanie Paulos">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../assets/fonts/playfair-display-700-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/playfair-display-600-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/montserrat-600-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -43,7 +47,8 @@
       </span>
     </a>
     <div class="header__actions">
-      <a class="btn header__cta" href="tel:+15126375865">Call 512-637-5865</a>
+      <a class="btn header__cta" href="../../contact/#make-an-appointment">Make an Appointment</a>
+      <a class="btn btn--ghost header__portal" href="https://neuroaustin.janeapp.com" rel="noopener">Patient Portal</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <span class="nav-toggle__bars" aria-hidden="true"></span>
         <span class="visually-hidden">Menu</span>
@@ -52,15 +57,14 @@
   </div>
   <nav class="site-nav" id="site-nav" aria-label="Main">
     <ul class="nav__list">
-      <li><a href="../../neuropsychological-evaluation/">Evaluation</a></li>
-      <li><a href="../../intervention-services/">Intervention</a></li>
-      <li><a href="../../the-process/">The Process</a></li>
-      <li><a href="../../our-team/">Our Team</a></li>
-      <li><a href="../../fees-and-payment/">Fees &amp; Payment</a></li>
-      <li><a href="../../for-referring-providers/">Referring Providers</a></li>
-      <li><a href="../../insights/" aria-current="page">Insights</a></li>
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../about/">About</a></li>
+      <li><a href="../../services/">Services</a></li>
+      <li><a href="../../faqs/">FAQs</a></li>
+      <li><a href="../../resources/">Resources</a></li>
       <li><a href="../../contact/">Contact</a></li>
     </ul>
+    <div class="nav__portal"><a class="btn btn--ghost" href="https://neuroaustin.janeapp.com" rel="noopener">Patient Portal</a></div>
   </nav>
 </header>
 
@@ -149,7 +153,7 @@
         <h2 class="visually-hidden" id="byline-heading">About the author</h2>
         <div class="byline">
           <figure class="figure">
-            <div class="placeholder placeholder--square">
+            <div class="placeholder placeholder--portrait">
               <p class="placeholder__label">clinician headshot,<br>seated, plain wall</p>
             </div>
           </figure>
@@ -157,7 +161,7 @@
             <h3>TODO Author, PhD</h3>
             <p class="meta">Board certified in clinical neuropsychology, ABPP</p>
             <p>TODO One-line biography.</p>
-            <p><a href="../../our-team/#TODO-clinician-anchor">Full biography</a></p>
+            <p><a href="../../about/#TODO-clinician-anchor">Full biography</a></p>
           </div>
         </div>
       </div>
@@ -217,24 +221,26 @@
     <div class="footer__grid">
       <div class="stack stack--24">
         <address>
+          Neuropsychology Specialists of Austin, PLLC<br>
           1500 W 38th Street, Suite 23<br>
           Austin, TX 78731<br>
           Phone <a href="tel:+15126375865">512-637-5865</a><br>
-          Fax 737-215-8710
+          Fax 737-215-8710<br>
+          Email <a href="mailto:info@neuroaustin.com">info@neuroaustin.com</a>
         </address>
       </div>
 
       <nav class="stack stack--16" aria-label="Footer">
         <h2 class="eyebrow eyebrow--dark">Pages</h2>
         <ul class="footer__list">
-          <li><a href="../../neuropsychological-evaluation/">Neuropsychological Evaluation</a></li>
-          <li><a href="../../intervention-services/">Intervention Services</a></li>
-          <li><a href="../../the-process/">The Process</a></li>
-          <li><a href="../../our-team/">Our Team</a></li>
-          <li><a href="../../fees-and-payment/">Fees &amp; Payment</a></li>
-          <li><a href="../../for-referring-providers/">For Referring Providers</a></li>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../services/">Services</a></li>
+          <li><a href="../../faqs/">FAQs</a></li>
+          <li><a href="../../resources/">Resources</a></li>
           <li><a href="../../insights/">Insights</a></li>
           <li><a href="../../contact/">Contact &amp; Directions</a></li>
+          <li><a href="https://neuroaustin.janeapp.com" rel="noopener">Patient Portal</a></li>
         </ul>
       </nav>
 
@@ -246,7 +252,7 @@
     </div>
 
     <div class="footer__bottom">
-      <p>&copy; 2026 Neuropsychology Specialists of Austin</p>
+      <p>&copy; 2026 Neuropsychology Specialists of Austin, PLLC</p>
       <p>1500 W 38th Street, Suite 23, Austin, TX 78731</p>
     </div>
   </div>
@@ -273,10 +279,10 @@
   "dateModified": "2026-01-01",
   "author": {
     "@type": "Person",
-    "@id": "https://neuroaustin.com/our-team/#TODO-clinician-anchor",
+    "@id": "https://neuroaustin.com/about/#TODO-clinician-anchor",
     "name": "TODO Author",
-    "honorificSuffix": "PhD",
-    "url": "https://neuroaustin.com/our-team/#TODO-clinician-anchor"
+    "honorificSuffix": "Ph.D., ABPP-CN",
+    "url": "https://neuroaustin.com/about/#TODO-clinician-anchor"
   },
   "publisher": {
     "@type": ["MedicalBusiness", "MedicalClinic"],
@@ -295,6 +301,23 @@
   toggle.addEventListener('click', function () {
     var open = nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+</script>
+
+<script>
+/* Preview fallback. Internal links are clean folder URLs (about/), which every
+   real host serves as about/index.html. A file preview, or a page opened from
+   disk, does not, so every link 404s. When this page was itself opened by its
+   file name, point the internal links at file names too. Never fires on
+   neuroaustin.com, where pages are addressed as /about/. */
+(function () {
+  if (!/\/index\.html$/.test(location.pathname)) return;
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+    var href = a.getAttribute('href');
+    if (/^([a-z][a-z0-9+.-]*:|#|\/\/)/i.test(href)) return;
+    var m = href.match(/^([^?#]*\/)([?#].*)?$/);
+    if (m) a.setAttribute('href', m[1] + 'index.html' + (m[2] || ''));
   });
 })();
 </script>
