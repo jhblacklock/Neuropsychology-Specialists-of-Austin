@@ -389,10 +389,10 @@ review. Where this section and an older one disagree, this one is current.
   (1200px for the parking lot). The parking photo is cropped to leave out a
   readable licence plate. The front-desk photo was not used.
 
-One `CONFIRM` marker is left, on Home: the Google review link, which is a
-Maps search stand-in until the practice sends its Business Profile review URL.
+No `CONFIRM` markers are left. The Google review link on Home is the
+practice's own Maps share link.
 The Home hero carries the photograph of both doctors, filling the right half
-of the band edge to edge from 900px (`.hero--bleed`). Our Providers keeps the
+of the band edge to edge from 1200px (`.hero--bleed`). Our Providers keeps the
 names and bio links.
 
 ## Outstanding — must be resolved before launch

@@ -786,23 +786,38 @@ address {
 }
 
 /* Home hero: the photograph of both doctors fills the right half of the band,
-   edge to edge and full height, from 900px. Below that it sits under the text
+   edge to edge and full height, from 1200px. Below that it sits under the text
    at full width. The crop is tall (1100x1165) and anchored near the top so the
    faces stay in frame at any height. */
 
 .hero--bleed { position: relative; padding: 0; }
 .hero--bleed .hero__inner { padding: var(--s6) 0; }
-.hero--bleed .hero__photo { display: block; width: 100%; height: auto; }
 
-@media (min-width: 900px) {
-  .hero--bleed .hero__inner { max-width: calc(50% - var(--s5)); padding: var(--s7) 0; }
+/* Stacked, below 1200px: a 3:2 band under the text, cropped from the top so
+   both faces are whole at any width. */
+.hero--bleed .hero__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: 50% 10%;
+}
+
+/* Side by side from 1200px only. Two things must hold, and both fail on a
+   narrower screen: the text column has to be wider than "neuropsychologists",
+   which cannot wrap (about 503px at 56px type), and the photo box has to be at
+   least 0.85 as wide as it is tall, or object-fit crops into the two faces. */
+@media (min-width: 1200px) {
+  .hero--bleed .hero__inner { max-width: calc(52% - var(--s5)); padding: var(--s7) 0; }
+  .hero--bleed h1 { font-size: clamp(50px, 4.4vw, 56px); }
   .hero--bleed .hero__photo {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50%;
+    width: 48%;
     height: 100%;
-    object-fit: cover;
+    aspect-ratio: auto;
     object-position: 50% 12%;
   }
 }
@@ -1608,6 +1623,20 @@ tbody tr:first-child td { border-top: 1px solid var(--rule-strong); }
    site-wide link underline is switched off on the picture. */
 .provider__photo { display: block; border: 0; }
 .provider__photo img { display: block; width: 100%; height: auto; }
+
+/* Closing panel: phone, email and hours under the buttons, above a hairline,
+   so the panel carries the three facts a visitor needs to act on it. */
+.cta__details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s3);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .cta__details { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); }
+}
 
 /* A quoted review: the gold hairline of the section head is the only ornament. */
 .quote { margin: 0; display: flex; flex-direction: column; gap: var(--s3); }
