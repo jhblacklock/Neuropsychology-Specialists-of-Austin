@@ -56,7 +56,8 @@ export function check(files) {
       const internal = new Set([...main.matchAll(/href="([^"]+)"/g)].map(m => m[1]).filter(u => !/^(https?:|mailto:|tel:|#)/.test(u)));
       if (internal.size < 3) out.errors.push(`${f}: only ${internal.size} in-context internal links`);
     }
-    const text = visible(h).toLowerCase();
+    // Banned words apply to our copy. A <blockquote> is a client review, quoted exactly.
+    const text = visible(h.replace(/<blockquote[\s\S]*?<\/blockquote>/g, ' ')).toLowerCase();
     for (const w of BANNED) if (text.includes(w)) out.errors.push(`${f}: banned word "${w}"`);
     const outsideStory = visible(h.replace(/<section[^>]*id="our-story"[\s\S]*?<\/section>/, ''));
     for (const re of RETIRED) if (re.test(outsideStory)) out.errors.push(`${f}: retired fact ${re}`);

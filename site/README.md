@@ -329,7 +329,7 @@ These are recorded in brand document version 2.
   `audience` with `suggestedMinAge: 3`; `knowsAbout` follows the client's
   conditions and services, with no intervention terms. The two clinicians are
   defined once each on About at `/about/#melissa-bunner` and
-  `/about/#stephanie-paulos`, as `Ph.D., ABPP-CN`, with `memberOf` the five
+  `/about/#stephanie-paulos`, as `Ph.D., ABPP`, with `memberOf` the five
   organizations the Credentials section names. `employee`, `worksFor`,
   `author` and `publisher` all point at those `@id`s. Every non-home page has a
   `BreadcrumbList`.
@@ -349,6 +349,49 @@ These are recorded in brand document version 2.
 - **404 lists every page** rather than bouncing to the home page.
 - `sitemap.xml` lists the eleven live pages only. `robots.txt` and `rss.xml`
   use the clean URLs. The post template is excluded from both.
+
+## Client notes, 10 November 2026
+
+Applied from the client's "Website notes 11/10/26" and the answers given in
+review. Where this section and an older one disagree, this one is current.
+
+- **Blog posts are linked from the footer only.** The Home module, the
+  Resources "From our clinicians" list and the in-context links on Home,
+  Services and FAQs are gone. The posts stay live and in the sitemap, and each
+  still links out to Services and FAQs.
+- **Credentials read "Ph.D., ABPP"** everywhere (was "Ph.D., ABPP-CN"). On
+  About each doctor is titled "Clinical Neuropsychologist | Co-Founder,
+  Neuropsychology Specialists of Austin" under her name, and the caption under
+  each headshot is removed.
+- **Bios replaced** with the client's new text, as written. Dr. Paulos's says
+  she provides cognitive rehabilitation; the FAQ says the practice provides no
+  intervention services. Both are left as written, by decision.
+- **CVs are self-hosted** in `assets/cv/`. Nothing links to WordPress uploads.
+- **Home:** hero eyebrow removed; provider names swapped to match the photo;
+  one review published, signed KH, quoted exactly (including "for and her
+  warmth", which reads like a typo in the original). The banned-word check
+  skips `<blockquote>`, because a review is the reviewer's wording.
+- **Services:** giftedness sentence added; fee link reads "Evaluation costs";
+  the four room slots are replaced by an "Office Gallery" at the foot of
+  the page: eleven of the client's photographs in a film strip that scrolls
+  sideways and snaps, with arrows and a counter. No captions.
+- **FAQs:** the superbill paragraph follows the first sentence; ADHD, autism,
+  specific learning disorders and intellectual disability (added to the list
+  at the client's request) link to the pages the client sent. `FAQPage`
+  answers were regenerated from the visible text.
+- **Resources:** referral partners rebuilt from the client's list, names only.
+  Tutoring, Child Psychiatry and Mental Health are removed. CDC is replaced by
+  AAP Developmental Milestones. The records-fee line ends at "may be charged."
+- **Contact:** new parking sentence; parking-lot and building photographs.
+- **Scores post:** table columns read "Mean" and "Average range"; the
+  test-manual reference is removed.
+- **Photographs** are the client's phone pictures of 10 Nov, resized to 900px
+  (1200px for the parking lot). The parking photo is cropped to leave out a
+  readable licence plate. The front-desk photo was not used.
+
+Two `CONFIRM` markers are left, both on Home: the hero photograph and the
+Google review link, which is a Maps search stand-in until the practice sends
+its Business Profile review URL.
 
 ## Outstanding — must be resolved before launch
 
