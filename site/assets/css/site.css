@@ -1627,16 +1627,17 @@ tbody tr:first-child td { border-top: 1px solid var(--rule-strong); }
 /* Closing panel: phone, email and hours under the buttons, above a hairline,
    so the panel carries the three facts a visitor needs to act on it. */
 .cta__details {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--s3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3) var(--s5);
   padding-top: var(--s4);
   border-top: 1px solid var(--line);
 }
 
-@media (min-width: 768px) {
-  .cta__details { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); }
-}
+/* Each item is as wide as its text and never shrinks, so the email address
+   (197px, and it cannot wrap) always has room. When the row runs out of
+   width the last item drops to a second line instead of colliding. */
+.cta__details > * { flex: 0 0 auto; }
 
 /* A quoted review: the gold hairline of the section head is the only ornament. */
 .quote { margin: 0; display: flex; flex-direction: column; gap: var(--s3); }
