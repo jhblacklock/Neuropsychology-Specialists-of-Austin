@@ -4,52 +4,88 @@ Static HTML and CSS. No build step, no dependencies, no JavaScript framework.
 Upload the contents of this folder to any static host and it works.
 
 Built from `../project/Brand Document.dc.html` (the system of record),
-`../project/WEBSITE HANDOFF.md`, and the `BUILD BRIEF.md` in
-`../project/uploads/`. Design values are read out of the brand document rather
-than reinterpreted; the two content departures from it are listed below.
+`../project/WEBSITE HANDOFF.md`, the `BUILD BRIEF.md` in `../project/uploads/`,
+and, from v2, the client's "Website Text" document (its "New Outline and Text"
+section only). Design values are read out of the brand document rather than
+reinterpreted. Page copy is the client's, as written, apart from the swaps
+listed in the v2 pull request.
 
-**Scope: pediatric.** The site presents the practice as serving children and
-adolescents only. **Payment: private pay.** The practice does not bill
-insurance and does not issue superbills. Both were directed after the brand
-document was approved, and both contradict the source material — see
-"Departures from the approved brief".
+**Scope: ages 3 through adulthood.** The client copy says so, and its FAQ sets
+the detail: the clinic specializes in children and adolescents, and both
+doctors assess adults for learning differences and neurodivergence, brain
+injury (Dr. Paulos) and forensic cases or IMEs (Dr. Bunner). **Payment:
+self-pay, $3,850 typical, superbill provided, CareCredit accepted.** Both
+reverse v1 departures; see "Departures from the approved brief".
 
 ## Files
 
 ```
 index.html                              Home
-neuropsychological-evaluation/          Evaluation
-intervention-services/                  The four programs
-the-process/                            Consultation, testing, feedback
-our-team/                               The two clinicians
-fees-and-payment/                       Published rates, private pay
-for-referring-providers/                Referral information
-contact/                                Address, map, hours, forms
+about/                                  Who we are, credentials, our story, our experts
+services/                               What an evaluation covers, the process, the five core services
+faqs/                                   Twelve questions, each a deep-linkable row
+resources/                              Referral partners, guides, medical records and patients' rights
+contact/                                Address, map, hours, parking, appointments, referrals
 insights/                               Blog index, filterable by category
-insights/school-evaluation-and-neuropsychological-evaluation/   Sample post
+insights/<four posts>/
 insights/post-template/                 Copy-me template (noindex, not in sitemap)
 404.html                                Lists every page
-about-us/ for-patients/ wpi-checkout/   Meta-refresh stubs for the old URLs
-2018/ 2021/ category/ author/ …         (32 of them — see REDIRECTS.md)
+neuropsychological-evaluation/ the-process/ our-team/ fees-and-payment/
+intervention-services/ for-referring-providers/
+                                        v1 pages, now redirect stubs
+about-us/ for-patients/ wpi-checkout/ 2018/ 2021/ category/ author/ …
+                                        Stubs for the old WordPress URLs
 assets/css/site.css                     The whole design system
 assets/css/fonts.css                    @font-face rules for the self-hosted faces
 assets/fonts/*.woff2                    Playfair, Montserrat, Libre Franklin
 assets/logo/*.svg                       The three supplied marks, unmodified
-.htaccess  _redirects  vercel.json      301s — see REDIRECTS.md
+.htaccess  _redirects  vercel.json      301s, GENERATED (see REDIRECTS.md)
 rss.xml  sitemap.xml  robots.txt
+
+../tools/redirects/redirects.json       The one source list for every redirect
+../tools/redirects/generate.mjs         Writes the three configs and all 38 stubs
+../tools/check-site.mjs                 The checks listed at the end of this file
+../tools/preview/widths.html            Dev-only width preview, not deployed
 ```
 
-Every page is a folder with an `index.html`, so URLs are clean —
-`/our-team/`, not `/our-team.html` — on any host, with no server configuration
-required. No link anywhere points at a `.html` file; the home link is `./`,
-`../`, or `../../` by depth. A check enforces that. Internal links are document-relative, so the site also works from a
-subdirectory or off the filesystem. The exception is `404.html`, whose links
-are root-relative because it is served from arbitrary paths; that page assumes
-deployment at a domain root.
+Every page is a folder with an `index.html`, so URLs are clean — `/about/`,
+not `/about.html` — on any host, with no server configuration required. No link
+anywhere points at a `.html` file; the home link is `./`, `../`, or `../../` by
+depth. A check enforces that. Internal links are document-relative, so the site
+also works from a subdirectory. A file preview, or a page opened from disk,
+does not turn `about/` into `about/index.html`, so each page ends with a short
+script that does, only when the page itself was opened by its file name. It
+never fires on a real host, and the source keeps clean URLs. The exception is
+`404.html`, whose links are root-relative because it is served from arbitrary
+paths; that page assumes deployment at a domain root.
 
 Each page carries the header, nav, and footer inline. There is no build step to
-stamp them, so a change to the chrome is a find-and-replace across the eleven
-pages.
+stamp them, so a change to the chrome is a find-and-replace across the thirteen
+pages (six main pages, the Insights index, four posts, the template, 404).
+
+## Navigation
+
+Six items, no dropdowns at any breakpoint: Home, About, Services, FAQs,
+Resources, Contact. What used to be sub-pages are sections with stable ids:
+
+| Old sub-page | Now |
+| --- | --- |
+| Our Story, Our Experts | `/about/#our-story`, `/about/#our-experts`; each doctor keeps `#melissa-bunner` / `#stephanie-paulos` |
+| The five core services | `/services/#neuropsychological-evaluations`, `#school-advocacy`, `#iee`, `#forensic-evaluations`, `#giftedness` |
+| The process | `/services/#evaluation-process` |
+| Beyond the Evaluation, Medical Records | `/resources/#beyond-the-evaluation`, `/resources/#medical-records` |
+| Fees | `/faqs/#insurance` |
+| Referring providers | `/contact/#referrals` |
+
+Insights is not in the top nav. It is linked from the footer, from Resources
+("From our clinicians"), and in context from Home, Services and FAQs.
+
+**No standalone service pages.** Each core service has 60 to 250 words of
+client copy, and the client asked for them as expand/collapse rows on one page.
+A page per service would be thin and would duplicate the row. The client's own
+outline plans service and condition sub-pages later; when that copy exists,
+`/services/forensic-neuropsychology/` and `/services/iee/` are the two worth
+building first, linked from the row, the footer and in context, not the nav.
 
 ## The posts
 
@@ -62,60 +98,65 @@ Four, one per category, each 637–678 words against the standard's 600–1,200:
 | Getting back to school after a concussion | Brain Injury | Paulos |
 | What working memory training is for | Research Notes | Bunner |
 
-The practice no longer offers Cogmed, so it is gone from Intervention Services
-(four programs now, not five), from the rate table, and from both affected meta
-descriptions. The Research Notes post survives the change — it answers a
-question parents ask rather than describing a service, and it now says so
-explicitly. Cogmed is still named in it as the best-known program of its kind,
-which is accurate and carries no claim that this practice delivers it.
+The practice does not provide intervention services, Cogmed included. The
+Research Notes post survives that: it answers a question parents ask rather
+than describing a service, and it says so. Cogmed is still named in it as the
+best-known program of its kind, which is accurate and carries no claim that
+this practice delivers it. The Cogmed check exempts this post.
 
 **The citations are done.** Every source was opened and checked against the
-claim it supports, the URLs are in the reference lists, and the `CONFIRM`
-markers and per-post editorial notes are gone. `CITATIONS.md` is now the record
-of what was verified and what was decided, including the three judgement calls:
-a specific paper attached for the base-rate claim (Brooks, Sherman & Iverson
-2010, pediatric and exactly on point), Cogmed's vendor research summary dropped
-rather than linked, and the test technical manuals reworded as guidance because
-they name no single work.
+claim it supports, the URLs are in the reference lists, and the citation links
+carry `rel="noopener"`. `CITATIONS.md` is the record of what was verified and
+what was decided.
 
 Note for whoever reads the old note here: WebFetch and `curl` are blocked by
 the egress proxy on this machine, but the in-app browser is not, which is how
 the sources were reached. "No network access" was not true.
 
 Every post is bylined to a named clinician and needs that clinician's review
-before publishing, per the editorial standard. The byline's "Full biography"
-link goes to that clinician's anchor on the team page — `#melissa-bunner` or
-`#stephanie-paulos` — not to the top of it. A check fails the build if a
-fragment link points at an id that does not exist.
+before publishing, per the editorial standard. The byline's biography link goes
+to that clinician's anchor on About — `#melissa-bunner` or `#stephanie-paulos`
+— not to the top of it. Each post ends with three "Related on this site" links
+into Services and FAQs. A check fails if a fragment link points at an id that
+does not exist.
 
 ## Photographs
 
-None are delivered. Every slot is a labelled placeholder, and `og:image` is
-absent on all fifteen pages.
+Three have arrived: the partners together (Home, Our Providers) and both
+doctors' headshots (About, and the bylines of each doctor's posts). The originals are in the
+design project's `uploads/`; the site carries web copies in
+`assets/images/`, each at two widths for `srcset`: the partners at 1200 and
+600px (69KB and 22KB), and each doctor cropped 4:5 at 640 and 320px (Dr. Paulos 56KB and 18KB,
+Dr. Bunner 57KB and 17KB), framed alike. Every other slot is a labelled placeholder.
+
+**Sharing image.** Every page's `og:image` is `assets/images/og-partners.jpg`:
+the partners' photo cropped to 1200×630, the size link previews expect, with
+`twitter:card` set to `summary_large_image`. The URL is absolute
+(`https://neuroaustin.com/…`), so previews only work once the site is live
+on that domain.
 
 **Do not use map captures.** Two building exteriors were briefly published here
 and then removed: they were views pulled from Apple Maps. Apple Maps and Google
 Street View imagery is licensed to its providers and cannot be republished on a
-commercial site, however good the framing is and however clearly it shows the
-building. This is a licensing question, not a quality one — the only fix is a
-photograph the practice owns. **Both are being reshot by the practice**, so the
-two slots on Contact stay where they are:
+commercial site, however good the framing is. This is a licensing question, not
+a quality one — the only fix is a photograph the practice owns.
 
-| Slot | The shot |
-| --- | --- |
-| Parking | The north lot, with the clearance canopy and the ramp down to the garage both in frame. The shot that answers "where do I actually pull in". |
-| The building | 1500 W 38th from the street, entrance visible. |
+| Slot | Where | Status |
+| --- | --- | --- |
+| Both doctors | Home, Our Providers | Delivered |
+| Dr. Paulos | About, her post bylines | Delivered |
+| Dr. Bunner | About, her post bylines | Delivered |
+| Testing room | Home hero | Outstanding |
+| Four rooms | Services | Outstanding |
+| Parking | Contact | Outstanding: the north lot, with the clearance canopy and the ramp down to the garage both in frame |
+| The building | Contact | Outstanding: 1500 W 38th from the street, entrance visible |
 
-The four slots on The Process — the waiting room, then consultation, testing
-and feedback — are a separate shoot and still open.
-
-When real files do arrive, two rules learned the hard way:
+When more files arrive, two rules learned the hard way:
 
 **Originals never go in `site/`.** Everything under `site/` is uploaded to the
-host verbatim. The camera files in that first attempt were 10–13MB each, inside
-`site/`, against a stated 500KB budget for a whole page. Keep originals in
-`project/photos-source/` — gitignored, because git carries every version of a
-binary forever — and commit only the web-sized JPEG. On macOS, no dependencies:
+host verbatim. Keep originals in `project/photos-source/` — gitignored, because
+git carries every version of a binary forever — and commit only the web-sized
+JPEG. On macOS, no dependencies:
 
 ```
 sips -Z 1200 -s format jpeg -s formatOptions 60 \
@@ -125,32 +166,33 @@ sips -Z 1200 -s format jpeg -s formatOptions 60 \
 1200px is sized off the real render width of about 530px, so it covers a 2x
 display with nothing spare, and lands near 200KB a photograph.
 
-**Every `<img>` needs `width`, `height`, `loading` and `alt`.** The dimensions
-are not decoration: without them the figure has no height until the image
-arrives, and everything below it jumps as it loads.
+**Every `<img>` needs `width`, `height`, `loading` and `alt`.** Without the
+dimensions the figure has no height until the image arrives, and everything
+below it jumps as it loads.
 
 ## The post layout
 
 Articles run as a centred column, not the left-aligned one the rest of the site
 uses. On a 1440px screen a 680px measure pinned to the left of a 1160px
 container leaves the eye travelling back across half a metre of empty paper
-between paragraphs; centring it fixes that. Eyebrow, headline, standfirst,
-body, and byline all sit on the same column.
+between paragraphs; centring it fixes that.
 
 The column is 720px rather than the site's usual 680px cap, set by character
 count instead of by pixels: the brand document makes 65–75 characters the hard
 rule on posts, and 680px of Libre Franklin at 19px measures 64. 720px measures
-67. Tables are the one thing allowed out of the column — they take the extra
-96px back before scrolling inside themselves.
+67. Tables are the one thing allowed out of the column.
 
 ## Adding a post
 
 1. Copy `insights/post-template/`, rename the folder to the post slug, replace
    every `TODO`.
 2. Add a card to `insights/index.html`, newest first, with `data-category`
-   matching one of the four fixed categories.
+   matching one of the five fixed categories. **Adults & Aging is back in the
+   set** now that adults are in scope, but it has no filter button until its
+   first post exists: add the button with that post, never before.
 3. Add an `<item>` to `rss.xml` and a `<url>` to `sitemap.xml`.
-4. If a category now has three or more posts, uncomment the related-posts block
+4. Fill in the post's three "Related on this site" links.
+5. If a category now has three or more posts, uncomment the related-posts block
    in the post and fill it in. Fewer than three: show none.
 
 The home page's Insights module is a single `<section>` marked with comments.
@@ -158,240 +200,291 @@ Delete it and nothing else breaks.
 
 ## Departures from the approved brief
 
-Two content decisions came in after the brand document was signed off, and both
-override published source material. Flagging them because someone will
-eventually diff this against the brief and wonder.
+v1 made two departures from the brief. The client copy in v2 reverses both
+and adds one of its own, and the client's moodboard adds a fourth.
 
-- **Pediatric only.** The brief and the brand document describe a practice
-  serving children *and* adults. Adult conditions (Alzheimer's, Parkinson's,
-  MS, dementia, MCI, stroke as a standalone), the "who should be evaluated —
-  adults" content, adult referral questions, and return-to-work language are
-  all cut. Dr. Bunner's published biography says she "assesses children and
-  adults"; this site says children and adolescents, marked `CONFIRM`. The
-  brand document's fixed category set loses **Adults & Aging**, leaving four.
-- **Private pay, no superbill.** The brief's insurance content — "many carriers
-  cover neuropsychological evaluations", "generally covered by most plans with
-  a medical diagnosis of acquired brain injury", the referral and authorization
-  sections — is gone. The page is now Fees & Payment. It states that the
-  practice is not in network with any carrier, does not submit claims, and does
-  not provide superbills or claim documentation.
+- **Ages 3 through adulthood.** v1 was pediatric only. The client copy states
+  "aged 3 through adulthood" (an older draft said 5; 3 is used), which is
+  close to the brief's original children-and-adults scope. Adult evaluations
+  are as the FAQ "Do you offer adult testing?" describes them, not general
+  adult practice: there is still no dementia, MCI or aging content, and the
+  old Alzheimer's post redirects to the evaluation service rather than to an
+  aging page.
+- **Self-pay with a superbill.** v1 said no superbill. The practice now
+  provides one for out-of-network reimbursement and accepts CareCredit. The
+  fee is $3,850 typical, in three payments ($350, $3,150, $350). It does not
+  bill insurance. The CareCredit link is the only `rel="nofollow"` on the site.
+- **No intervention services.** The brief's intervention programs are gone.
+  The practice refers out, and Resources lists the referral partners.
+  `/intervention-services/` redirects to the FAQ that says so.
+- **Colour: the client's moodboard replaces the brand document's palette.**
+  Deep Navy `#1F2D3D`, Sage Green `#5D7A6E`, Warm Gold `#C28A33`, Warm
+  Ivory `#F3EDE2`, Soft Blue Gray `#DCE3E8` and White replace charcoal and
+  its neutrals (Slate, Ash, Mist, Haze, Shell). Type, spacing, the marks and
+  the lockups are unchanged. `Brand Document.dc.html` is now version 2, on
+  the new palette; version 1 is kept as `Brand Document v1.dc.html`. The
+  supplied gold mark is `#B8842F`, a shade darker than Warm Gold; the SVGs
+  are untouched.
 
 ## Design decisions taken while building
 
-These extend the brand document rather than contradict it.
+These are recorded in brand document version 2.
 
-- **Gold is never used for text below 24px.** Gold on paper measures 3.2:1,
-  which passes AA for large type only. Eyebrows, labels, and links are
-  therefore charcoal or slate; gold does the signalling as hairline rules,
-  italic display type at 24px and up, and the mark. The brand document sets
-  gold eyebrows on its own artboards; on a site that has to clear AA, that does
-  not carry over.
-- **Gold text never sits on a Shell field.** Gold on Shell is 2.9:1, under the
-  3:1 large-type floor. The home page's process module moved onto paper with a
-  hairline for that reason.
-- **Footer meta uses Mist, not Ash.** Ash on charcoal is 4.2:1, under AA for
-  body-size text. Mist is 5.7:1.
+- **Colour roles.** Navy carries the text, the header, the footer and the
+  closing panel. Ivory is the hero, the page heads and the quiet sections.
+  Sage and blue gray are feature bands: sage for What We Do (Home) and Who
+  This Is For (Services), blue gray for the conditions (Home) and Credentials
+  (About). Components take their colours from role variables (`--ink`,
+  `--ink-2`, `--accent-text`, `--mark`, `--line`), and each ground resets
+  them, so nothing needs a dark-ground variant of its own.
+- **Warm Gold is text only on navy** (4.6:1). On white it is 3.0:1 and on
+  ivory 2.6:1, so gold type on light grounds is Gold Deep `#845C1E`, derived
+  from it: 5.9:1 on white, 5.1:1 on ivory, 4.6:1 on blue gray. Eyebrows, step
+  labels and pull quotes use it. Rules, underlines and list dashes stay Warm
+  Gold.
+- **Buttons are Warm Gold with a Deep Navy label**, in spaced Montserrat
+  capitals, as the moodboard draws them. The moodboard's white label is 3.0:1
+  on that gold, under AA; navy is 4.6:1, and 6.0:1 on the lighter hover gold.
+- **Sage takes white text only** (4.7:1); navy on sage is 3.0:1. Links in a
+  sage band are underlined in ivory.
+- **Secondary text is Navy Soft `#4B5A69`**, derived from the navy: 7.1:1 on
+  white, 6.1:1 on ivory, 5.5:1 on blue gray. On navy it is Soft Blue Gray,
+  10.8:1.
+- **The home hero sets the testing-room photograph beside the text** from
+  1024px, as the moodboard's hero does. Below that it stacks, text first.
 - **The header lockup is option M from the lockup study.** The mark in gold at
   48px, the name on one line, and "of Austin" centred beneath it with the
-  hairlines running out to each end so the second line is exactly as wide as
-  the first. Three things about it are deliberate:
-  - **48px at every breakpoint.** The brand document floors the gold mark at
-    48px because the tapered stroke ends thin out below that, so it does not
-    step down with the type on mobile.
-  - **The rails are Mist, not gold.** The mark and the italic already carry the
-    accent; a third gold element in one lockup stops the accent being one.
-  - **The mark is nudged down 2.5px (2px on mobile).** Box-centring left it
-    reading high, because the name's half-leading sits above the caps while "of
-    Austin" has almost no descender below its baseline. Measured in a browser
-    at 2.55px out, corrected, and re-measured to 0.05px. Optical, not spacing,
-    which is why it is off the 8px scale.
-
-  The caps line is dropped rather than shrunk, per the document's rule for
-  small sizes.
-- **The footer carries the full lockup**, on its own band across the top: mark,
-  stacked wordmark, "of Austin" between hairlines, and the
-  `BOARD CERTIFIED ASSESSMENT` line — the only place on the site with room for
-  it, since the document floors the full lockup at 88px of mark. Mark is 136px
-  at desktop and 104px at mobile, scaled to the proportions of the delivered
-  artwork rather than the 3:1 the brand document's own web artboards use; at
-  39px the name and the caps line come out the same width. The mark is white
-  here: gold does not carry to a charcoal ground. The hairlines stay gold
-  because "of Austin" is then the only other gold in the lockup.
+  hairlines running out to each end. 48px at every breakpoint (the brand
+  document's floor for the gold mark); on the navy header the name is white and the rails slate blue, not gold; the mark nudged
+  down 2.5px (2px on mobile), measured in a browser. The caps line is dropped
+  rather than shrunk, per the document's rule for small sizes.
+- **The footer carries the full lockup**, on its own band across the top, the
+  only place on the site with room for it. White mark on navy; gold
+  hairlines.
 - **`CONFIRM` markers are red on purpose.** White on `#B3261E`, a colour that
   appears nowhere else on the site. They are working assumptions, not copy, and
-  every one has to be gone before launch — they should be impossible to mistake
-  for design.
-- **Photo slots are greeked.** Section 07's striped field with a monospace note
-  naming the shot marks each frame: testing room on the home page, clinician
-  headshots on Our Team and post bylines, building exterior on Contact. Every
-  layout still reads as finished if the slots are deleted rather than filled.
-  Search the CSS for `.placeholder` to find them all.
-- **Fonts are self-hosted, preloaded, and `font-display: optional`.** Loading
-  them from Google meant the page painted in a fallback and then swapped to
-  Playfair mid-read. The six faces the site actually uses are now served from
-  `assets/fonts/`, preloaded in the head, and set to `optional` rather than
-  `swap`. That combination means the page paints once: either the real face is
-  ready in time, or the fallback is used for that page view and never replaced
-  underneath the reader. It also removes the third-party request, which is
-  worth something on a healthcare site. Regenerate with `scratchpad/fonts.py`
-  if a weight is added. The `.htaccess` caches woff2 for a year as immutable,
-  so the filenames must change if a font ever does.
+  every one has to be gone before launch.
+- **Photo slots are greeked.** Section 07's striped field, in blue gray, with a monospace note
+  naming the shot. The three review slots on Home use the same monospace note
+  inside an outlined card, so they read as slots, never as reviews.
+- **Fonts are self-hosted, preloaded, and `font-display: optional`.** The page
+  paints once: either the real face is ready in time, or the fallback is used
+  for that page view and never replaced underneath the reader. No third-party
+  font request. The subsetting script, `scratchpad/fonts.py`, is not committed;
+  commit it before a weight is added. The `.htaccess` caches woff2 for a year
+  as immutable, so the filenames must change if a font ever does.
 - **Mobile header: hamburger, and the wordmark wraps.** Below 768px the
-  wordmark breaks over two lines with the hairlines filling out to each end,
-  and the menu control is a 44px square hamburger rather than the word MENU in
-  tracked caps — that button was wide enough to push the header past the edge
-  of a 375px screen. Logo and control now come to 266px inside the 327px
-  available.
-- **Nav collapses to a drawer below 1024px, not below 768px.** Eight top-level
-  items do not fit on one row at tablet width. The grid still goes 12-column at
-  768 as specified.
-- **Tables stack below 1024px, and this is the default for every table.** Each
-  row becomes a block: first cell as the row's name, every other cell carrying
-  its column header as a label. The breakpoint is 1024 rather than 768 because
-  the constraint is the column the table sits in, not the viewport — an
-  article's measure is 720px at any screen size, so a three-column comparison
-  table is as cramped on a tablet as on a phone. The generator derives the
-  labels from each table's own `thead`, so any table added later inherits the
-  behaviour without being asked for it. All six tables currently on the site
-  are covered.
-- **"Few board-certified neuropsychologists in Austin" is not published.** The
-  brief states it, but it is an unverifiable comparative claim. The home page
-  says instead that board certification is not required to practice in Texas
-  and explains what ABPP certification takes, which is checkable.
+  wordmark breaks over two lines and the menu control is a 44px square
+  hamburger. Logo and control come to 266px inside the 327px available.
+- **The nav collapses to a drawer below 768px.** v1 collapsed below 1024px
+  because eight items did not fit at tablet width. Six do, with room to spare,
+  so the row now starts at 768.
+- **Patient Portal is a secondary action.** The existing `.btn--ghost`, at the
+  right-hand end of the header from 768px, after the primary "Make an
+  Appointment" (shown from 1024px). Below 768px the bar has no room for it, so
+  it is the last item in the drawer, full width. It is also in the footer.
+- **Every answer is open.** The five core services and the twelve FAQs are
+  entries, not expand/collapse rows: the heading on the left and the text on
+  the right from 1024px, as section heads sit, with blue-gray hairlines
+  between. Each entry keeps its id, so deep links such as `/faqs/#insurance`
+  land on it with nothing to open. The client asked for "drop down when hover
+  over"; it was built as a disclosure in review and then removed, because the
+  answers are short enough to read in full.
+- **Process rows use `.rows--wide`.** "Neuropsychological" at 27px is about
+  260px, wider than the default 200px label column, and ran into the text at
+  1440. The modifier widens the column to 280px from 768.
+- **Tables stack below 1024px, and this is the default for every table.** The
+  constraint is the column the table sits in, not the viewport — an article's
+  measure is 720px at any screen size. The nav now collapses below 768, so
+  1024 is a content-width breakpoint only.
+- **"Few board-certified neuropsychologists in Austin" is not published.** It
+  is an unverifiable comparative claim. The home page explains what board
+  certification takes instead, and links ABPP's own description of it.
 
 ## SEO
 
-- **Redirects are the whole ballgame** on a rebuild that changes every URL.
-  The map is complete against the live Yoast sitemaps — all 33 old URLs, each
-  with a rule in `.htaccess`, `_redirects`, and `vercel.json`, plus an HTML
-  fallback stub. All three configs and the stubs are generated from one source
-  list so they cannot drift. `REDIRECTS.md` has the full table, the reasoning
-  per destination, and the cutover checklist. **Two entries there need your
-  decision before launch.**
+- **Redirects are generated from one list.** `../tools/redirects/redirects.json`
+  feeds `generate.mjs`, which writes `.htaccess`, `_redirects`, `vercel.json`
+  and the stubs, so the four cannot drift. Never hand-edit the outputs.
+  `REDIRECTS.md` has the full table, the reasoning per destination, the
+  decisions still open, and the cutover checklist.
+- **Every old URL reaches its final page in one hop.** The WordPress URLs that
+  pointed at v1 pages now point straight at the v2 destination. The six v1 page
+  URLs redirect too; they were only ever served from the GitHub Pages preview,
+  never from neuroaustin.com, so those rules are insurance for anyone holding a
+  preview link.
 - **Clean URLs**, canonical on every page, `https` and non-`www` enforced in
   `.htaccess`.
-- **Titles and descriptions** are written for the pediatric queries the brief
-  named — "neuropsychological evaluation Austin", "ADHD testing Austin" — plus
-  the ones the fee transparency can actually win, like the cost of a pediatric
-  evaluation in Austin.
-- **Structured data** is one connected graph, not a pile of separate blocks.
-  The practice is defined once as `@id: https://neuroaustin.com/#practice`
-  (`["MedicalBusiness", "MedicalClinic"]`, repeated verbatim on Home, Fees and
-  Contact). The two clinicians are defined once each on Our Team at
-  `#melissa-bunner` and `#stephanie-paulos`, the same anchors the bios and the
-  post bylines already use. `employee`, `worksFor`, `author` and `publisher`
-  all point at those `@id`s, so a crawler sees two people and one practice
-  rather than thirteen anonymous nodes. Author and publisher also carry
-  `name`/`url` inline, because Google does not reliably resolve an `@id`
-  across pages.
-- **`medicalSpecialty` was removed.** It said `"Psychiatric"`, which is a real
-  enum value and a false statement — psychiatry is a physician specialty and
-  this is two psychologists. The enum has no psychology member. The real
-  specificity now lives in `knowsAbout` and in the visible copy.
-- **`FAQPage` on Fees is kept but expect nothing from it.** Google deprecated
-  FAQ rich results in May 2026 and removed the documentation that June; `HowTo`
-  went the same way, so do not add one to The Process. Neither type earns a
-  rich result any more. The FAQ block stays because answer engines still read
-  it. For the same reason there is no point chasing a medical rich result —
-  Google's gallery has none.
-- **`openingHours` is now in the schema.** It was held out while the hours came
-  from a third-party directory rather than the practice — structured data
-  cannot carry a `CONFIRM` marker, so the field waited. The practice has
-  confirmed Monday to Friday, 8:30am to 5:00pm, so it is now an
-  `openingHoursSpecification` on the practice node and the directory caveat is
-  gone from Contact. The "no referral needed" FAQ answer was held out and
-  released the same way.
-- **`geo` is `30.308164, -97.748826`**, taken from the practice's own Apple
-  Maps place record (`place-id=I723B2B7DEFF340B2`), which is also what the
-  "Open in Apple Maps" link on Contact now points at. It replaced a geocode of
-  the street address that was about six metres off. Still worth checking the
-  Google Business Profile at cutover — that profile, not this markup, is what
-  actually drives the knowledge panel.
+- **Titles are 60 characters or fewer and descriptions 155 or fewer**, written
+  for "neuropsychological evaluation Austin", "ADHD testing Austin" (children
+  and adults), "autism evaluation Austin", "dyslexia testing Austin", "IEE
+  Austin", "forensic neuropsychologist Austin", "giftedness testing Austin" and
+  "cost of neuropsychological evaluation Austin". The cost query is carried by
+  the FAQs title and its first answer. Titles no longer carry the practice name
+  as a suffix — it does not fit in 60 — and the `WebSite` node supplies the
+  site name instead.
+- **Structured data is one connected graph.** The practice is defined once as
+  `@id: https://neuroaustin.com/#practice` and repeated verbatim on Home, FAQs
+  and Contact. It now carries `email`, `legalName`, `foundingDate` 2026, and
+  `audience` with `suggestedMinAge: 3`; `knowsAbout` follows the client's
+  conditions and services, with no intervention terms. The two clinicians are
+  defined once each on About at `/about/#melissa-bunner` and
+  `/about/#stephanie-paulos`, as `Ph.D., ABPP`, with `memberOf` the five
+  organizations the Credentials section names. `employee`, `worksFor`,
+  `author` and `publisher` all point at those `@id`s. Every non-home page has a
+  `BreadcrumbList`.
+- **`FAQPage` is on FAQs, built from the visible answers.** All twelve, in the
+  client's order, generated from the page's own rows so the markup cannot
+  drift from the text. Google stopped showing FAQ rich results in 2026; the
+  block stays because answer engines still read it. Do not add `HowTo`.
+- **No `Review` or `AggregateRating` until real reviews are published.**
+- **`medicalSpecialty` stays out.** `"Psychiatric"` is a false statement about
+  two psychologists, and the enum has no psychology member.
+- **`openingHours`** is Monday to Friday, 8:30am to 5:00pm, as the practice
+  confirmed. The client copy does not state hours; an older draft says 8 to 4,
+  which was not used.
+- **`geo` is `30.308164, -97.748826`**, from the practice's own Apple Maps
+  place record. Check the Google Business Profile at cutover — that profile,
+  not this markup, drives the knowledge panel.
 - **404 lists every page** rather than bouncing to the home page.
-- `sitemap.xml`, `robots.txt`, and `rss.xml` all use the clean URLs. The post
-  template is excluded from both the sitemap and search indexes.
+- `sitemap.xml` lists the eleven live pages only. `robots.txt` and `rss.xml`
+  use the clean URLs. The post template is excluded from both.
+
+## Client notes, 10 November 2026
+
+Applied from the client's "Website notes 11/10/26" and the answers given in
+review. Where this section and an older one disagree, this one is current.
+
+- **Blog posts are linked from the footer only.** The Home module, the
+  Resources "From our clinicians" list and the in-context links on Home,
+  Services and FAQs are gone. The posts stay live and in the sitemap, and each
+  still links out to Services and FAQs.
+- **Credentials read "Ph.D., ABPP"** everywhere (was "Ph.D., ABPP-CN"). On
+  About each doctor is titled "Clinical Neuropsychologist | Co-Founder,
+  Neuropsychology Specialists of Austin" under her name, and the caption under
+  each headshot is removed.
+- **Bios replaced** with the client's new text, as written. Dr. Paulos's says
+  she provides cognitive rehabilitation; the FAQ says the practice provides no
+  intervention services. Both are left as written, by decision.
+- **CVs are self-hosted** in `assets/cv/`. Nothing links to WordPress uploads.
+- **Home:** hero eyebrow removed; provider names swapped to match the photo;
+  one review published, signed KH, quoted exactly (including "for and her
+  warmth", which reads like a typo in the original). The banned-word check
+  skips `<blockquote>`, because a review is the reviewer's wording.
+- **Services:** giftedness sentence added; fee link reads "Evaluation costs";
+  the four room slots are replaced by an "Office Gallery" at the foot of
+  the page: eleven of the client's photographs in a film strip that scrolls
+  sideways and snaps, with arrows and a counter. No captions.
+- **FAQs:** the superbill paragraph follows the first sentence; ADHD, autism,
+  specific learning disorders and intellectual disability (added to the list
+  at the client's request) link to the pages the client sent. `FAQPage`
+  answers were regenerated from the visible text.
+- **Resources:** referral partners rebuilt from the client's list, names only.
+  Tutoring, Child Psychiatry and Mental Health are removed. CDC is replaced by
+  AAP Developmental Milestones. The records-fee line ends at "may be charged."
+- **Contact:** new parking sentence; parking-lot and building photographs.
+- **Scores post:** table columns read "Mean" and "Average range"; the
+  test-manual reference is removed.
+- **Photographs replaced, 11 Nov 2026.** The client sent finished pictures:
+  the Office Gallery on Services now holds seven (Suite 23 door, two of the
+  waiting room, a testing room, two of Dr. Paulos's office, one of Dr.
+  Bunner's), and Contact has the new building photograph. The phone pictures
+  of 10 Nov are removed, except the parking lot on Contact. Dr. Paulos's CV is
+  replaced with the newer file. Originals are in `archive/photos-2026-11-11/`,
+  outside `site/`.
+- **Photographs** are the client's phone pictures of 10 Nov, resized to 900px
+  (1200px for the parking lot). The parking photo is cropped to leave out a
+  readable licence plate. The front-desk photo was not used.
+
+No `CONFIRM` markers are left. The Google review link on Home is the
+practice's own Maps share link.
+The Home hero carries the photograph of both doctors, filling the right half
+of the band edge to edge from 1200px (`.hero--bleed`). Our Providers keeps the
+names and bio links.
 
 ## Outstanding — must be resolved before launch
 
-Everything below appears on the site inside a bordered `CONFIRM` marker, so it
-is visible in the page, not buried here. 16 markers across the site. The count
-was 46: the eleven citation markers in the posts are gone, every source having
-been opened and checked (see `CITATIONS.md`), two more moved into HTML comments
-because they were notes to the practice rather than page copy, and one was
-added for the consultation-fee question below.
+Each item marked in the page carries a red `CONFIRM`: **11 markers** across
+Home (5), About (1), Services (2), Contact (2) and Resources (1).
 
 | Item | Working assumption | Where |
 | --- | --- | --- |
-| Report turnaround | Three to four weeks from testing to written report | Home, The Process, Referring Providers |
-| Referral intake | Fax to 737-215-8710 is confirmed. That there is **no portal or referral email** is not — it is still marked on the page | Referring Providers |
-| Provider line | None that bypasses patient intake | Referring Providers |
-| Clinician phone consult | Available on request after report delivery | Referring Providers |
-| Referral questions declined | Unknown — the list is not published | Referring Providers |
-| Age range | Children and adolescents; coaching extends to young adults. **No numeric range is published, and "what age can my child be tested" is a high-volume query.** Ask the practice for a bound — "ages 4 to 18" or whatever is true | Evaluation |
-| Consultation fee | The evaluation fee is stated to *cover* the consultation, but five calls-to-action say the office will tell you "what the consultation costs", which implies a separate charge. Both cannot be the headline. Ask whether the consultation is billed on its own when a family stops after it | Fees & Payment |
-| Bunner's biography | Trimmed to pediatric scope; source says "children and adults". Note this one is now an HTML comment on Our Team, not visible copy — it was a note to the practice that was rendering to visitors | Our Team |
-| Bunner's experience | "Over 20 years" per neuroaustin.com; the brief says 10+ | Our Team |
-| Headshots | Commissioned, not delivered | Our Team, post byline |
-| Family therapy fee | Not in the published rate list | Intervention Services |
-| Intake form provider | Not chosen. The brief said JotForm; the practice does not have it and may pick something else. Now an HTML comment on Contact rather than visible copy — it was telling the public that a HIPAA vendor decision is still open | Contact |
+| Photography | Four slots, listed under Photographs | Home, About, Services, Contact |
+| Reviews | Three slots, no quotes supplied. Never write placeholder testimonials | Home |
+| Google review link | A Maps search stand-in, which may land on the old practice's profile. Needs the Business Profile review URL | Home |
+| Dr. Paulos's services | Her bio lists cognitive rehabilitation, executive function coaching and Cogmed, which the FAQ says the practice does not provide. Kept as written | About |
+| Giftedness Evaluations | No body copy supplied. The row holds the one sentence the doc gives, from "Who This Is For" | Services |
+| Records fee rule | The client copy cites the Texas Medical Board, which licenses physicians. The practice's board is TSBEP, part of BHEC | Resources |
 
-Also outstanding, and not marked in the page because they are technical:
+Notes to the practice, kept as HTML comments rather than visible copy:
 
-- **A page with no equivalent.** The old site's
-  `/for-patients/patients-medical-records-and-patients-rights/` is live and
-  maintained, and nothing on the new site corresponds to it. It currently
-  redirects to `/contact/` as a placeholder. Write the page, or confirm that
-  destination. Details in `REDIRECTS.md`.
+- **Intake and appointments.** "Make an Appointment" goes to
+  `/contact/#make-an-appointment` (email or phone). No form vendor is wired up;
+  whatever is chosen must be HIPAA-compliant and sign a BAA. The patient
+  portal, Jane, can also do intake forms and online booking: ask whether it
+  should be the appointment route.
+- **The CVs** link to the old WordPress uploads and die at cutover. Download
+  both and self-host them under `assets/cv/`.
+
+Also outstanding, and not marked in the page:
+
+- **Client links that look stale** (CDC child development, Dell Children's,
+  the 2022 BHEC complaint form). Listed with suggested replacements in the v2
+  pull request; not swapped.
+- **"Neuropsychologist is not a protected title in Texas"** is published as
+  the client wrote it, uncited: no official page states the negative directly.
+  BHEC licenses the title "psychologist".
 - **Three retired clinicians in the redirect map**, including the one the brand
-  document says must never appear. They are paths in config files, not rendered
-  copy, and a 301 retires the URL — but it is your call. `REDIRECTS.md`
-  explains how to drop them.
+  document says must never appear. Paths in config files, not rendered copy.
+  `REDIRECTS.md` explains how to drop them.
 - **The old site took card payments online** through WP Invoicing and Stripe.
-  The new site does not. Not in the brief, so not built, but worth a decision
-  for a private-pay practice.
-- **`og:image`.** No OpenGraph image exists yet — the commissioned photography
-  has not been delivered and there is no brand OG card. Each page carries a
-  commented placeholder in `<head>`.
-- **Citation links in the sample post.** The three sources are named in full
-  but not linked: no outbound network access here, and the editorial standard
-  forbids publishing a citation that has not been checked.
-- **Fonts load from Google Fonts.** Self-host them if you would rather not have
-  a third-party request on a healthcare site.
-- **The map embed.** The Contact page uses Google's keyless
-  `output=embed` iframe: free, no API key, no billing account — but it is an
-  undocumented URL rather than a supported product, so it carries no guarantee
-  it keeps working. Google's supported equivalent is the Maps Embed API, which
-  is free for basic embeds but requires a key and a Cloud project with billing
-  enabled. The genuinely free-and-private option is OpenStreetMap's iframe,
-  which needs no key and sets no cookies — but it takes a bounding box and a
-  marker latitude/longitude rather than an address string, and those
-  coordinates could not be looked up from this machine. Get them from the pin
-  in Google Maps and the swap is a one-line change. Both map-app links on the
-  page work by address and need no coordinates.
+  The new site does not. CareCredit covers financing; online payment for the
+  three instalments is a decision for the practice.
+- **The map embed** uses Google's keyless `output=embed` iframe — free, but an
+  undocumented URL with no guarantee. OpenStreetMap's iframe is the free,
+  cookie-free alternative and now has coordinates to use (`geo` above).
 - **GitHub Pages preview caveat.** Pages cannot issue 301s, and it serves this
   site from a subdirectory, so the redirect configs are inert there and
   `404.html`'s root-relative links will not resolve. Both are correct for
   neuroaustin.com.
 
-## Checks that were run
+## Checks
 
-- Every internal link and image resolves. No dead links.
+`node tools/check-site.mjs` from the repository root runs these and exits
+non-zero on any error. Add `--external` to request every outbound URL.
+
+- Every internal link and fragment resolves (template `TODO` links excepted).
+- No link points at a `.html` file.
 - One `<h1>` per page, no skipped heading levels.
-- `tel:` link on every page, in the utility bar and in the closing block.
-- Per-page `<title>` and meta description, all within length.
+- Titles 60 characters or fewer; descriptions 50 to 155.
+- At least three in-context internal links in every indexable page's `<main>`.
+- `tel:` link on every page.
 - Banned words absent: journey, empower, holistic, cutting-edge, state of the
   art, passionate, dedicated team, comprehensive suite, trusted partner.
-- Retired facts absent: "Austin Neuropsychology", 711 W 38th, the temp domain,
-  David Tucker, "75+ years".
-- Adult-scope terms absent site-wide, now that the scope is pediatric.
-- No link points at a `.html` file. Every preloaded font resolves.
-- Home page first load is 200KB before gzip: 17KB HTML, 30KB CSS, 3.5KB SVG,
-  and 149KB of webfonts across six faces. Budget is 500KB. Repeat visits are
-  17KB — the fonts are cached for a year.
-- Contrast: charcoal on paper 10.6:1, slate on paper 5.1:1, slate on shell
-  4.8:1, mist on charcoal 5.7:1, gold-lift on charcoal 4.4:1. Gold text appears
-  only at 24px and up on paper (3.2:1, AA large).
+- Retired facts absent: "Austin Neuropsychology" (allowed inside `#our-story`
+  only, where it is the practice's history), 711 W 38th, David Tucker, "75+
+  years", the Texas Psychological Association.
+- Cogmed: allowed in the working memory post; reported as a warning on About
+  (the marked bio) and Resources (an outside referral partner the client
+  listed).
+- External links carry `rel="noopener"` and open in the same tab, except
+  documents (CVs, the BHEC form). `rel="nofollow"` on CareCredit only.
+- Every photograph under `assets/images/` has `width`, `height`, `loading`
+  and `alt`.
+- `CONFIRM` count per page.
 
-Not run: rendering in a browser. The handoff asks that the designs not be
-screenshotted, so layout was built from the stated dimensions rather than
-verified visually. Worth a pass at 375, 768, and 1440 before launch.
+The adult-scope check from v1 is gone with the pediatric scope.
+
+Last run: no errors, the two Cogmed warnings, 11 `CONFIRM` markers. Home first
+load is about 213KB before gzip (24KB HTML, 36KB CSS, 3.5KB SVG, 149KB of
+fonts) against a 500KB budget. Contrast with the moodboard palette: navy on white 14.0:1, on ivory 12.0:1,
+on blue gray 10.8:1; Navy Soft 7.1, 6.1 and 5.5:1 on the same three; Gold Deep
+5.9, 5.1 and 4.6:1; white on sage 4.7:1; navy on Warm Gold 4.6:1; Warm Gold on
+navy 4.6:1; blue gray on navy 10.8:1.
+
+**Rendered at 375, 768 and 1440** (Home, Services, FAQs, the drawer, open and
+closed rows). This replaces v1's "not rendered" note; the instruction it cited
+no longer applies. The preview pane is about 924px wide, so 375 and 1440 were
+emulated by rewriting the stylesheet's width queries and scaling the page.
+That is faithful to the CSS but not to a device: check on a real phone before
+launch.

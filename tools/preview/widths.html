@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Width preview</title>
+<style>html,body{margin:0;background:#c9c9c9}iframe{border:0;background:#fff;display:block;margin:0 auto}</style>
+</head>
+<body>
+<!-- Dev-only: renders a site page at a fixed viewport width. Not deployed.
+     widths.html?p=services/index.html&w=375 -->
+<iframe id="f" title="Page preview" width="375" height="2400"></iframe>
+<script>
+var q = new URLSearchParams(location.search);
+var f = document.getElementById('f');
+function show(page, w, h) { f.width = w; f.height = h || 2400; f.src = '../../site/' + page; }
+show(q.get('p') || 'index.html', +(q.get('w') || 375));
+</script>
+</body>
+</html>

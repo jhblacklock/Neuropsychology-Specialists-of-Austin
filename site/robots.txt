@@ -2,9 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /insights/post-template/
 
-# The redirect stubs under /about-us/, /for-patients/, /wpi-checkout/ and the
-# dated post paths are deliberately crawlable. Blocking them would stop a
-# crawler ever seeing the redirect, which is the opposite of what preserves
-# the ranking. They carry noindex, follow.
+# The redirect stubs (the old WordPress paths, and the v1 pages merged into
+# the six-page structure) are deliberately crawlable. Blocking them would stop
+# a crawler ever seeing the redirect, which is the opposite of what preserves
+# the ranking. See REDIRECTS.md.
 
 Sitemap: https://neuroaustin.com/sitemap.xml

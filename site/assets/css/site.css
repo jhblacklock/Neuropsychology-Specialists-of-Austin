@@ -1,7 +1,8 @@
 /* ==========================================================================
    Neuropsychology Specialists of Austin
    Stylesheet built from Brand Document v1. Values are read out of that
-   document, not reinterpreted. Section numbers below refer to it.
+   document, not reinterpreted. Section numbers below refer to it. Colour
+   comes from the client's moodboard (November 2026) instead; see README.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -9,18 +10,34 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  /* Hues */
-  --gold: #B8842F;        /* accent only: hairline rules, italic 24px+, the mark */
-  --gold-lift: #C79A4B;   /* "of Austin" on charcoal grounds only */
-  --charcoal: #383A44;    /* body copy, headlines, dark grounds */
-  --paper: #FDFCFA;       /* page background */
+  /* The client's moodboard palette (November 2026). It replaces the brand
+     document's charcoal neutrals; see README, "Departures". */
+  --navy: #1F2D3D;        /* Deep Navy: text, header, footer, the closing panel */
+  --sage: #5D7A6E;        /* Sage Green: feature bands. White text only, 4.7:1 */
+  --gold: #C28A33;        /* Warm Gold: buttons, rules, the mark. Text only on navy */
+  --ivory: #F3EDE2;       /* Warm Ivory: hero, page heads, quiet fields */
+  --bluegray: #DCE3E8;    /* Soft Blue Gray: bands; secondary text on navy */
+  --white: #FFFFFF;       /* page */
 
-  /* Neutrals, all derived from the charcoal */
-  --slate: #676A78;       /* secondary text, meta. 5.1:1 on paper */
-  --ash: #9B9EA9;         /* disabled, meta on dark. never body */
-  --mist: #B6B8C0;        /* table rules, input borders */
-  --haze: #E6E6E9;        /* dividers, hairlines */
-  --shell: #F2F1F0;       /* quiet backgrounds, table headers, cards */
+  /* Derived from the palette, where it cannot reach contrast on its own */
+  --gold-deep: #845C1E;   /* gold type on light grounds: 5.9 white, 5.1 ivory, 4.6 blue gray */
+  --gold-hover: #D6A04F;  /* button hover; the navy label is 6.0:1 on it */
+  --navy-soft: #4B5A69;   /* secondary text: 7.1 white, 6.1 ivory, 5.5 blue gray */
+  --rule: #CBD4DB;        /* hairlines on white and ivory */
+  --rule-strong: #AEBBC6; /* table rules, tag borders, hairlines on blue gray */
+  --navy-line: #3A4A5C;   /* hairlines on navy */
+  --rail: #5F7083;        /* the header lockup's "of Austin" rails */
+  --bluegray-pale: #E8EDF1; /* photo-slot stripes */
+
+  /* Roles. Components colour themselves from these, and each ground (sage
+     band, navy header, footer and closing panel) resets them, so nothing
+     inside needs a dark-ground variant of its own. */
+  --ink: var(--navy);              /* text */
+  --ink-2: var(--navy-soft);       /* secondary text */
+  --accent-text: var(--gold-deep); /* eyebrows, step labels, pull quotes */
+  --mark: var(--gold);             /* link underlines, rules, list dashes */
+  --line: var(--rule);             /* hairlines */
+  --on-ink: var(--white);          /* text on an --ink fill */
 
   /* Spacing — base 8, multiples only */
   --s1: 8px;
@@ -64,8 +81,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--charcoal);
+  background: var(--white);
+  color: var(--ink);
   font: 400 17px/1.65 var(--sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -109,21 +126,20 @@ h4 {
 
 p { margin: 0; text-wrap: pretty; }
 
-/* Links. Gold is 3.2:1 on paper, so link text stays charcoal and the gold
-   does the signalling as a hairline underline. 03 Color, 05 Contrast. */
+/* Links. Warm Gold is 3.0:1 on white, so link text keeps the ink colour and
+   the gold does the signalling as a hairline underline. */
 
 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid var(--mark);
 }
 
-a:hover { border-bottom-color: var(--charcoal); }
+a:hover { border-bottom-color: var(--ink); }
 
 a:focus-visible,
-button:focus-visible,
-summary:focus-visible {
-  outline: 2px solid var(--charcoal);
+button:focus-visible {
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
@@ -137,7 +153,7 @@ strong { font-weight: 600; }
 
 hr {
   border: 0;
-  border-top: 1px solid var(--haze);
+  border-top: 1px solid var(--line);
   margin: 0;
 }
 
@@ -178,25 +194,52 @@ address {
 
 .section--tight { padding-top: 0; }
 
-.section--shell { background: var(--shell); }
+.section--shell { background: var(--ivory); }
 
-/* The closing call to action. An inset panel on paper inside a gold hairline,
-   rather than a charcoal band: full-bleed charcoal sat directly against the
-   charcoal footer and the two read as one slab. The gold outline is the
-   heaviest use of the accent on the site, which suits the one place every page
-   is asking the reader to do something — and the charcoal button inside it is
-   then the darkest thing in view. */
+/* Grounds from the client moodboard. Each resets the colour roles, so type,
+   links, rules, lists and buttons inside need no variants of their own. */
+
+.section--sage {
+  background: var(--sage);
+  --ink: var(--white);
+  --ink-2: var(--white);
+  --accent-text: var(--white);
+  --mark: var(--ivory);
+  --line: #7F9A8F;
+  --on-ink: var(--sage);
+  color: var(--ink);
+}
+
+.section--blue {
+  background: var(--bluegray);
+  --line: var(--rule-strong);
+}
+
+.site-header,
+.site-footer,
+.cta {
+  --ink: var(--white);
+  --ink-2: var(--bluegray);
+  --accent-text: var(--gold);
+  --mark: var(--gold);
+  --line: var(--navy-line);
+  --on-ink: var(--navy);
+  color: var(--ink);
+}
+
+/* The closing call to action: a Deep Navy panel holding the gold button, as
+   in the moodboard. It stays an inset panel rather than a full-bleed band, so
+   the white margin under it keeps it apart from the navy footer; full-bleed,
+   the two would read as one slab. */
 
 .cta {
-  background: var(--paper);
-  color: var(--charcoal);
-  border: 1px solid var(--gold);
+  background: var(--navy);
   padding: var(--s5) var(--s3);
 }
 
 @media (min-width: 768px) { .cta { padding: var(--s6); } }
 
-.section--rule { border-top: 1px solid var(--haze); }
+.section--rule { border-top: 1px solid var(--line); }
 
 .stack { display: flex; flex-direction: column; }
 
@@ -211,8 +254,8 @@ address {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--charcoal);
-  color: var(--paper);
+  background: var(--ink);
+  color: var(--white);
   padding: var(--s2) var(--s3);
   border: 0;
   z-index: 20;
@@ -231,42 +274,42 @@ address {
   font: 600 11px/1.20 var(--caps);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--accent-text);
   margin: 0;
 }
 
 @media (min-width: 768px) { .eyebrow { font-size: 12px; } }
 
-.eyebrow--ink { color: var(--charcoal); }
-.eyebrow--dark { color: var(--mist); }
+.eyebrow--ink { color: var(--ink); }
+.eyebrow--dark { color: var(--accent-text); }
 
 .lead {
   font-size: 19px;
   line-height: 1.55;
-  color: var(--slate);
+  color: var(--ink-2);
 }
 
 @media (min-width: 768px) { .lead { font-size: 23px; } }
 
-.lead--ink { color: var(--charcoal); }
-.lead--dark { color: var(--mist); }
+.lead--ink { color: var(--ink); }
+.lead--dark { color: var(--ink-2); }
 
 .caption {
   font-size: 15px;
   line-height: 1.50;
-  color: var(--slate);
+  color: var(--ink-2);
 }
 
 .meta {
   font-size: 15px;
   line-height: 1.50;
-  color: var(--slate);
+  color: var(--ink-2);
 }
 
 .pullquote {
   font: 600 italic 24px/1.30 var(--serif);
-  color: var(--gold);
-  border-left: 2px solid var(--gold);
+  color: var(--accent-text);
+  border-left: 2px solid var(--mark);
   padding-left: var(--s3);
   margin: 0;
 }
@@ -277,7 +320,7 @@ address {
   display: block;
   width: 56px;
   height: 1px;
-  background: var(--gold);
+  background: var(--mark);
   border: 0;
   flex: none;
 }
@@ -305,7 +348,10 @@ address {
 
 
 /* --------------------------------------------------------------------------
-   Buttons — 06 Spacing, tap targets. Never a gold button.
+   Buttons. From the moodboard: Warm Gold, in spaced capitals. The label is
+   Deep Navy, not the moodboard's white: white on Warm Gold is 3.0:1, under AA
+   at this size, and navy is 4.6:1 (6.0:1 on the hover gold). Square corners,
+   as everywhere else.
    -------------------------------------------------------------------------- */
 
 .btn {
@@ -315,44 +361,44 @@ address {
   gap: var(--s1);
   min-height: 48px;
   padding: 12px var(--s4);
-  background: var(--charcoal);
-  color: var(--paper);
-  border: 1px solid var(--charcoal);
-  font: 500 17px/1.2 var(--sans);
+  background: var(--gold);
+  color: var(--navy);
+  border: 1px solid var(--gold);
+  font: 600 15px/1.2 var(--caps);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   text-align: center;
   cursor: pointer;
 }
 
-@media (min-width: 768px) { .btn { font-size: 19px; } }
-
 .btn:hover {
-  background: var(--paper);
-  color: var(--charcoal);
-  border-color: var(--charcoal);
+  background: var(--gold-hover);
+  border-color: var(--gold-hover);
+  color: var(--navy);
 }
 
 .btn--ghost {
   background: transparent;
-  color: var(--charcoal);
-  border-color: var(--mist);
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
 .btn--ghost:hover {
-  background: var(--charcoal);
-  color: var(--paper);
-  border-color: var(--charcoal);
+  background: var(--ink);
+  color: var(--on-ink);
+  border-color: var(--ink);
 }
 
 .btn--onink {
-  background: var(--paper);
-  color: var(--charcoal);
-  border-color: var(--paper);
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--white);
 }
 
 .btn--onink:hover {
   background: transparent;
-  color: var(--paper);
-  border-color: var(--paper);
+  color: var(--white);
+  border-color: var(--white);
 }
 
 .btn-row {
@@ -373,7 +419,7 @@ address {
    stops being readable, which is why the header carries the compact form
    instead. Mark 88px at mobile, 104px from 768 up.
 
-   Unlike the header, the hairlines here stay gold: the mark on charcoal is
+   Unlike the header, the hairlines here stay gold: the mark on navy is
    white, so "of Austin" is the only gold in the lockup and the rules can join
    it without the accent tripling up. */
 
@@ -396,7 +442,7 @@ address {
   font: 600 11px/1.2 var(--caps);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--ink-2);
 }
 
 .lockup__austin {
@@ -422,9 +468,9 @@ address {
   font-style: italic;
 }
 
-.lockup--dark .lockup__name { color: var(--paper); }
-.lockup--dark .lockup__austin em { color: var(--gold-lift); }
-.lockup--dark .lockup__eyebrow { color: var(--mist); }
+.lockup--dark .lockup__name { color: var(--white); }
+.lockup--dark .lockup__austin em { color: var(--gold); }
+.lockup--dark .lockup__eyebrow { color: var(--bluegray); }
 
 /* The lockup's own hairlines are gold and fixed-width, as drawn. The header's
    rail behaviour does not reach in here. */
@@ -487,7 +533,7 @@ address {
 
 /* "of Austin" sits centred under the name with the rules running out to each
    end, so the second line is exactly as wide as the first — the row stretches
-   and each rule takes the space left over. The rules are Mist rather than
+   and each rule takes the space left over. The rules are slate blue, not
    gold: the mark and the italic are already carrying the accent, and a third
    gold element in one lockup stops the accent being one.
 
@@ -508,7 +554,7 @@ address {
   width: auto;
   flex: 1 1 auto;
   height: 1px;
-  background: var(--mist);
+  background: var(--rail);
   position: relative;
   top: 0.157em;
 }
@@ -534,8 +580,9 @@ address {
    -------------------------------------------------------------------------- */
 
 .utility {
-  background: var(--charcoal);
-  color: var(--mist);
+  background: var(--navy);
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--line);
 }
 
 .utility__inner {
@@ -551,11 +598,11 @@ address {
 }
 
 .utility a {
-  color: var(--paper);
-  border-bottom-color: var(--gold-lift);
+  color: var(--white);
+  border-bottom-color: var(--gold);
 }
 
-.utility a:hover { border-bottom-color: var(--paper); }
+.utility a:hover { border-bottom-color: var(--white); }
 
 .utility__address { display: none; }
 
@@ -563,10 +610,7 @@ address {
   .utility__address { display: block; }
 }
 
-.site-header {
-  border-bottom: 1px solid var(--haze);
-  background: var(--paper);
-}
+.site-header { background: var(--navy); }
 
 .header__bar {
   display: flex;
@@ -600,13 +644,13 @@ address {
   height: 44px;
   padding: 0;
   background: transparent;
-  border: 1px solid var(--mist);
-  color: var(--charcoal);
+  border: 1px solid var(--ink-2);
+  color: var(--ink);
   cursor: pointer;
   flex: none;
 }
 
-.nav-toggle:hover { border-color: var(--charcoal); }
+.nav-toggle:hover { border-color: var(--ink); }
 
 .nav-toggle__bars,
 .nav-toggle__bars::before,
@@ -636,7 +680,7 @@ address {
 .nav-toggle[aria-expanded="true"] .nav-toggle__bars::before { top: 0; transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle__bars::after { top: 0; transform: rotate(-45deg); }
 
-@media (min-width: 1024px) { .nav-toggle { display: none; } }
+@media (min-width: 768px) { .nav-toggle { display: none; } }
 
 /* Without JS the nav list stays open. The toggle only takes over once the
    inline script has flagged the document. */
@@ -644,7 +688,7 @@ address {
 .js .site-nav { display: none; }
 .js .site-nav.is-open { display: block; }
 
-.site-nav { border-top: 1px solid var(--haze); }
+.site-nav { border-top: 1px solid var(--line); }
 
 .nav__list {
   list-style: none;
@@ -662,13 +706,13 @@ address {
   align-items: center;
   min-height: 56px;
   border: 0;
-  border-bottom: 1px solid var(--haze);
+  border-bottom: 1px solid var(--line);
   font-size: 17px;
 }
 
 .nav__list li:last-child a { border-bottom: 0; }
 
-.nav__list a:hover { color: var(--slate); }
+.nav__list a:hover { color: var(--gold); }
 
 .nav__list a[aria-current="page"] {
   font-weight: 600;
@@ -676,11 +720,11 @@ address {
   padding-left: var(--s2);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .js .site-nav { display: block; }
 
   .site-nav {
-    border-top: 1px solid var(--haze);
+    border-top: 1px solid var(--line);
   }
 
   .nav__list {
@@ -712,7 +756,7 @@ address {
 
 .hero {
   padding: var(--s6) 0;
-  border-bottom: 1px solid var(--haze);
+  background: var(--ivory);
 }
 
 @media (min-width: 768px) { .hero { padding: var(--s7) 0; } }
@@ -725,9 +769,62 @@ address {
   max-width: 900px;
 }
 
+/* Text and the testing-room photograph side by side from 1024px, as in the
+   moodboard's hero. Stacked below that, text first. */
+
+.hero__grid {
+  display: grid;
+  gap: var(--s5);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--s6);
+  }
+}
+
+/* Home hero: the photograph of both doctors fills the right half of the band,
+   edge to edge and full height, from 1200px. Below that it sits under the text
+   at full width. The crop is tall (1100x1165) and anchored near the top so the
+   faces stay in frame at any height. */
+
+.hero--bleed { position: relative; padding: 0; }
+.hero--bleed .hero__inner { padding: var(--s6) 0; }
+
+/* Stacked, below 1200px: a 3:2 band under the text, cropped from the top so
+   both faces are whole at any width. */
+.hero--bleed .hero__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: 50% 10%;
+}
+
+/* Side by side from 1200px only. Two things must hold, and both fail on a
+   narrower screen: the text column has to be wider than "neuropsychologists",
+   which cannot wrap (about 503px at 56px type), and the photo box has to be at
+   least 0.85 as wide as it is tall, or object-fit crops into the two faces. */
+@media (min-width: 1200px) {
+  .hero--bleed .hero__inner { max-width: calc(52% - var(--s5)); padding: var(--s7) 0; }
+  .hero--bleed h1 { font-size: clamp(50px, 4.4vw, 56px); }
+  .hero--bleed .hero__photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-position: 50% 12%;
+  }
+}
+
 .page-head {
   padding: var(--s6) 0 var(--s5);
-  border-bottom: 1px solid var(--haze);
+  background: var(--ivory);
 }
 
 @media (min-width: 768px) { .page-head { padding: var(--s7) 0 var(--s6); } }
@@ -797,16 +894,16 @@ address {
   flex-direction: column;
   gap: var(--s2);
   padding: var(--s4) 0;
-  border-top: 1px solid var(--haze);
+  border-top: 1px solid var(--line);
 }
 
-.steps li:last-child .step { border-bottom: 1px solid var(--haze); }
+.steps li:last-child .step { border-bottom: 1px solid var(--line); }
 
 .step__index {
   font: 600 11px/1.2 var(--caps);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--accent-text);
 }
 
 .step__duration {
@@ -814,12 +911,12 @@ address {
   align-items: center;
   gap: var(--s2);
   font: 600 italic 24px/1.30 var(--serif);
-  color: var(--gold);
+  color: var(--accent-text);
 }
 
 @media (min-width: 768px) {
   .steps { grid-template-columns: repeat(3, 1fr); gap: var(--s5); }
-  .step { border-top: 1px solid var(--charcoal); padding-top: var(--s3); }
+  .step { border-top: 1px solid var(--ink); padding-top: var(--s3); }
   .steps li:last-child .step { border-bottom: 0; }
   .step__index { font-size: 12px; }
 }
@@ -829,7 +926,7 @@ address {
    -------------------------------------------------------------------------- */
 
 .card {
-  background: var(--shell);
+  background: var(--ivory);
   padding: var(--s3);
   display: flex;
   flex-direction: column;
@@ -840,7 +937,7 @@ address {
 
 .card--outline {
   background: transparent;
-  border: 1px solid var(--haze);
+  border: 1px solid var(--line);
 }
 
 .card__title { margin: 0; }
@@ -854,10 +951,10 @@ address {
   gap: var(--s2);
   grid-template-columns: 1fr;
   padding: var(--s3) 0;
-  border-top: 1px solid var(--haze);
+  border-top: 1px solid var(--line);
 }
 
-.rows .row:last-child { border-bottom: 1px solid var(--haze); }
+.rows .row:last-child { border-bottom: 1px solid var(--line); }
 
 @media (min-width: 768px) {
   .row {
@@ -906,7 +1003,7 @@ address {
   top: 0.78em;
   width: 16px;
   height: 1px;
-  background: var(--gold);
+  background: var(--mark);
 }
 
 @media (min-width: 768px) {
@@ -940,11 +1037,11 @@ address {
   top: 0.75em;
   width: 16px;
   height: 1px;
-  background: var(--gold);
+  background: var(--mark);
 }
 
 /* --------------------------------------------------------------------------
-   Tables — 03 Color: shell headers, mist rules
+   Tables — ivory headers, blue-gray rules
    -------------------------------------------------------------------------- */
 
 .table-wrap {
@@ -965,17 +1062,17 @@ caption {
   text-align: left;
   font-size: 15px;
   line-height: 1.5;
-  color: var(--slate);
+  color: var(--ink-2);
   padding-bottom: var(--s2);
 }
 
 th {
   text-align: left;
-  background: var(--shell);
+  background: var(--ivory);
   font: 600 11px/1.2 var(--caps);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--charcoal);
+  color: var(--ink);
   padding: var(--s2) var(--s3);
   vertical-align: bottom;
 }
@@ -984,11 +1081,11 @@ th {
 
 td {
   padding: var(--s3);
-  border-bottom: 1px solid var(--mist);
+  border-bottom: 1px solid var(--rule-strong);
   vertical-align: top;
 }
 
-tbody tr:first-child td { border-top: 1px solid var(--mist); }
+tbody tr:first-child td { border-top: 1px solid var(--rule-strong); }
 
 .td-service { font-weight: 500; }
 
@@ -1001,8 +1098,8 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
    table sits in rather than the viewport. An article's measure is 720px at any
    screen size, so a three-column comparison table is just as cramped on a
    tablet as on a phone — it was scrolling sideways and clipping its third
-   column at 768. 1024 is also where the nav stops collapsing, so the site has
-   one tablet boundary rather than two.
+   column at 768. The nav now collapses below 768, so 1024 is a content-width
+   breakpoint only.
 
    This is the default for every table on the site: the generator labels each
    body cell from its own thead and marks the table stackable, so any table
@@ -1026,7 +1123,7 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   }
 
   .table--stack tr {
-    border-top: 1px solid var(--mist);
+    border-top: 1px solid var(--rule-strong);
     padding: var(--s3) 0;
   }
 
@@ -1050,7 +1147,7 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
     font: 600 11px/1.2 var(--caps);
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--slate);
+    color: var(--ink-2);
     padding-bottom: 4px;
   }
 
@@ -1082,7 +1179,7 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   grid-template-columns: 1fr;
   gap: var(--s4);
   padding: var(--s5) 0;
-  border-top: 1px solid var(--haze);
+  border-top: 1px solid var(--line);
 }
 
 @media (min-width: 1024px) {
@@ -1103,8 +1200,8 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 .placeholder {
   aspect-ratio: 4 / 3;
   background: repeating-linear-gradient(135deg,
-    var(--shell) 0 8px,
-    var(--haze) 8px 16px);
+    var(--bluegray) 0 8px,
+    var(--bluegray-pale) 8px 16px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1115,11 +1212,13 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 
 .placeholder--wide { aspect-ratio: 16 / 9; }
 
+.placeholder--portrait { aspect-ratio: 4 / 5; }
+
 .placeholder__label {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 15px;
   line-height: 1.5;
-  color: var(--slate);
+  color: var(--ink-2);
   text-align: center;
 }
 
@@ -1131,7 +1230,7 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 }
 
 /* Where a photograph has not been commissioned for the slot at all, section 07
-   names the fallback instead: name and credentials over a Shell field, no
+   names the fallback instead: name and credentials over an ivory field, no
    silhouette icon. */
 
 /* A headshot slot is a headshot slot at every width. Without a cap, the square
@@ -1142,7 +1241,7 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 .byline > .figure { max-width: 200px; }
 
 .portrait-fallback {
-  background: var(--shell);
+  background: var(--ivory);
   padding: var(--s4);
   display: flex;
   flex-direction: column;
@@ -1177,10 +1276,10 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   flex-direction: column;
   gap: var(--s2);
   padding: var(--s4) 0;
-  border-top: 1px solid var(--haze);
+  border-top: 1px solid var(--line);
 }
 
-.post-list li:last-child .post-card { border-bottom: 1px solid var(--haze); }
+.post-list li:last-child .post-card { border-bottom: 1px solid var(--line); }
 
 .post-card__meta {
   display: flex;
@@ -1188,20 +1287,20 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   align-items: center;
   gap: var(--s2);
   font-size: 15px;
-  color: var(--slate);
+  color: var(--ink-2);
 }
 
 .post-card__title { max-width: var(--measure); }
 
 .post-card__title a { border-bottom: 0; }
-.post-card__title a:hover { border-bottom: 1px solid var(--gold); }
+.post-card__title a:hover { border-bottom: 1px solid var(--mark); }
 
 .tag {
   font: 600 11px/1 var(--caps);
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--charcoal);
-  border: 1px solid var(--mist);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
   padding: 7px 10px;
   background: transparent;
   cursor: pointer;
@@ -1209,12 +1308,12 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 
 .tag[aria-pressed="true"],
 .tag--static {
-  border-color: var(--charcoal);
+  border-color: var(--ink);
 }
 
 .tag[aria-pressed="true"] {
-  background: var(--charcoal);
-  color: var(--paper);
+  background: var(--ink);
+  color: var(--white);
 }
 
 .filter-row {
@@ -1275,9 +1374,9 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 .prose blockquote {
   margin: var(--s2) 0;
   padding-left: var(--s3);
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--mark);
   font: 600 italic 24px/1.30 var(--serif);
-  color: var(--gold);
+  color: var(--accent-text);
 }
 
 @media (min-width: 768px) {
@@ -1290,7 +1389,7 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
 .prose .footnote {
   font-size: 15px;
   line-height: 1.5;
-  color: var(--slate);
+  color: var(--ink-2);
 }
 
 .measure--center.measure { max-width: var(--measure-article); }
@@ -1300,7 +1399,7 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   grid-template-columns: 1fr;
   gap: var(--s3);
   padding: var(--s4);
-  background: var(--shell);
+  background: var(--ivory);
 }
 
 @media (min-width: 768px) {
@@ -1312,17 +1411,17 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  background: var(--charcoal);
-  color: var(--mist);
+  background: var(--navy);
+  color: var(--ink-2);
   padding: var(--s6) 0;
 }
 
 @media (min-width: 768px) { .site-footer { padding: var(--s7) 0 var(--s6); } }
 
-.site-footer a { color: var(--paper); border-bottom-color: var(--gold-lift); }
-.site-footer a:hover { border-bottom-color: var(--paper); }
+.site-footer a { color: var(--white); border-bottom-color: var(--gold); }
+.site-footer a:hover { border-bottom-color: var(--white); }
 
-.site-footer h2, .site-footer h3 { color: var(--paper); }
+.site-footer h2, .site-footer h3 { color: var(--white); }
 
 .footer__grid {
   display: grid;
@@ -1351,18 +1450,18 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   border-bottom: 0;
 }
 
-.footer__list a:hover { border-bottom: 1px solid var(--gold-lift); }
+.footer__list a:hover { border-bottom: 1px solid var(--gold); }
 
 .footer__bottom {
   margin-top: var(--s6);
   padding-top: var(--s3);
-  border-top: 1px solid var(--slate);
+  border-top: 1px solid var(--line);
   display: flex;
   flex-wrap: wrap;
   gap: var(--s2) var(--s4);
   justify-content: space-between;
   font-size: 15px;
-  color: var(--mist);
+  color: var(--ink-2);
 }
 
 .footer__crest {
@@ -1370,16 +1469,198 @@ tbody tr:first-child td { border-top: 1px solid var(--mist); }
   justify-content: center;
   padding-bottom: var(--s6);
   margin-bottom: var(--s6);
-  border-bottom: 1px solid var(--slate);
+  border-bottom: 1px solid var(--line);
 }
 
 /* --------------------------------------------------------------------------
    Print
    -------------------------------------------------------------------------- */
 
+/* --------------------------------------------------------------------------
+   Patient Portal. A secondary action: a ghost button in the header bar from
+   768px, and the last item in the drawer below that, where the bar has no
+   room for it.
+   -------------------------------------------------------------------------- */
+
+.header__portal { display: none; }
+
+.nav__portal {
+  padding: var(--s3);
+  border-top: 1px solid var(--line);
+}
+
+.nav__portal .btn { width: 100%; }
+
+@media (min-width: 768px) {
+  .header__portal { display: inline-flex; }
+  .nav__portal { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Entries: the twelve FAQs and the five core services. Every answer is open,
+   with no expand/collapse: heading left and text right from 1024px, as the
+   section heads sit, with blue-gray hairlines between. Each entry keeps its
+   own id, so deep links land on it.
+   -------------------------------------------------------------------------- */
+
+.entries { border-bottom: 1px solid var(--line); }
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s3);
+  padding: var(--s5) 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: var(--s3);
+}
+
+@media (min-width: 1024px) {
+  .entry {
+    grid-template-columns: minmax(240px, 1fr) 2fr;
+    gap: var(--s6);
+  }
+}
+
+.entry__title {
+  font: 700 22px/1.25 var(--serif);
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .entry__title { font-size: 27px; }
+}
+
+.entry__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  max-width: var(--measure);
+}
+
+.entry__body h4 { padding-top: var(--s2); }
+
+/* Rows whose label column has to hold a long single word ("Neuropsychological"
+   at 27px is about 260px). The default 200px column lets it run into the text. */
+@media (min-width: 768px) {
+  .rows--wide .row { grid-template-columns: 280px 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   Office gallery (Services). A film strip: portrait photographs side by side
+   that scroll sideways and snap, three across on desktop, two on tablet, one
+   and a sliver of the next on a phone. It swipes and scrolls with no script;
+   the script only adds the arrows and the counter, so they are hidden without
+   it. No captions, at the client's request; no radius, no shadow.
+   -------------------------------------------------------------------------- */
+
+.gallery__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+.gallery__controls { display: none; align-items: center; gap: var(--s2); }
+.js .gallery__controls { display: flex; }
+
+.gallery__count { margin: 0 var(--s2) 0 0; font-variant-numeric: tabular-nums; }
+
+.gallery__btn {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font: 400 19px/1 var(--sans);
+  cursor: pointer;
+}
+
+.gallery__btn:hover { background: var(--ink); color: var(--white); }
+
+.gallery__btn:disabled {
+  border-color: var(--line);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: default;
+}
+
+.gallery {
+  display: flex;
+  gap: var(--s3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.js .gallery { scrollbar-width: none; }
+.js .gallery::-webkit-scrollbar { display: none; }
+
+/* margin: 0 cancels the site-wide "li + li" top margin, which pushed every
+   photograph but the first down a row. */
+.gallery > li { flex: 0 0 82%; margin: 0; scroll-snap-align: start; }
+.gallery img { display: block; width: 100%; height: auto; }
+
+@media (min-width: 768px) {
+  .gallery > li { flex-basis: calc((100% - var(--s3)) / 2); }
+}
+
+@media (min-width: 1024px) {
+  .gallery > li { flex-basis: calc((100% - 2 * var(--s3)) / 3); }
+}
+
+@media print {
+  .gallery { flex-wrap: wrap; overflow: visible; }
+  .gallery > li { flex-basis: 30%; }
+  .gallery__controls { display: none; }
+}
+
+/* Home, Our Providers: each headshot is a link to that doctor's bio. The
+   site-wide link underline is switched off on the picture. */
+.provider__photo { display: block; border: 0; }
+.provider__photo img { display: block; width: 100%; height: auto; }
+
+/* Closing panel: phone, email and hours under the buttons, above a hairline,
+   so the panel carries the three facts a visitor needs to act on it. */
+.cta__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3) var(--s5);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+
+/* Each item is as wide as its text and never shrinks, so the email address
+   (197px, and it cannot wrap) always has room. When the row runs out of
+   width the last item drops to a second line instead of colliding. */
+.cta__details > * { flex: 0 0 auto; }
+
+/* A quoted review: the gold hairline of the section head is the only ornament. */
+.quote { margin: 0; display: flex; flex-direction: column; gap: var(--s3); }
+.quote blockquote { margin: 0; display: flex; flex-direction: column; gap: var(--s3); }
+
+/* A list nested inside a ruled list: tighter, and set off from its parent line. */
+.list-rule .list-plain {
+  gap: var(--s1);
+  padding-top: var(--s1);
+}
+
 @media print {
   .utility, .site-nav, .nav-toggle, .skip-link, .header__cta { display: none; }
   body { background: #fff; font-size: 11pt; }
+  .site-header, .site-footer, .cta, .section--sage, .section--blue, .hero, .page-head {
+    background: none;
+    --ink: var(--navy);
+    --ink-2: var(--navy-soft);
+    --accent-text: var(--gold-deep);
+    --line: var(--rule);
+    color: var(--navy);
+  }
+  .header__portal { display: none; }
   .section, .hero, .page-head { padding: 12pt 0; }
   a { border-bottom: 0; }
 }
