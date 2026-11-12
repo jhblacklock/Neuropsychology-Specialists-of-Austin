@@ -385,6 +385,13 @@ review. Where this section and an older one disagree, this one is current.
 - **Contact:** new parking sentence; parking-lot and building photographs.
 - **Scores post:** table columns read "Mean" and "Average range"; the
   test-manual reference is removed.
+- **Photographs replaced, 11 Nov 2026.** The client sent finished pictures:
+  the Office Gallery on Services now holds seven (Suite 23 door, two of the
+  waiting room, a testing room, two of Dr. Paulos's office, one of Dr.
+  Bunner's), and Contact has the new building photograph. The phone pictures
+  of 10 Nov are removed, except the parking lot on Contact. Dr. Paulos's CV is
+  replaced with the newer file. Originals are in `archive/photos-2026-11-11/`,
+  outside `site/`.
 - **Photographs** are the client's phone pictures of 10 Nov, resized to 900px
   (1200px for the parking lot). The parking photo is cropped to leave out a
   readable licence plate. The front-desk photo was not used.
