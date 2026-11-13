@@ -127,8 +127,17 @@ and FAQs the page script opens that row. Two host details make it work:
 - **Netlify** serves a file that exists at the source path in preference to a
   redirect, so a stub would win and the visitor would get a meta refresh
   instead of a 301. The generator writes `301!` (forced) for every rule that
-  has a stub. Vercel applies redirects before the filesystem, so it needs
-  nothing.
+  has a stub. On Vercel the stubs never shadow a rule, but two other
+  details do matter. `cleanUrls` and `trailingSlash` run before the redirects,
+  so `/our-team` has already become `/our-team/`, and `/x.html` has become
+  `/x/`, by the time a rule is tried. The generator writes every Vercel source
+  in that final form; written without the slash, no rule matches and the stub
+  is served instead. And `permanent: true` is a 308 on Vercel, so the rules use
+  `statusCode: 301` to match the other two configs.
+
+  One consequence: on Vercel an old URL typed without its trailing slash takes
+  two hops (Vercel's 308 to add the slash, then the 301). WordPress published
+  every permalink with the slash, so the links that carry ranking take one.
 
 Each stub's canonical drops the fragment (a canonical names a page, not a
 section); its refresh and its JS fallback keep it.

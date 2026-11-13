@@ -49,10 +49,13 @@ export function build(config, templates) {
   for (const w of config.wildcards) nl.push(line(w.dated ? dated.netlify : `${noSlash(w.tree)}/*`, w.to, '301'));
   files['_redirects'] = nl.join('\n') + '\n';
 
-  // vercel.json. Vercel applies redirects before the filesystem, so stubs never shadow them.
+  // vercel.json. On Vercel, cleanUrls and trailingSlash run BEFORE redirects:
+  // /our-team becomes /our-team/ and /x.html becomes /x/ first. So every source
+  // is written in that final form, or it never matches and the stub is served.
+  const vSrc = from => from.endsWith('.html') ? from.replace(/\.html$/, '/') : from;
   const vr = [];
-  for (const r of [...rules, ...config.feeds]) vr.push({ source: noSlash(r.from), destination: r.to, permanent: true });
-  for (const w of config.wildcards) vr.push({ source: w.dated ? dated.vercel : `${noSlash(w.tree)}/:path*`, destination: w.to, permanent: true });
+  for (const r of [...rules, ...config.feeds]) vr.push({ source: vSrc(r.from), destination: r.to, statusCode: 301 });
+  for (const w of config.wildcards) vr.push({ source: w.dated ? '/:year(20\\d{2})/:month(\\d{2})/:path+/' : `${noSlash(w.tree)}/:path+/`, destination: w.to, statusCode: 301 });
   files['vercel.json'] = JSON.stringify({ $schema: 'https://openapi.vercel.sh/vercel.json', cleanUrls: true, trailingSlash: true, redirects: vr }, null, 2) + '\n';
 
   // HTML stubs: the fallback for a host that cannot issue a 301 (GitHub Pages).

@@ -4,259 +4,259 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/neuropsychological-evaluation",
+      "source": "/neuropsychological-evaluation/",
       "destination": "/services/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/the-process",
+      "source": "/the-process/",
       "destination": "/services/#evaluation-process",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/our-team",
+      "source": "/our-team/",
       "destination": "/about/#our-experts",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/fees-and-payment",
+      "source": "/fees-and-payment/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/intervention-services",
+      "source": "/intervention-services/",
       "destination": "/faqs/#intervention-services",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/for-referring-providers",
+      "source": "/for-referring-providers/",
       "destination": "/contact/#referrals",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/2018/04/02/what-is-neuropsychology",
+      "source": "/2018/04/02/what-is-neuropsychology/",
       "destination": "/services/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/2018/04/02/detecting-autism-in-the-very-young",
+      "source": "/2018/04/02/detecting-autism-in-the-very-young/",
       "destination": "/services/#neuropsychological-evaluations",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/2018/04/02/head-injuries-may-lead-to-early-alzheimers",
+      "source": "/2018/04/02/head-injuries-may-lead-to-early-alzheimers/",
       "destination": "/services/#neuropsychological-evaluations",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/2021/01/21/every-child-has-a-gift-it-just-has-to-be-discovered",
+      "source": "/2021/01/21/every-child-has-a-gift-it-just-has-to-be-discovered/",
       "destination": "/services/#giftedness",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/category/articles",
+      "source": "/category/articles/",
       "destination": "/insights/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/author/stephaniep",
+      "source": "/author/stephaniep/",
       "destination": "/about/#stephanie-paulos",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/about-us/melissa-bunner-phd",
+      "source": "/about-us/melissa-bunner-phd/",
       "destination": "/about/#melissa-bunner",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/about-us/stephanie-paulos-phd",
+      "source": "/about-us/stephanie-paulos-phd/",
       "destination": "/about/#stephanie-paulos",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/about-us/david-tucker-phd",
+      "source": "/about-us/david-tucker-phd/",
       "destination": "/about/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/about-us/greg-allen-phd",
+      "source": "/about-us/greg-allen-phd/",
       "destination": "/about/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/about-us/connie-walker",
+      "source": "/about-us/connie-walker/",
       "destination": "/about/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/about-us",
+      "source": "/about-us/",
       "destination": "/about/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/general-procedures",
+      "source": "/general-procedures/",
       "destination": "/services/#evaluation-process",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/for-patients/what-is-neuropsychology",
+      "source": "/for-patients/what-is-neuropsychology/",
       "destination": "/services/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/for-patients/intervention-services",
+      "source": "/for-patients/intervention-services/",
       "destination": "/faqs/#intervention-services",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/for-patients/billing-and-fees",
+      "source": "/for-patients/billing-and-fees/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/for-patients/forms",
+      "source": "/for-patients/forms/",
       "destination": "/contact/#make-an-appointment",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/for-patients/patients-medical-records-and-patients-rights",
+      "source": "/for-patients/patients-medical-records-and-patients-rights/",
       "destination": "/resources/#medical-records",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/for-patients/links",
+      "source": "/for-patients/links/",
       "destination": "/resources/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/for-patients",
+      "source": "/for-patients/",
       "destination": "/services/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/directions",
+      "source": "/directions/",
       "destination": "/contact/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/contact-us",
+      "source": "/contact-us/",
       "destination": "/contact/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/wpi-checkout/wpinv-transaction-failed",
+      "source": "/wpi-checkout/wpinv-transaction-failed/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/wpi-checkout/wpinv-subscriptions",
+      "source": "/wpi-checkout/wpinv-subscriptions/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/wpi-checkout/wpinv-receipt",
+      "source": "/wpi-checkout/wpinv-receipt/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/wpi-checkout/wpi-history",
+      "source": "/wpi-checkout/wpi-history/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/wpi-checkout",
+      "source": "/wpi-checkout/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/stripe-checkout-result",
+      "source": "/stripe-checkout-result/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/payment-confirmation",
+      "source": "/payment-confirmation/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/payment-failed",
+      "source": "/payment-failed/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/asp-products/payment",
+      "source": "/asp-products/payment/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/products",
+      "source": "/products/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/fees-and-insurance.html",
+      "source": "/fees-and-insurance/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/insights/normal-memory-change-and-what-is-not.html",
+      "source": "/insights/normal-memory-change-and-what-is-not/",
       "destination": "/insights/",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/feed",
+      "source": "/feed/",
       "destination": "/rss.xml",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/comments/feed",
+      "source": "/comments/feed/",
       "destination": "/rss.xml",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/sitemap_index.xml",
       "destination": "/sitemap.xml",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/post-sitemap.xml",
       "destination": "/sitemap.xml",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/page-sitemap.xml",
       "destination": "/sitemap.xml",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/category-sitemap.xml",
       "destination": "/sitemap.xml",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/author-sitemap.xml",
       "destination": "/sitemap.xml",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/asp-products-sitemap.xml",
       "destination": "/sitemap.xml",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/wpi-checkout/:path*",
+      "source": "/wpi-checkout/:path+/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/asp-products/:path*",
+      "source": "/asp-products/:path+/",
       "destination": "/faqs/#insurance",
-      "permanent": true
+      "statusCode": 301
     },
     {
-      "source": "/:year(20\\d{2})/:month(\\d{2})/:path*",
+      "source": "/:year(20\\d{2})/:month(\\d{2})/:path+/",
       "destination": "/insights/",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }
