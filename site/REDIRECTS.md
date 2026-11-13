@@ -22,6 +22,11 @@ being retired on purpose, pass `--replace-pages`.
 - **32 old WordPress URLs**, complete against the live Yoast sitemaps
   (`post-`, `page-`, `category-`, `asp-products-` and `author-sitemap`).
 - **2 prototype `.html` URLs** from before the rebuild.
+- **5 PDFs.** Search Console (13 Nov 2026) listed 28 indexed pages. 24 were
+  already mapped; the other four were PDFs: Dr. Paulos's CV and three forms
+  under `/documents/`. All four now redirect, and Dr. Bunner's CV is covered
+  too. The CVs go to the self-hosted copies, the registration and treatment
+  forms to Contact, and the medical release form to Resources.
 - **The feeds and the old sitemaps**, server-side only.
 - **Wildcards** for anything else under the two checkout-plugin trees and for
   any other dated blog permalink.

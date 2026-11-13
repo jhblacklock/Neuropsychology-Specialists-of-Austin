@@ -79,6 +79,18 @@ RewriteRule ^payment-failed/?$ /faqs/#insurance [R=301,NE,L]
 RewriteRule ^asp-products/payment/?$ /faqs/#insurance [R=301,NE,L]
 RewriteRule ^products/?$ /faqs/#insurance [R=301,NE,L]
 
+# Old documents (PDFs) that Google has indexed
+# the same document, now self-hosted and current
+RewriteRule ^wp-content/uploads/2018/04/CV_dr_paulos\.pdf$ /assets/cv/stephanie-paulos-cv.pdf [R=301,L]
+# the same document, now self-hosted and current
+RewriteRule ^wp-content/uploads/2018/04/bunner_vita2\.pdf$ /assets/cv/melissa-bunner-cv.pdf [R=301,L]
+# patient paperwork is no longer posted; the office sends it
+RewriteRule ^documents/NP_forms_SP_Treatment\.pdf$ /contact/#make-an-appointment [R=301,NE,L]
+# patient paperwork is no longer posted; the office sends it
+RewriteRule ^documents/patient_registration\.pdf$ /contact/#make-an-appointment [R=301,NE,L]
+# records requests are described in Resources
+RewriteRule ^documents/Medical_Release_Form\.pdf$ /resources/#medical-records [R=301,NE,L]
+
 # Prototype .html URLs
 RewriteRule ^fees-and-insurance\.html$ /faqs/#insurance [R=301,NE,L]
 # no aging content on the new site

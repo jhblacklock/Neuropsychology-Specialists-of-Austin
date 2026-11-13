@@ -66,6 +66,18 @@
 /asp-products/payment                                             /faqs/#insurance                  301!
 /products                                                         /faqs/#insurance                  301!
 
+# Old documents (PDFs) that Google has indexed
+# the same document, now self-hosted and current
+/wp-content/uploads/2018/04/CV_dr_paulos.pdf                      /assets/cv/stephanie-paulos-cv.pdf  301
+# the same document, now self-hosted and current
+/wp-content/uploads/2018/04/bunner_vita2.pdf                      /assets/cv/melissa-bunner-cv.pdf  301
+# patient paperwork is no longer posted; the office sends it
+/documents/NP_forms_SP_Treatment.pdf                              /contact/#make-an-appointment     301
+# patient paperwork is no longer posted; the office sends it
+/documents/patient_registration.pdf                               /contact/#make-an-appointment     301
+# records requests are described in Resources
+/documents/Medical_Release_Form.pdf                               /resources/#medical-records       301
+
 # Prototype .html URLs
 /fees-and-insurance.html                                          /faqs/#insurance                  301
 # no aging content on the new site

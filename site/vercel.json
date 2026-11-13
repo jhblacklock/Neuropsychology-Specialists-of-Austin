@@ -194,6 +194,31 @@
       "statusCode": 301
     },
     {
+      "source": "/wp-content/uploads/2018/04/CV_dr_paulos.pdf",
+      "destination": "/assets/cv/stephanie-paulos-cv.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/wp-content/uploads/2018/04/bunner_vita2.pdf",
+      "destination": "/assets/cv/melissa-bunner-cv.pdf",
+      "statusCode": 301
+    },
+    {
+      "source": "/documents/NP_forms_SP_Treatment.pdf",
+      "destination": "/contact/#make-an-appointment",
+      "statusCode": 301
+    },
+    {
+      "source": "/documents/patient_registration.pdf",
+      "destination": "/contact/#make-an-appointment",
+      "statusCode": 301
+    },
+    {
+      "source": "/documents/Medical_Release_Form.pdf",
+      "destination": "/resources/#medical-records",
+      "statusCode": 301
+    },
+    {
       "source": "/fees-and-insurance/",
       "destination": "/faqs/#insurance",
       "statusCode": 301
